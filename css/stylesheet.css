@@ -1,0 +1,101 @@
+
+
+
+
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('../fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Gilroy-Bold.woff') format('woff'), url('../fonts/Gilroy-Bold.ttf')  format('truetype'), url('../fonts/Gilroy-Bold.svg#Gilroy-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-BoldAlternate";
+  src: url("../fonts/DINBdA.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/DINBdA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/DINBdA.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/DINBdA.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/DINBdA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/DINBdA.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/DINBdA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-BlackAlternate";
+  src: url("../fonts/DINBkA.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/DINBkA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/DINBkA.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/DINBkA.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/DINBkA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/DINBkA.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/DINBkA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-LightAlternate";
+  src: url("../fonts/DINLiA.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/DINLiA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/DINLiA.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/DINLiA.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/DINLiA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/DINLiA.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/DINLiA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-MediumAlternate";
+  src: url("../fonts/DINMdA.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/DINMdA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/DINMdA.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/DINMdA.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/DINMdA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/DINMdA.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/DINMdA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-RegularAlternate";
+  src: url("../fonts/DINRgA.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/DINRgA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/DINRgA.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/DINRgA.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/DINRgA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/DINRgA.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/DINRgA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

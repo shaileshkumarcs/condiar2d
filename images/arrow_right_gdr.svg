@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73" height="52" viewBox="0 0 73 52">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 171 44">
+      <image width="171" height="44" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAAAsCAYAAAAaXUh5AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAq6ADAAQAAAABAAAALAAAAABmcFAAAAADaUlEQVR4Ae2dz2sUMRTHX+zuVrBbpAVRUKtShCLS/6B69i8Qz/4NvXgoevCu/4f4B4geevQo6MGfpVIPhS24Wp3dmW18b3azswl2WAqbyTTfQGbTyczm5ZMvLy+zZaKoSIqLJp8ZnZa/kUDAJwE9auyIP6Vsci5OqRNRikAbnJuc5zgb4XIRCQS8ETDizLhFk3PhGkGKUFt0f/MWXV17TM3WBim14M08NAQCkwS07lKavKEv77boxbNPXNXnfGQ8apMebK7T9fVXqzevLV68dIEaDXGuSCDgn0CWZfRjb5++ft7p0Ie3d+nlcxFsKtO+CLZJl9e2VlZXFn+2l2jnoEeZNqGDf2PRYtwEGkrR0vllunJDL39Pk0dM4yHnTMQqIcCcTP17823KehImIIFAdQTEUe4nGTXnORJtnN1gS/I1lIhVkpIYNRPdwqEOieBYOYFUJn2l2myIOFRlwgAJBThBqUMOOIZBwNaj8axD2+y6MOyFFfEScPQIscYrhfB7XipWhAHhD2BUFtpqhWeNavBr1llbq/nPq0UP8Gy1YIFS9QTKxVq9fbAABMYEINYxChRCJ1AqViywQh++yOyz1YoFVmTDX6vu2lrFAqtWgxebsc6CH541NgHUqb/wrHUarchthWeNXAB16j48a51GK3Jb4VkjF0Cdul/uWevUE9h66gmUi9WpPfU00MGgCSAMCHp4YNwkAcd3Os9ZndrJG1EGAe8EbD06YvVuDRoEgeMJ2FrFz63Hk0JN5QQQs1Y+BDBgWgKlnhX/IjgtRlznhYCtVsSsXqCjkRMRsLXqxqwn+krcBAKzIVAuVqd2NibgW0FgOgJYYE3HCVcFQMDxnXbMigVWACMEEwoCtlptsdp1xT0ogUAVBBw9iljl1PC0U1mFfWgTBMYEHD0az6pJ69+kBwuk5FWYSCAQAAE9YDeqf7El+QYYIlYpDCjtb1P/8B615N2tSCAQAIH+Ib+cPdlmS1i1pMWNirNNaffjE/rT6VKPhaxFv0ggUBEB0V+vS/T3oEPf3j9lK2TvAC1vvJYsom3xji23ZSMM3l/gDr8e+xyfQwIB/wRk6k+T1//bWkiMMYKVsACbtvkfHrRYEJCZXrLZsE0+85h1tJdAfqXxska4cnKyPr8IBxCYMQHzDCAXKLdlxEv/AH7L35Qq564hAAAAAElFTkSuQmCC"/>
+    </pattern>
+  </defs>
+  <g id="Group_4863" data-name="Group 4863" transform="translate(-1169 -561)">
+    <rect id="Image_43" data-name="Image 43" width="73" height="52" transform="translate(1169 561)" fill="url(#pattern)"/>
+    <g id="Icon_feather-arrow-right" data-name="Icon feather-arrow-right" transform="translate(1186.3 567)">
+      <path id="Path_1636" data-name="Path 1636" d="M7.5,18H32.9" transform="translate(0 2.199)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="Path_1637" data-name="Path 1637" d="M18,7.5,30.7,20.2,18,32.9" transform="translate(2.199 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

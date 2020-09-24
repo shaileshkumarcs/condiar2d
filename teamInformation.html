@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>Condair</title>
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+</head>
+
+<body style="background: #FFF;">
+<!-- headersection start-->
+	<div class="header">
+		<div class="container">
+			<div class="fl">
+			<a href="#"><img src="images/logo.svg" alt="Condair" title="Condair" width="200px" /></a>
+			</div>
+			<div class="fr">
+				<select>
+					<option>EN</option>
+					<option>US</option>
+					<option>UK</option>
+				</select>
+			</div>
+		</div>
+	</div>
+<!--headersection end-->
+	<div class="team_information_wrapp">
+		
+		
+		<h1>TEAM INFORMATION</h1>
+
+		
+			
+		<div class="team_person_verti">
+			
+			
+		
+
+				<div class="ceo_big_left">
+
+					<div class="coe_news">
+						<form  id="form_1" action="" method="post" style="text-align: center;" enctype="multipart/form-data"> 
+                        <input type="hidden" name="fileType" value="profilePic" />
+						<label for="file_1" class="button">
+						<img id="participant_image" src="images/persone_prof.svg " alt=""/>
+						  </label>
+						  <input type="file" name="ionicfile" accept="image/*" style="visibility:hidden;" id="file_1" required="yes" />
+						  </form>
+					</div>
+					<h2 id="position">
+					
+				</h2>
+			
+			   </div>
+
+
+
+
+
+			
+			
+				<div class="C_allRight" id="other_participant">
+					
+				 
+					
+					
+				 
+			
+				</div>
+
+
+		
+		
+		</div>
+		
+		
+		
+		<a href="setUpCompanyInformation.html" class="dfr"><img src="images/arrow_right_gdr.svg" alt=""/></a>
+		
+		
+	
+	</div>
+	
+	
+	
+	
+<!--footersection end-->
+
+</body>
+
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/js.js"></script>
+<script>
+
+var participant_jwt = "Bearer "+localStorage.getItem("participant_jwt");
+
+	var participant_id = localStorage.getItem("participant_id");
+	var team_id = localStorage.getItem("team_id");
+	$(document).ready(function(){
+
+	
+
+    var data = {team_id:team_id};
+
+    $.ajax({
+        type: 'POST',
+        url: BASE_URL+'code/getParticipantListByTeam',
+        dataType: "json",
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        headers: {
+              Authorization: participant_jwt
+              
+        },
+        success: function(response) {
+            if(response.success == 1){
+            	console.log(response.responceData);
+                console.log(participant_id);
+				var other_participant = '';
+                response.responceData.forEach(function (item) { 
+               		
+               		
+               		if(item.id == participant_id){
+               			var image = IMAGE_URL+item.img_url;
+               			document.getElementById('position').innerHTML = item.position+' (YOU)';
+               			document.getElementById('participant_image').src = image;
+               		}else{
+                         
+                         var image = IMAGE_URL+item.img_url;
+
+               			other_participant = other_participant+' <div class="sma_call_box"><div class="coe_sma_im"><img src="'+image+'" alt=""/></div><h2>'+item.position+'</h2></div>'
+               		}
+                });
+          			 document.getElementById('other_participant').innerHTML = other_participant;
+              
+
+            }else{
+            	alert(response.message);
+            	window.location.replace("index.html");
+            }
+        },
+		error: function (textStatus, errorThrown) {
+			alert('Unable tp proccess');  
+        }		
+    });
+   
+    });
+
+
+    document.getElementById("file_1").onchange = function() {
+      
+         var fd = new FormData();
+
+         console.log(fd);
+        var files = $('#file_1')[0].files[0];
+        fd.append('fileName',files);
+        fd.append('participant_id', participant_id);
+
+       
+
+
+        $.ajax({
+           type: 'POST',
+           url: BASE_URL+'code/setParticipantImage',
+            data: fd,
+            contentType: false,
+            processData: false,
+             headers: {
+              Authorization: participant_jwt
+              
+        },
+            success: function(response){
+
+            if(response.success == 1){
+            	
+            	window.location.href = "teamInformation.html";
+            	
+            }else{
+            	alert(response.message);
+            	window.location.replace("index.html");
+            }
+
+            },
+        });
+
+        
+   
+    };
+
+
+
+
+
+
+
+	
+</script>
+
+</html>

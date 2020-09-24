@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>Condair</title>
+<link rel="stylesheet" type="text/css" href="css/master.css" />
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/apicall.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+<style type="text/css">
+.popup_chooselone{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+.inpond_popUpWrapp{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+.total_inverst_pop_wrapp,.hire_fire_pop_main, .research_dev_popup{
+	display: none;
+}
+.adjust_resource{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+.marketing_wrapper_incuTotalMarket{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+.marketing_main_bord{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: none;
+}
+.adjust_resource{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+}
+.income_sheet_wrapper{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000000;
+    display: none;
+}
+</style>
+</head>
+
+<body class="pattern_bg">
+<!-- headersection start-->
+	<div class="header second_page img_header_new">
+		<div class="container">
+			<div class="profile_name_icoWrap">
+			
+				<div class="profile_nws"><img src="images/contar_main.png" width="80" height="" alt=""/></div>
+				
+				<div class="name_dtails_top">
+				
+					<div>
+					
+					<h3>Condair</h3>
+					<h6>We Are Your Humidifier <br>Experts!</h6>
+					
+					</div>
+						
+				
+				
+				</div>	
+				
+				
+				
+		  </div>
+			
+			
+			
+			
+			<div class="ceo_cfo_wrapper">
+				
+				
+				
+				<div class="cfo_box online_profile">
+					
+						<div class="cfo_icon_img"></div>
+						<h4>CEO (You)</h4>
+						
+						
+					
+					</div>
+				
+					<div class="cfo_box">
+					
+						<div class="cfo_icon_img"></div>
+						<h4>CFO</h4>
+						
+						
+					
+					</div>
+				
+				
+				
+					<div class="cfo_box">
+					
+						<div class="cfo_icon_img"></div>
+						<h4>CMO</h4>
+						
+						
+					
+					</div>
+				
+				
+				
+				
+				
+				
+				<div class="cfo_box">
+					
+						<div class="cfo_icon_img"></div>
+						<h4>COD</h4>
+						
+						
+					
+					</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</div>
+			
+			
+			
+			
+			
+		
+			
+			
+		  <div class="fr">
+				
+				
+				<div class="time_box">
+					
+					<h3 id="time">30:00</h3>
+				
+			  </div>
+				
+				
+			<div class="year_action_wrapp">
+				
+					<a href="" class="action_bts">
+					
+						<h1>1</h1>
+						
+					
+					</a>
+					<a href="" class="action_bts settc">
+					
+						<h1>1</h1>
+						
+					
+					</a>
+					
+					
+				</div>
+				
+				
+			<select>
+					<option>EN</option>
+					<option>中文</option>
+				</select>	
+			<a href="" class="setting_top"><img src="images/green_settings.png"  width="25" alt=""/></a>
+				
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+<!--headersection end-->
+	
+	
+
+<!--left-fix-->
+	
+	<div class="left_fix">
+	
+		
+		<a href="" class="game_pr_bt">
+
+			<img src="images/left1.png"  alt=""/>
+
+		
+		</a>
+			       
+		
+		<a href="" class="game_pr_bt">
+
+		<img src="images/left2.png"  alt=""/>
+
+
+		
+		
+		</a>
+			       
+		
+	  <a href="" class="game_pr_bt">
+
+	  <img src="images/left3.png"  alt=""/>
+
+
+	
+		
+	  </a>						
+		
+		
+		<a href="javascript:void(0)" class="game_pr_bt" onclick="openAccounting()">
+
+			<img src="images/left4.png"  alt=""/>
+		
+		</a>	
+		
+		
+			
+		<a href="" class="game_pr_bt">
+
+			<img src="images/left5.png"  alt=""/>
+		
+		</a>	
+		
+		
+					
+		
+			
+		<a href="" class="game_pr_bt">
+				<img src="images/left6.png"  alt=""/>
+		</a>	
+		
+		
+					
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	</div>
+	
+	
+	
+<!--right-fix-->
+		
+	
+
+<!---footer--->		
+	
+	
+	
+	<div class="footer_outside">
+		
+		
+		<a href="" class="blue_message"><img src="images/new_gr_mess.png" width="60" height="" alt=""/></a>
+	
+			<div class="blue_footer">
+	
+		<div class="blue_foot_inside">
+		
+			<div class="inside_boxs">
+				
+				<h1 id="cashStatistics"></h1>
+				<h5>Cash</h5>
+			</div>
+			
+			<div class="inside_boxs">
+				
+				<h1 id="tradeStatistics"></h1>
+				<h5>Tr</h5>
+			</div>
+			
+			<div class="inside_boxs miltipls">
+				
+				<div class="inside_txr">
+					<h1 id="shortTermLiabilityStatistics"></h1>
+					<h5>ST</h5>
+				</div>
+				
+				
+				<div class="inside_txr">
+					<h1 id="longTermLoanLiabilityStatistics"></h1>
+					<h5>LT</h5>
+				</div>
+				
+			</div>
+			
+			
+			
+			<div class="inside_boxs miltipls">
+				
+				<div class="inside_txr">
+					<h1>5</h1>
+					<h5>ORD</h5>
+				</div>
+				
+				
+				<div class="inside_txr">
+					<h1>01</h1>
+					<h5>MAT</h5>
+				</div>
+				
+				
+				<div class="inside_txr">
+					<h1>04</h1>
+					<h5>GIA</h5>
+				</div>
+				
+				
+				<div class="inside_txr">
+					<h1>01</h1>
+					<h5>FGS</h5>
+				</div>
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="inside_boxs">
+				
+				<h1>0%</h1>
+				<h5>EBIT<br>
+MARGIN</h5>
+			</div>
+			
+			
+			
+			<div class="inside_boxs">
+				
+				<h1>N/A</h1>
+				<h5>COMPETITION <br>
+RANKING</h5>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+		
+		</div>
+	
+	</div>
+		
+		
+<!--Popup code -->
+<div class="action_box" id="gameAction">
+<!---<h2 class="act_head">Action 1: FINANCIALS</h2>--->
+<!-- <p>Congratulations! 
+You have taken over the 
+company. Let’s have a 
+look at the initial 
+situation of your 
+company.</p>
+<a href="javascript:void(0);" class="light_inside_sh_bts" onclick="startGameSequence()">OK</a> -->
+<!--arrow-->
+<!---<a href="" class="arrow_down"><img src="images/Polygon_thrikon.svg" alt=""/></a>--->
+</div>
+<!-- -->
+		
+		
+		<a href="" class="blue_message gm_bts"><img width="60" src="images/profile_footer.png" alt=""/></a>
+	
+	
+	</div>
+	
+	
+	
+	
+	<!-- <div class="Game_bord_wrapp_blue">
+	
+	
+    <img src="board.png"  alt=""/> </div> -->
+	<div class="Game_bord_wrapp_blue"  style="background: none;width: 1300px;">
+	
+	
+    <!-- <img src="board.png"  alt=""/> -->
+    <canvas id="randerCanvas" width="1300px" height="680px" style="margin: 0;
+   padding: 0;"></canvas>
+     </div>
+	
+	
+<!-- Loan Popup Start-->
+<div class="popup_chooselone" id="chooseLoanCard">
+    <div class="pop_header">
+        <div class="total_box">
+            <div class="total_number">
+                <h2>100</h2>
+            </div>
+            <h3>Total Liabilities</h3>
+        </div>
+        <div class="total_box">
+            <div class="total_number">
+                <h2>24</h2>
+            </div>
+            <h3>Total Equity</h3>
+        </div>
+        <div class="total_box">
+            <div class="total_number">
+                <h2>80.65%</h2>
+            </div>
+            <h3>Borrowed Capital Ratio</h3>
+        </div>
+    </div>
+    <h1 class="pop_main">Choose the loan card(s) to show the maximum amount of loans you want to borrow. </h1>
+    <style type="text/css">
+    .error-msg{
+    	/*display: none;*/
+    	color: red;
+    	text-align: center;
+    }
+    </style>
+    <p id="errormsg" class="error-msg"></p>
+    <div class="shottearm_wrapp">
+        <div class="shrt_tearm_left">
+            <h2>Short-term Loans</h2>
+            <div class="short_row">
+                <div class="card_box" onclick="selectShortTermLoan(10, 10)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">10</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>10%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_box" onclick="selectShortTermLoan(20, 10)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">20</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>10%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_box" onclick="selectShortTermLoan(30, 10)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">30</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>10%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_box" onclick="selectShortTermLoan(40, 10)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">40</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>10%</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2>Long-term Loans</h2>
+            <div class="short_row longtearm">
+                <div class="card_box" onclick="selectLongTermLoan(20, 5)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">20</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>5%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_box" onclick="selectLongTermLoan(40, 5)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">40</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>5%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_box" onclick="selectLongTermLoan(60, 5)">
+                    <div class="inside_gray">
+                        <div class="top_half">
+                            <h1 class="card_Num">60</h1>
+                        </div>
+                        <div class="bellow_inters">
+                            <h6>Interest</h6>
+                            <h3>5%</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="short_trm_Right">
+            <div class="shorter_lone_box first-top">
+                <div class="shorterm_row">
+                    <h3>Short-term Loan Applied</h3>
+                    <div class="mu_numb_wra">
+                        <div class="numbr_box" id="shortTermSelectedAmout"></div>
+                        <h4>MU</h4>
+                    </div>
+                </div>
+                <div class="shorterm_row">
+                    <h3>Interest per Year</h3>
+                    <div class="mu_numb_wra">
+                        <div class="numbr_box" id="shortTermSelectedInterestRate"></div>
+                        <h4>MU</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="shorter_lone_box">
+                <div class="shorterm_row">
+                    <h3>Long-term Loan Applied</h3>
+                    <div class="mu_numb_wra">
+                        <div class="numbr_box" id="longTermSelectedAmout"></div>
+                        <h4>MU</h4>
+                    </div>
+                </div>
+                <div class="shorterm_row">
+                    <h3>Interest per Year</h3>
+                    <div class="mu_numb_wra">
+                        <div class="numbr_box" id="longTermSelectedInterestRate"></div>
+                        <h4>MU</h4>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="shortTermValue" id="shortTermSelectedValue">
+            <input type="hidden" name="shortTermPercentage" id="shortTermSelectedPercentage">
+            <input type="hidden" name="longTermValue" id="longTermSelectedValue">
+            <input type="hidden" name="longTermPercentage" id="longTermSelectedPercentage">
+            <a href="javascript:void(0);" class="applay_bt" onclick="applyShortLongTermLoan()">APPLY</a>
+            <a href="javascript:void(0);" class="Skip_btn" onclick="closeLoanPopup()">SKIP</a>
+        </div>
+    </div>
+</div>
+<!-- Loan Popup End -->
+
+
+<!---Order Material popup start-->
+<div class="inpond_popUpWrapp" id="orderMaterialPopup">
+    <h2 class="head_input">Your current capacity is 4, you may increase your production capacity by adding new <br>assembly belts or by upgrading the existing ones.</h2>
+    <div class="top_belt_wrapper">
+        <div class="yellow_belt_boxmain">
+            <div class="belt_inside">
+                <h2>YELLOW BELT <br>PRODUCTION</h2>
+                <div class="bellow_blue_area">
+                    <div class="left_coin">
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_red_stor">
+                                    <h2>5</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blue_area_right">
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                        <div class="chart_sec_mai">
+                            <div class="man_circle_main left_xry"><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main right_xry"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blue_area_right">
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                        <div class="chart_sec_mai">
+                            <div class="man_circle_main left_xry"><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main right_xry"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yellow_belt_boxmain">
+            <div class="belt_inside">
+                <h2>Green BELT <br>PRODUCTION</h2>
+                <div class="bellow_blue_area">
+                    <div class="left_coin">
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_red_stor">
+                                    <h2>5</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blue_area_right fullcontainre">
+                        <div class="area_top line_oe">
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                        </div>
+                        <div class="area_bottom">
+                            <div class="man_circle_main left_xry one_bb"><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry one_bc"><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry one_bd"><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry right_xry"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yellow_belt_boxmain">
+            <div class="belt_inside">
+                <h2>BLACK BELT <br>PRODUCTION</h2>
+                <div class="bellow_blue_area">
+                    <div class="left_coin">
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_red_stor">
+                                    <h2>5</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin_and_circle">
+                            <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""></div>
+                            <div class="coin_box">
+                                <div class="circle_yello_stor">
+                                    <h2>1</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blue_area_right fullcontainre">
+                        <div class="area_top third_build">
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                            <div class="chart_circle_big">
+                                <div class="chart_circle_inside"></div>
+                            </div>
+                        </div>
+                        <div class="area_bottom last_tt">
+                            <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                            </div>
+                            <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="howmanyUnitWrapp">
+        <p class="head_ho">How many units do you want to buy?</p>
+        <div class="unit_expense_wrapp">
+            <div class="unit_left">
+                <h2>Unit </h2>
+                <div class="unit_box">
+                    <a href="javascript:void(0);" class="min_cc" onclick="rawMaterialMinus()"><img src="images/min_red.svg" alt=""></a>
+                    <h3 class="mid_vallue" id="rawMaterialCountView">10</h3>
+                    <input type="hidden" name="materialCount" id="rawMaterialCount" value="10">
+                    <a href="javascript:void(0);" onclick="rawMaterialPlus()"><img src="images/plus_incre.svg" alt=""></a>
+                </div>
+            </div>
+            <div class="mu_right">
+                <h5 class="expe">Value of the materials ordered</h5>
+                <div class="number_box mu_ten_big" id="showMaterialOrderValue">10</div>
+                <h3>MU</h3>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="confir_big_button" onclick="orderMaterial()">CONFIRM</a>
+</div>
+<!-- End order material popup -->
+
+<!-- Start invest/upgrade in assembly belt -->
+<style type="text/css">
+.add_button{
+	background: #0099cc;
+    padding: 8px 0px;
+    color: #FFF;
+    text-decoration: none;
+    border: 1px solid #007299;
+    width: 70px;
+    text-align: center;
+    border-radius: 6px;
+    display: table;
+    font-size: 13px;
+    margin: 5px auto 0px;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+    -webkit-box-shadow: inset 0 0 10px 3px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 10px 3px rgba(0,0,0,.1);
+}
+.selectOption{
+	background: #0099cc;
+    padding: 8px 0px;
+    color: #FFF;
+    text-decoration: none;
+    border: 1px solid #007299;
+    width: 70px;
+    text-align: center;
+    border-radius: 6px;
+    display: table;
+    font-size: 13px;
+    margin: 5px auto 0px;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+    -webkit-box-shadow: inset 0 0 10px 3px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 10px 3px rgba(0,0,0,.1);
+}
+</style>
+<div class="total_inverst_pop_wrapp" id="investUpgradeAssembly">
+    <p>Choose the assembly belt you want and put into an empty assembly slot (invest) or replace the existing assembly belt (upgrade).</p>
+    <div class="" style="display: flex;">
+	    <div class="yellow_belt_boxmain">
+	        <div class="belt_inside">
+	            <h2>YELLOW BELT <br>PRODUCTION</h2>
+	            <div class="bellow_blue_area">
+	                <div class="left_coin">
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_red_stor">
+	                                <h2>5</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_yello_stor">
+	                                <h2>1</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_yello_stor">
+	                                <h2>1</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="blue_area_right">
+	                    <div class="chart_circle_big">
+	                        <div class="chart_circle_inside"></div>
+	                    </div>
+	                    <div class="chart_sec_mai">
+	                        <div class="man_circle_main left_xry"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                        <div class="man_circle_main right_xry"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="blue_area_right">
+	                    <div class="chart_circle_big">
+	                        <div class="chart_circle_inside"></div>
+	                    </div>
+	                    <div class="chart_sec_mai">
+	                        <div class="man_circle_main left_xry"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                        <div class="man_circle_main right_xry"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+
+	    </div>
+	    <div class="" style="display: grid;">
+		    <a href="javascript:void(0);" class="add_button" onclick="selectAssemblyBelt(5, 'Yellow')">Invest</a>
+		   	<input type="hidden" id="investValue1" name="investValue1">
+		   	<input type="hidden" id="investColor1" name="investColor1">
+		    <a href="javascript:void(0);" class="add_button">Upgrade</a>
+		    <div class="assemblyBeltOption">
+		    	<input type="hidden" id="upgradeValue1" name="upgradeValue1">
+		   		<input type="hidden" id="upgradeColor1" name="upgradeColor1">
+		    	<select class="selectOption1 selectOption" onchange="changeValue(this)" style="height: 34px;">
+		    		<option value="" data-value="">Select</option>
+			    	<option value="Green" data-value="15" upgrade-name="Yellow">Green</option>
+			    	
+			    	<option value="Black" data-value="10" upgrade-name="Yellow">Black</option>
+			    </select>
+		    </div>
+		</div>
+	</div>
+	<div class="" style="display: flex;">
+	    <div class="yellow_belt_boxmain">
+	        <div class="belt_inside">
+	            <h2>Green BELT <br>PRODUCTION</h2>
+	            <div class="bellow_blue_area">
+	                <div class="left_coin">
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_red_stor">
+	                                <h2>5</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_yello_stor">
+	                                <h2>1</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="coin_and_circle">
+	                        <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""/></div>
+	                        <div class="coin_box">
+	                            <div class="circle_yello_stor">
+	                                <h2>1</h2>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="blue_area_right fullcontainre">
+	                    <div class="area_top line_oe">
+	                        <div class="chart_circle_big">
+	                            <div class="chart_circle_inside"></div>
+	                        </div>
+	                        <div class="chart_circle_big">
+	                            <div class="chart_circle_inside"></div>
+	                        </div>
+	                        <div class="chart_circle_big">
+	                            <div class="chart_circle_inside"></div>
+	                        </div>
+	                    </div>
+	                    <div class="area_bottom">
+	                        <div class="man_circle_main left_xry one_bb"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                        <div class="man_circle_main left_xry one_bc"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                        <div class="man_circle_main left_xry one_bd"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                        <div class="man_circle_main left_xry right_xry"><img src="images/man_line.svg" alt="">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="" style="display: grid;">
+		    <a href="javascript:void(0);" class="add_button"  onclick="selectAssemblyBelt(10, 'Green')">Invest</a>
+		    <input type="hidden" id="investValue2" name="investValue2">
+		   	<input type="hidden" id="investColor2" name="investColor2">
+		    <a href="javascript:void(0);" class="add_button">Upgrade</a>
+		    <div class="assemblyBeltOption">
+		    	<input type="hidden" id="upgradeValue2" name="upgradeValue2">
+		   		<input type="hidden" id="upgradeColor2" name="upgradeColor2">
+		    	<select class="selectOption2 selectOption" onchange="changeValue(this)" style="height: 34px;" >
+		    		<option value="" data-value="">Select</option>
+			    	
+			    	<option value="Black" data-value="5" upgrade-name="Green">Black</option>
+			    </select>
+		    </div>
+		</div>
+	</div>
+	<div class="" style="display: flex;">
+    <div class="yellow_belt_boxmain">
+        <div class="belt_inside">
+            <h2>BLACK BELT <br>PRODUCTION</h2>
+            <div class="bellow_blue_area">
+                <div class="left_coin">
+                    <div class="coin_and_circle">
+                        <div class="coin_box iconw"><img src="images/money_coin.svg" alt=""/></div>
+                        <div class="coin_box">
+                            <div class="circle_red_stor">
+                                <h2>5</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin_and_circle">
+                        <div class="coin_box iconw"><img src="images/settings_2w.svg" width="17" alt=""/></div>
+                        <div class="coin_box">
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin_and_circle">
+                        <div class="coin_box iconw"><img src="images/man_und_new.svg" width="12" alt=""/></div>
+                        <div class="coin_box">
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blue_area_right fullcontainre">
+                    <div class="area_top third_build">
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                        <div class="chart_circle_big">
+                            <div class="chart_circle_inside"></div>
+                        </div>
+                    </div>
+                    <div class="area_bottom last_tt">
+                        <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                        </div>
+                        <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                        </div>
+                        <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                        </div>
+                        <div class="man_circle_main left_xry "><img src="images/man_line.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="" style="display: grid;">
+		    <a href="javascript:void(0);" class="add_button"  onclick="selectAssemblyBelt(15, 'Black')">Invest</a>
+		    <input type="hidden" id="investValue3" name="investValue3">
+		   	<input type="hidden" id="investColor3" name="investColor3">
+		</div>
+	</div>
+    <div class="total_investment">
+        <h3>Total Investment</h3>
+        <div class="mu_right">
+            <div class="number_box" id="totalInvestInBeltHtml">0</div>
+            <input type="hidden" id="totalInvestInBelt" name="totalInvestInBelt" value="0">
+            <h3>MU</h3>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="confir_big_button" onclick="updateAssemblyBelt();">CONFIRM</a>
+</div>
+<!-- End invest/upgrade in assembly belt -->
+
+<!--Start Assembly belt popup -->
+<style type="text/css">
+.hire_fire_pop_main {
+    padding: 19px 15px;
+    background: #FFF;
+    -webkit-box-shadow: 0 0 6px 1px rgba(0,0,0,.1);
+    box-shadow: 0 0 6px 1px rgba(0,0,0,.1);
+    position: absolute;
+    height: auto;
+    width: 446px;
+    bottom: 10px;
+    right: 30%;
+    z-index: 11000;
+}
+.hire_fire_pop_main_worker{
+    padding: 19px 15px;
+    background: #FFF;
+    -webkit-box-shadow: 0 0 6px 1px rgba(0,0,0,.1);
+    box-shadow: 0 0 6px 1px rgba(0,0,0,.1);
+    position: absolute;
+    height: auto;
+    width: 446px;
+    bottom: 10px;
+    right: 30%;
+    z-index: 11000;
+}
+</style>
+
+<div class="hire_fire_pop_main" id="hireFirePopupBelt1">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <div class="unit_box">
+    	<p>Assembly belt 1</p>
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltMinus(1)" class="min_cc"><img src="images/min_red.svg" alt=""></a>
+	    <h3 class="mid_vallue" id="WorkerAssemblyBelt1">1</h3>
+	    <input type="hidden" value="1" id="WorkerAssemblyBeltCount1">
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltPlus(1)"><img src="images/plus_incre.svg" alt=""></a>
+	</div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateWorkerAssemblyBelt1();">CONFIRM</a>
+</div>
+
+
+
+<div class="hire_fire_pop_main" id="hireFirePopupBelt2">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <div class="unit_box">
+    	<p>Assembly belt 2</p>
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltMinus(2)" class="min_cc"><img src="images/min_red.svg" alt=""></a>
+	    <h3 class="mid_vallue" id="WorkerAssemblyBelt2">1</h3>
+	    <input type="hidden" value="1" id="WorkerAssemblyBeltCount2">
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltPlus(2)"><img src="images/plus_incre.svg" alt=""></a>
+	</div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateWorkerAssemblyBelt2();">CONFIRM</a>
+</div>
+
+<div class="hire_fire_pop_main" id="hireFirePopupBelt3">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <div class="unit_box">
+    	<p>Assembly belt 3</p>
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltMinus(3)" class="min_cc"><img src="images/min_red.svg" alt=""></a>
+	    <h3 class="mid_vallue" id="WorkerAssemblyBelt3">1</h3>
+	    <input type="hidden" value="1" id="WorkerAssemblyBeltCount3">
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltPlus(3)"><img src="images/plus_incre.svg" alt=""></a>
+	</div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateWorkerAssemblyBelt3();">CONFIRM</a>
+</div>
+
+<div class="hire_fire_pop_main" id="hireFirePopupBelt4">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <div class="unit_box">
+    	<div class="unit_box">
+    	<p>Assembly belt 4</p>
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltMinus(4)" class="min_cc"><img src="images/min_red.svg" alt=""></a>
+	    <h3 class="mid_vallue" id="WorkerAssemblyBelt4">1</h3>
+	    <input type="hidden" value="1" id="WorkerAssemblyBeltCount4">
+	    <a href="javascript:void(0);" onclick="WorkerAssemblyBeltPlus(4)"><img src="images/plus_incre.svg" alt=""></a>
+	</div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateWorkerAssemblyBelt4();">CONFIRM</a>
+</div>
+
+<!--End Assembly belt popup -->
+
+
+<div class="hire_fire_pop_main" id="hireFireResearchDevelopmentPopup">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateWorkerOnRD();">CONFIRM</a>
+</div>
+
+<!-- Hire and Fire popup End --> 
+
+
+<!-- Start Research and Development popupOne -->
+
+<div class="total_inverst_pop_wrapp adjust_resource" id="researchDevelopmentTwo">
+    <p>Adjust resource(s) on the area of research & development to meet the requirement of the quality management team.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left center_bx">
+            <div class="arro_lr"><img src="images/bot_to_arrow.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="confiram_new_button" onclick="updateResearchDevelopment()">CONFIRM</a>
+</div>
+
+<!-- End Research and Development popupOne -->
+
+<!-- RD marketing board-->
+<div class="research_dev_popup" id="marketingBoardRD">
+    <div class="marketing_bord">
+        <div class="box_heading ">
+            <h3><span>6</span>MARKETING  </h3>
+            <div class="nub_right logo_small">
+                <img width="70" src="images/logo_small.svg" alt=""> 
+            </div>
+        </div>
+        <div class="produ_strtigy_blue">
+            <div class="poduct_stracticgy">
+                <h3>Product &nbsp; &nbsp; STRATEGY</h3>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Quality level</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                                <img src="images/Coin_green.svg" width="40" alt=""/> 
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>5</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>6</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="poduct_stracticgy strt_sec">
+                <h3>Sales &nbsp; &nbsp; STRATEGY</h3>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Sales force</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4></h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="poduct_stracticgy strt_third">
+                <h3>COMMUNICATION &nbsp; &nbsp; STRATEGY</h3>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Efforts</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4></h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>5</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>6</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="logo_bts_sm new_pop"><img src="images/logo_small_bts.svg" alt=""></div>
+        </div>
+    </div>
+</div>
+<!-- End RD marketing board-->
+
+<!-- Sales force Start -->
+<div class="hire_fire_pop_main" id="openSalesForcePopup">
+    <p>Put resource(s) on the assembly belts to increase production capacity.</p>
+    <p>Or, take out resource(s) from the assembly belts to reduce the production capacity.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left">
+            <div class="arro_lr"><img src="images/left_arrow_ro.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+        <div class="fire_right">
+            <div class="arro_lr"><img src="images/left_arrow_ro_hire.svg" alt=""/></div>
+            <div class="fire_box">
+                <img width="40" src="images/half_person.svg" alt=""/>
+            </div>
+            <h3 class="hire_b">DISMISS</h3>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="confir_bts" onclick="updateSalesForce();">CONFIRM</a>
+</div>
+
+<!-- Hire and Fire popup End --> 
+<!-- End sales force -->
+
+<!--Start Complete marketing campaign -->
+
+<div class="marketing_wrapper_incuTotalMarket" id="completeMarketingBoard">
+    <div class="marketing_bord" style="float: left;">
+        <div class="box_heading ">
+            <h3><span>6</span>MARKETING  </h3>
+            <div class="nub_right logo_small">
+                <img width="70" src="images/logo_small.svg" alt=""> 
+            </div>
+        </div>
+        <div class="produ_strtigy_blue">
+            <div class="poduct_stracticgy">
+                <h3>Product &nbsp; &nbsp; STRATEGY</h3>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Quality level</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                                <img src="images/Coin_green.svg" width="40" alt=""/> 
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>5</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="circle_green_stor nes">
+                                <h2>6</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="poduct_stracticgy strt_sec">
+                <h3>Sales &nbsp; &nbsp; STRATEGY</h3>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Sales force</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4></h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box">
+                            </div>
+                            <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="poduct_stracticgy strt_third">
+                <h3>COMMUNICATION &nbsp; &nbsp; STRATEGY</h3>
+                <div id="communicationStrategy">
+                	<div class="box_green_container">
+                    <div class="green_lef">
+                        <h4>Efforts</h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy1">
+                            	<img src="images/Coin_green.svg" width="40" alt=""/> 
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy2">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy3">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy4">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy5">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy6">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>2</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_green_container">
+                    <div class="green_lef">
+                        <h4></h4>
+                    </div>
+                    <div class="green_right">
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy7">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy8">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy9">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>3</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy10">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy11">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                        <div class="green_box_out">
+                            <div class="white_box" id="communicationStrategy12">
+                            </div>
+                            <div class="circle_yello_stor">
+                                <h2>4</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            <div class="logo_bts_sm new_pop"><img src="images/logo_small_bts.svg" alt=""></div>
+        </div>
+    </div>
+    <div class="year_total_right" style="float: left;">
+        <div class="total_market_power">
+            <h1 class="head_blue">Year 1 Total Marketing Power </h1>
+            <div class="number_list_side_ss">
+                <h2>6</h2>
+            </div>
+        </div>
+        <p class="ho_pa">How many additional communication efforts <br>
+            do you want to make?
+        </p>
+        <div class="unit_expense_wrapp">
+            <div class="unit_left">
+                <div class="unit_box">
+                    <a href="javascript:void(0);" onclick="communicationMinus()" class="min_cc"><img src="images/min_red.svg" alt=""></a>
+                    <!-- <h3 class="mid_vallue" id="communicationCount">1</h3> -->
+                    <input type="text" value="1" id="communicationCount">
+                    <a href="javascript:void(0);" onclick="communicationPlus()"><img src="images/plus_incre.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0);" onclick="openMarketBoard()" class="confiram_new_button margin_left">GO TO MARKET</a>
+    </div>
+</div>
+
+<!--End Complete marketing campaign -->
+
+<!--Start marketing board choose card -->
+<div class="marketing_main_bord" style="background: none;" id="chooseMarketingBoard">
+    <div class="market_wrapper" style="padding: 100px 0;">
+    	<div class="wrapboard" style="background: #fff;">
+        <div class="market_bord_shadow" id="market_board">
+            <!-- <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                    <div class="number_top_box">
+                    </div>
+                    <h3 class="tmc_new"></h3>
+                </div>
+                <div class="waiting_marketing_bord">
+                </div>
+            </div> -->
+            <!-- <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                    <div class="number_top_box">
+                        <div class="coin_numb">
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                    <h3 class="tmc_new">Team: ITECH(YOU)</h3>
+                </div>
+                <div class="marketing_bord">
+                    <div class="box_heading ">
+                        <h3><span>6</span>MARKETING  </h3>
+                        <div class="nub_right logo_small">
+                            <img width="70" src="images/logo_small.svg" alt=""> 
+                        </div>
+                    </div>
+                    <div class="produ_strtigy_blue">
+                        <div class="poduct_stracticgy">
+                            <h3>Product STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Quality level</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                            <img src="images/Coin_green.svg" width="40" alt=""> 
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_sec">
+                            <h3>Sales STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Sales force</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_third">
+                            <h3>COMMUNICATION STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Efforts</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo_bts_sm new_pop"><img src="images/logo_small_bts.svg" alt=""></div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                    <div class="number_top_box">
+                        <div class="coin_numb">
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                    <h3 class="tmc_new">Team: ITECH(YOU)</h3>
+                </div>
+                <div class="marketing_bord">
+                    <div class="box_heading ">
+                        <h3><span>6</span>MARKETING  </h3>
+                        <div class="nub_right logo_small">
+                            <img width="70" src="images/logo_small.svg" alt=""> 
+                        </div>
+                    </div>
+                    <div class="produ_strtigy_blue">
+                        <div class="poduct_stracticgy">
+                            <h3>Product STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Quality level</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                            <img src="images/Coin_green.svg" width="40" alt=""> 
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_sec">
+                            <h3>Sales STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Sales force</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_third">
+                            <h3>COMMUNICATION STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Efforts</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo_bts_sm new_pop"><img src="images/logo_small_bts.svg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                </div>
+                <div class="waiting_marketing_bord">
+                </div>
+            </div>
+            <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                    <div class="number_top_box">
+                        <div class="coin_numb">
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                    <h3 class="tmc_new">Team: ITECH(YOU)</h3>
+                </div>
+                <div class="marketing_bord">
+                    <div class="box_heading ">
+                        <h3><span>6</span>MARKETING  </h3>
+                        <div class="nub_right logo_small">
+                            <img width="70" src="images/logo_small.svg" alt=""> 
+                        </div>
+                    </div>
+                    <div class="produ_strtigy_blue">
+                        <div class="poduct_stracticgy">
+                            <h3>Product STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Quality level</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                            <img src="images/Coin_green.svg" width="40" alt=""> 
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_green_stor nes">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_sec">
+                            <h3>Sales STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Sales force</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="man_rigth_boc"><img src="images/man_line.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poduct_stracticgy strt_third">
+                            <h3>COMMUNICATION STRATEGY</h3>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4>Efforts</h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_green_container">
+                                <div class="green_lef">
+                                    <h4></h4>
+                                </div>
+                                <div class="green_right">
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>3</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>4</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>5</h2>
+                                        </div>
+                                    </div>
+                                    <div class="green_box_out">
+                                        <div class="white_box">
+                                        </div>
+                                        <div class="circle_yello_stor">
+                                            <h2>6</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo_bts_sm new_pop"><img src="images/logo_small_bts.svg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="market_box_wrapp">
+                <div class="total_numberTop">
+                </div>
+                <div class="waiting_marketing_bord">
+                </div>
+            </div> -->
+        </div>
+        <div class="ambadi_kannile">
+            Strongest marketing campaign gets first pick, others follow in order of their marketing campaign’s impact
+        </div>
+        <div class="bellow_row">
+            <div class="order_box_wrapper" id="orderCardRender">
+                <!-- <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1a</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1b</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1c</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1d</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1e</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1f</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1g</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_blue_box">
+                    <div class="oder_head">
+                        <h4>Order</h4>
+                        <h2>1h</h2>
+                    </div>
+                    <div class="secBg_head">
+                        <div class="oder_unit_box">
+                            <h4>Unites</h4>
+                            <div class="circle_green_stor">
+                                <h2>1</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Price</h4>
+                            <h5 class="cash_ri">10</h5>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Net Sales</h4>
+                            <div class="circle_green_stor yellow">
+                                <h2>10</h2>
+                            </div>
+                        </div>
+                        <div class="oder_unit_box">
+                            <h4>Payment <br> terms</h4>
+                            <h5 class="cash_ri">Cash</h5>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!--End marketing board choose card -->
+
+<!-- Start Adjust resource  -->
+
+<div class="total_inverst_pop_wrapp adjust_resource" id="adjustResource">
+    <p>Adjust resource(s) on the area of research & development to meet the requirement of the quality management team.</p>
+    <div class="hire_fire_wrapp">
+        <div class="fire_left center_bx">
+            <div class="arro_lr"><img src="images/bot_to_arrow.svg" alt=""/></div>
+            <div class="fire_box">
+                <img src="images/hire_ic.svg" width="40" alt=""/> 
+            </div>
+            <h3 class="hire_b">HIRE</h3>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="confiram_new_button" onclick="adjustITResource()">CONFIRM</a>
+</div>
+
+<!-- End adjust resource -->
+	
+<!--Start Accounting -->
+
+<div class="income_sheet_wrapper" id="accountingSheet">
+    <div class="income_state_insideWrapp">
+        <div class="income_top">
+            <button class="tablinks income_topBbts" onclick="openCity(event, 'London')">Income Statement</button>
+            <button class="tablinks income_topBbts" onclick="openCity(event, 'Paris')">Balance Sheet</button>
+        </div>
+        <div id="London" class="tabcontent" style="display:block">
+            <div class="hear_andAllWrapp">
+                <div class="income_bue_heading">
+                    <div class="income_one">INCOME STATEMENT</div>
+                    <div class="income_two">YEAR 1</div>
+                    <div class="income_two">YEAR 2</div>
+                    <div class="income_two">YEAR 3</div>
+                    <div class="income_two">YEAR 4</div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">= Net Sales</div>
+                    <div class="income_two">40</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                </div>
+                <div class="net_list ">
+                    <div class="income_one">- COGS</div>
+                    <div class="income_two">19</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">- Gross Profit</div>
+                    <div class="income_two">21</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- Sales Expenses</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- Marketing Expenses</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- Adminstration & Information Services Expense</div>
+                    <div class="income_two">3</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- R&D Expenses</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- R&D Expenses</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">= Earnings Before Interest & Taxes (EBIT)</div>
+                    <div class="income_two">-2</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">- Interest</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">= Earnings Before Taxes (EBT)</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+            </div>
+        </div>
+        <div id="Paris" class="tabcontent">
+            <div class="hear_andAllWrapp balance_sheet_wrapp">
+                <div class="income_bue_heading">
+                    <div class="income_one">BALANCE SHEET</div>
+                    <div class="income_two">OB</div>
+                    <div class="income_two">YEAR 1</div>
+                    <div class="income_two">YEAR 2</div>
+                    <div class="income_two">YEAR 3</div>
+                    <div class="income_two">YEAR 4</div>
+                </div>
+                <div class="net_list ">
+                    <div class="income_one">ASSETS</div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">+   Cash</div>
+                    <div class="income_two">10</div>
+                    <div class="income_two">40</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"> </div>
+                </div>
+                <div class="net_list ">
+                    <div class="income_one">+   Trade Receivables</div>
+                    <div class="income_two">24</div>
+                    <div class="income_two">19</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list ">
+                    <div class="income_one">+   Inventories</div>
+                    <div class="income_two">21</div>
+                    <div class="income_two">21</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">+   Property, Plat and Equipment</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">+   Intangible Assets & Goodwill</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two">7</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">=   Total Assets</div>
+                    <div class="income_two">3</div>
+                    <div class="income_two">3</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">LIABILITIES & EQUITY</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">+   Short- & Long -term Liabilities</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two">6</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">+   Other Liabilities</div>
+                    <div class="income_two">-2</div>
+                    <div class="income_two">-2</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list">
+                    <div class="income_one">+   Share Capital and Reserves</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+                <div class="net_list blue_bgs">
+                    <div class="income_one">+/- Net Income for the Period / Loss</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two">4</div>
+                    <div class="income_two"> </div>
+                    <div class="income_two"></div>
+                    <div class="income_two"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_bts_boot">
+        <a href=""><img src="images/close_bts_down.svg" alt=""/></a>
+        Close
+    </div>
+</div>
+<!--End Accounting -->
+
+</body>
+<script type="text/javascript">
+$(document).ready(function () {
+	var socket = io('http://54.198.46.240:3006/');
+
+	socket.emit('team', 11);
+	// var intialSetupData;
+	// // initialConditionBySocket();
+
+	// // function initialConditionBySocket(){
+	// 	console.log("HHHHHHH");
+
+	// 	const data = {
+	//       'team_id': 11,
+	//       'workshop_id': 9,
+	      
+	//     }
+	//     socket.emit('initialConditionBySocket', 11, data);
+	// 	socket.on('receive_initialConditionBySocket', function(msg){
+	// 		console.log("MSGSGSGGS", msg);
+	// 		intialSetupData = msg;
+	                 
+	//     }); 
+	// // }
+
+});
+</script>
+</html>

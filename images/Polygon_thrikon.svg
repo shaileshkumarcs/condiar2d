@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 46.2 44.9" style="enable-background:new 0 0 46.2 44.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Polygon_5);}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#0A51A1;}
+</style>
+<filter  filterUnits="userSpaceOnUse" height="44.923" id="Polygon_5" width="46.196" x="0" y="0">
+	<feOffset  dy="3" input="SourceAlpha"></feOffset>
+	<feGaussianBlur  result="blur" stdDeviation="3"></feGaussianBlur>
+	<feFlood  flood-opacity="0.161"></feFlood>
+	<feComposite  in2="blur" operator="in"></feComposite>
+	<feComposite  in="SourceGraphic" operator="over"></feComposite>
+</filter>
+<g transform="matrix(1, 0, 0, 1, 0, 0)" class="st0">
+	<g id="Polygon_5-2_1_" transform="matrix(-0.85, 0.53, -0.53, -0.85, 37.2, 21.26)">
+		<path class="st1" d="M17,6.3l0,20.2L0.4,16.4L17,6.3z"/>
+		<path class="st2" d="M1.4,16.4l15.1,9.2l0-18.4L1.4,16.4 M-0.5,16.4l18-11l0,22L-0.5,16.4z"/>
+	</g>
+</g>
+</svg>

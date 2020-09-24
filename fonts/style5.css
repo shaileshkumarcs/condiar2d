@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "DIN-RegularAlternate";
+  src: url("./fonts/DINRgA.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/DINRgA.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/DINRgA.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/DINRgA.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/DINRgA.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/DINRgA.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/DINRgA.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
