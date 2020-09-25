@@ -1,5 +1,7 @@
 var team_id = 11;
 var workshop_id = 9;
+var participant_id = 181;
+var number_of_team = 4;
 
 var socket = io('http://54.198.46.240:3006/');
 socket.emit('team', team_id);
