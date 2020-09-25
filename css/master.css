@@ -2290,6 +2290,47 @@ display: flex;
 
 .alet_big img{ width: 80%;}
 .alet_big{width: 49px;}
+.tab_heiht_manaeg{    height: 162px;}
+.height_adjut_belt{ height: 150px;}
+
+.two_cokka{ position: relative;width: 30px;
+    height: 30px;}
+.two_cokka::after {
+  content: ""; background: url("../images/kokka_left.png") no-repeat left top; width: 30px; height: 20px; position: absolute;top: 13px;
+    right: 5px;
+}
+
+
+.two_cokka::before {
+  content: "";background: url("../images/kokka_right.png") no-repeat left top; width: 30px; height: 20px; position: absolute;top: 13px;
+    left:26px;
+}
+
+
+
+.min_ico{width: 15px;
+    height: 28px;
+    border-radius: 100px; font-weight: bold;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 10px;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";}
+
+.total_assets_wrapp.static_styel{ position: relative !important;}
+
+
+.total_assets_wrapp.static_styel .big_circle_yellow.gray_cd{    right: -7px;}
+.total_assets_wrapp.BTS_N{ width: 91.4% !important;}
+
+.lgs {
+    width: 150px;
+    margin-top: 5px;
+}
+.lgs img{    margin-top: 10px;
+    margin-left: 16px;}
 
 
 
