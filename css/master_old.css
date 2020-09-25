@@ -1,11 +1,11 @@
 body
 {
-	 background: url("../images/bg_pattern.png") repeat;
-	margin:0px;
-	padding:0px;
-	font-family:arial, sans-serif;
-	font-size:14px;
-	color:#333;
+   background: url("../images/bg_pattern.png") repeat;
+  margin:0px;
+  padding:0px;
+  font-family:arial, sans-serif;
+  font-size:14px;
+  color:#333;
 }
 h1,h2,h3,h4,h5,ul,li,p{margin:0px;padding:0px;}
 form{margin:0px;padding:0px;border:0px;outline:none;}
@@ -18,63 +18,76 @@ img {margin:0px;padding:0px;border:0px;outline:none;}
 .fr select{color: #0a51a1;
 border-radius: 4px; border:none;
  background: url("../images/for_dropdo.png") no-repeat; width: 45px; height: 45px; background-size:100%;
-	
-	    font-size: 12px;    padding: 0px 8px;    padding-right: 0px;
+  
+      font-size: 12px;    padding: 0px 8px;    padding-right: 0px;
 
 }
 
 .setting_top{
 border-radius: 4px; border:none;
  background: url("../images/for_dropdo.png") no-repeat; width: 45px; height: 45px; background-size:100%;
-	
-	    font-size: 12px;      padding-right: 0px;
+  
+      font-size: 12px;      padding-right: 0px;
 
 }
 
 
 .article{padding:40px 0px 16px 0px;width:100%;float: left;}
 .login-container1{
-	width:430px;
-	margin:0px auto;
-	border:1px solid #dedede;
-	border-radius:10px;
-	background-color:#fff;
-	padding:0px 30px 25px 30px;
-	background:#fff;
-	box-sizing:border-box;
+  width:430px;
+  margin:0px auto;
+  border:1px solid #dedede;
+  border-radius:10px;
+  background-color:#fff;
+  padding:0px 30px 25px 30px;
+  background:#fff;
+  box-sizing:border-box;
     box-shadow: 0px 3px 8px #dedede;
-	text-align: center;
-	}
+  text-align: center;
+  }
 
 .username{padding-top:20px;}
 .username input[type="text"]::placeholder {color: #0a6eb6;font-size: 14px;}
 .username input[type="text"] {
-	border-radius:6px;
-	padding:18px 20px;
-	border:1px solid #dedede;
-	width:100%;
-	box-sizing:border-box;
+  border-radius:6px;
+  padding:18px 20px;
+  border:1px solid #dedede;
+  width:100%;
+  box-sizing:border-box;
 }
 .password{padding-top:20px;}
 .password input[type="text"]::placeholder {color: #0a6eb6;font-size: 14px;}
+
 .password input[type="text"]
 {
-	border-radius:6px;
-	padding:18px 20px;
-	border:1px solid #dedede;
+  border-radius:6px;
+  padding:18px 20px;
+  border:1px solid #dedede;
     background-position:10px 6px;
-	width:100%;
-	box-sizing:border-box;
+  width:100%;
+  box-sizing:border-box;
 }
+
+.password input[type="password"]
+{
+  border-radius:6px;
+  padding:18px 20px;
+  border:1px solid #dedede;
+    background-position:10px 6px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+
 .login input[type="Submit"]
 {
-	border-radius:6px;
-	padding:18px 20px;;
-	border:0px solid #c0c0c0;
-	background-color:#0a51a1;
-	color:#fff;
-	font-size:14px;
-	font-weight:500;
+  border-radius:6px;
+  padding:18px 20px;;
+  border:0px solid #c0c0c0;
+  background-color:#0a51a1;
+  color:#fff;
+  font-size:14px;
+  font-weight:500;
     cursor:pointer;
     width: 100%
 }
@@ -433,7 +446,7 @@ display: flex;
 .trade_arrow{position: relative;}
 .trade_arrow::after {
   content: ""; background: url("../images/arrow_blu_uptop.svg") no-repeat; width: 20px; height: 80px;
-	position: absolute;
+  position: absolute;
     top: -58px;
     left: -10px;}
 
@@ -443,7 +456,7 @@ display: flex;
     height: 16px;
     background: #C7DAEA;
     border-radius: 150px;left: -19px;top: -2px;
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center; 
     z-index: 100;}
@@ -469,7 +482,7 @@ display: flex;
 
 .active_white_ss{ position: relative;}
 .active_white_ss::after {
-	content: ""; width: 70px; height: 10px; background: url("../images/arrow_right.svg") no-repeat;position: absolute;
+  content: ""; width: 70px; height: 10px; background: url("../images/arrow_right.svg") no-repeat;position: absolute;
 left: -29px;}
 .short_andlong .year_number{margin-top: 4px;}
 .b_one.sebb{ width: 49%; margin-left: auto;}
@@ -585,7 +598,7 @@ box-shadow: 0 0 10px 1px rgba(0,0,0,.1); padding: 10px 20px; right: 20px; bottom
   display: flex;
   align-items: center;
   justify-content: center;
-	height:27px; width: 100%; border-radius: 5px;   background: #434347; margin-top: 3px;}
+  height:27px; width: 100%; border-radius: 5px;   background: #434347; margin-top: 3px;}
 .bellow_inters h6{ font-size:8px; color: #9cb1c8; font-weight: normal; margin: 10px 5px;}
 .bellow_inters h3{ font-size:13px; color: #9cb1c8;  margin: 10px 3px; margin-left: auto;}
 
@@ -934,16 +947,16 @@ color: #094A94;font-size: 11px;
 .oder_unit_box{ background: #0163aa; height:26px; width: 98%; display: flex; padding:0 2%;
   align-items: center;
   justify-content: left; border-radius:5px; margin-bottom: 5px;
-	
+  
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#76a8da+0,7db9e8+100&1+0,0+100 */
 background: -moz-linear-gradient(left,  rgba(118,168,218,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(left,  rgba(118,168,218,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right,  rgba(118,168,218,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76a8da', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
-	
-	
-	
-	
+  
+  
+  
+  
 }
 
 
@@ -986,7 +999,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76a8da', end
 
 .secInpopup{ padding-top: 0px;}
 .secInpopup .bue_income_head h3{ padding-top: 0px; width: 43px;
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;}
 .secInpopup .bue_income_head h2{  width: 268px;}
@@ -1019,8 +1032,8 @@ display: flex;
 .center_bx{ margin: auto !important;}
 
 .confiram_new_button{
-	
-	padding: 10px 29px;
+  
+  padding: 10px 29px;
     color: #FFF;
     background: #0A51A1;
     text-decoration: none;
@@ -1030,7 +1043,7 @@ display: flex;
     font-weight: normal;
     letter-spacing: 1px;
     font-size: 11px; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	
+  
 }
 
 
@@ -1049,7 +1062,7 @@ display: flex;
 
 .marketing_wrapper_incuTotalMarket .white_box {
     width: 100%;
-	height: 38px;}
+  height: 38px;}
 
 .marketing_wrapper_incuTotalMarket .green_box_out{height: 57px;}
 
@@ -1234,15 +1247,15 @@ display: flex;
 display: flex;
     align-items: center;
     justify-content: center;
-	
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,ffffff+50,eeeeee+100 */
+  
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,ffffff+50,eeeeee+100 */
 background: rgb(238,238,238); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(255,255,255,1) 50%, rgba(238,238,238,1) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(255,255,255,1) 50%,rgba(238,238,238,1) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(255,255,255,1) 50%,rgba(238,238,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
 
-	
+  
 }
 
 .inside_boxs{ border-right: 1px solid #dcdcdc; height:61px;    padding: 10px 18px 0px 18px; text-align: center;}
@@ -1299,20 +1312,20 @@ box-shadow: 0 0 10px 1px rgba(65,221,37,.9);
 background-size: 100%;}
 
 .action_bts{ width: 60px; height: 32px;  text-align: center; text-decoration: none; 
-	background:url("../images/cal_new-c.png") no-repeat center;    
-	
-	    margin-top: 4px;
-	    
-	
-	
-	
+  background:url("../images/cal_new-c.png") no-repeat center;    
+  
+      margin-top: 4px;
+      
+  
+  
+  
 }
 
 .action_bts.settc{width: 60px; height: 32px;  text-align: center; text-decoration: none; 
-	background:url("../images/moview.png") no-repeat center;
-	
-	
-	    margin-left: -2px;}
+  background:url("../images/moview.png") no-repeat center;
+  
+  
+      margin-left: -2px;}
 .action_bts.settc h1{ color: #FFF;}
 
 .action_bts h1{ color: #000; font-size: 13px;font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
@@ -1326,7 +1339,7 @@ background-size: 100%;}
 .time_box{display: flex;height: 46px;    width: 46px;
     align-items: center;
     justify-content: center;     margin-top: 1px;   padding: 0px 11px; 
-	background: url("../images/time_bg.png") no-repeat center;    background-size: 61%;}
+  background: url("../images/time_bg.png") no-repeat center;    background-size: 61%;}
 
 
 .time_box h3{color: #009ECE; font-size: 10px;font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
@@ -1335,10 +1348,10 @@ display: flex;    margin-top: 15px;}
 .time_box h3 img{ margin-top: 0px; width: 16px; margin-right: 10px;}
 
 .game_pr_bt{    margin-bottom: 10px;
-	
-	 text-align: center;
-	width: 66px; height: 60px; display: block; border-radius: 6px;     
-	
+  
+   text-align: center;
+  width: 66px; height: 60px; display: block; border-radius: 6px;     
+  
     text-decoration: none;
 }
 .game_pr_bt img{ width: 54px; margin-top: 8px;}
@@ -1353,7 +1366,7 @@ display: flex;    margin-top: 15px;}
 .pattern_bg{}
 .footer_outside{margin: auto; left: 0px; right: 0px; position: fixed; bottom: 10px; z-index: 1000; 
 
-	padding-left: 14px;
+  padding-left: 14px;
 }
 
 .blue_message{    color: #0a51a1;
@@ -1372,15 +1385,15 @@ display: flex;
 
 
 .gm_bts{ 
-	
-	    margin-left:auto; float: right;
-	display: flex;
+  
+      margin-left:auto; float: right;
+  display: flex;
     align-items: center;
     justify-content: center; font-size:14px;       margin-right: 19px;
-	
-	
-	
-	        margin-top: -104px;
+  
+  
+  
+          margin-top: -104px;
 }
 
 
@@ -1388,7 +1401,412 @@ display: flex;
 
 .Game_bord_wrapp_blue{ width: 800px; margin: auto; padding-top: 100px; background: none; border-radius:10px; overflow: hidden;}
 .Game_bord_wrapp_blue img{ width: 100%;}
-.action_box{    bottom: 131px;}
+
+
+/*============*/
+
+.login_wrapp_new{ width: 650px; border-radius: 10px; background: #19AAD2; margin: 25px auto;height: 390px;}
+.tag_log{ width:80px; margin:-2px auto;}
+.tag_log img{ width: 100%;margin-top: -2px;}
+
+.form_wrapp{ margin: auto; width: 400px;}
+
+.form_wrapp .log_nsd{-webkit-box-shadow:inset 0 0 20px 20px rgba(0,0,0,.1);
+box-shadow:inset 0 0 20px 20px rgba(0,0,0,.1);}
+
+
+.login_nsg{
+  
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00a7d3+0,008bc5+100 */
+background: rgb(0,167,211); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,167,211,1) 0%, rgba(0,139,197,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,167,211,1) 0%,rgba(0,139,197,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,167,211,1) 0%,rgba(0,139,197,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a7d3', endColorstr='#008bc5',GradientType=0 ); /* IE6-9 */
+
+  
+  
+ width: 100%; margin: 20px auto; height: 49px; color: #FFF; font-size:15px; border-radius: 6px;
+  border: 1px solid #007ca6;
+  
+  -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
+box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
+  
+}
+
+.welcome_finance_wrapp{ width: 880px; margin: 30px auto; border-radius:15px; border: 1px solid #eaeaea; 
+  padding:30px 20px; background: #ebebeb;}
+
+
+.welcome_finance_wrapp h1{font-family:"Helvetica Neue", Helvetica, Arial, "sans-serif"; font-size: 27px; color: #707070;
+font-weight: normal; text-align: center;}
+.welcome_finance_wrapp p{
+  
+    font-size:13px; color: #707070; line-height: 22px; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  
+  text-align: center; padding: 30px 0px; width: 80%; margin: auto; font-weight:normal;}
+
+
+.contin_bts{/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00a7d3+0,008bc5+100 */
+background: rgb(0,167,211); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,167,211,1) 0%, rgba(0,139,197,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,167,211,1) 0%,rgba(0,139,197,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,167,211,1) 0%,rgba(0,139,197,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a7d3', endColorstr='#008bc5',GradientType=0 ); /* IE6-9 */
+
+  
+  
+ margin: 20px auto;  color: #FFF; font-size:15px; border-radius: 6px;
+  border: 1px solid #007ca6;
+  
+  -webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
+box-shadow: 0 0 5px 1px rgba(0,0,0,.1); padding:13px 80px;
+
+ display: table; text-align: center; text-decoration: none;
+
+}
+
+
+.team_information_wrapp{ width: 1170px; margin: 30px auto; border:1px solid #eaeaea;
+
+-webkit-box-shadow: inset 0 0 20px 20px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 20px 20px rgb(199 196 196 / 10%);
+ border-radius:10px; padding: 30px 0px;
+
+    height: 400px;  
+  
+      background: #eaeaea;
+
+}
+
+
+.team_person_verti{display: flex;
+  align-items: center;
+  justify-content: left;margin: 100px auto 0px auto;     width: 671px; }
+
+
+.coe_news{ width: 120px;}
+.coe_news img{ width: 100%;}
+.ceo_big_left h2{ font-size: 12px; text-align: center;}
+
+
+.team_person_verti{ }
+.team_person_verti{ }
+.team_information_wrapp h1{ font-size:20px; text-align: center; color: #009ECE; margin-bottom: 30px;}
+.C_allRight{ display: flex;margin-left: auto;}
+.C_allRight{}
+
+.sma_call_box{ width: 80px;margin: 0px 34px;}
+.coe_sma_im{ width: 75px;}
+.coe_sma_im img{ width:100%;}
+
+.sma_call_box h2{ font-size: 12px; text-align: center;}
+
+.dfr{ 
+
+  margin-left: auto;
+    display: block;
+    float: right;
+    margin-right: 10px;
+    margin-top: 58px;
+
+}
+
+
+.top_login_cpn{ width: 436px;}
+
+.setup_ver_allWrapp{display: flex;
+  align-items:flex-start;
+  justify-content: left;margin: 100px auto 0px auto; width: 871px; }
+
+.login_ceo_right{ width: 300px; margin-left: auto;}
+
+.ceo_log{border-radius: 6px;
+    padding: 10px 20px;
+    border: 1px solid #cccaca;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 0 20px 20px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 20px 20px rgba(0,0,0,.1); margin: 5px 0px;    background: #fff;
+
+
+}
+.ceo_log::placeholder {
+  color:#B3B3B3;
+  opacity: 1; /* Firefox */
+}
+
+.ceo_messga{padding: 10px 20px;
+    border: 1px solid #cccaca;
+    width: 100%;
+    box-sizing: border-box; height: 72px;
+    
+  margin: 5px 0px;    background: #fff;
+  overflow-x: hidden; 
+  
+      -webkit-box-shadow: inset 0 0 50px 20px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 50px 20px rgba(0,0,0,.1);
+  
+  
+}
+
+.ceo_messga::placeholder {
+  color:#B3B3B3;
+  opacity: 1; /* Firefox */
+}
+
+.top_left_one{ display: flex;}
+
+.profile_pasp_phot{ border: 1px solid #bdbdbd; border-radius: 2px;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,dddddd+100 */
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(221,221,221,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+
+-webkit-box-shadow: 0 4px 5px 1px rgba(0,0,0,.1);
+box-shadow: 0 4px 5px 1px rgba(0,0,0,.1);
+
+}
+
+.pass_top{ display: flex;}
+.pass_box{ width: 73px; height: 70px;display: flex;
+  align-items: center;
+  justify-content: center;border-left: 1px solid #cfcfcf;    margin-left: -1px;border-top: 1px solid #cfcfcf;
+margin-top: -1px;}
+
+.pass_box img{ width: 40px; }
+
+
+.ceo_sign_right{ margin-left: auto; width: 300px;}
+
+.ceo_sign_right .C_allRight{ margin-bottom: 50px;}
+/*.team_information_wrapp.set_wrppp_all{    height: 501px;}
+
+
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  /*color: #096eb6;
+  opacity: 1;  Firefox 
+}*/
+
+/*:-ms-input-placeholder {*/ /* Internet Explorer 10-11 */
+ /* color: #096eb6;
+}*/
+
+/*::-ms-input-placeholder {*/ /* Microsoft Edge */
+  /*color: #096eb6;
+}*/
+
+.team_information_wrapp.set_wrppp_all{    height: 501px;}
+.account_four_wrapp{}
+.account_four_wrapp{}
+
+
+/*=========08-=========*/
+
+.game_process_wrapp{ width: 580px; background: #FFF; padding:0px 20px; padding-left: 0px;
+
+  -webkit-border-radius: 0 20px 20px 0; z-index: 100000 !important;
+border-radius: 0 20px 20px 0;
+  
+position: absolute; left: 0px; top: 9px; display: flex;}
+.left-process-tds{ width:80px; border-right: 1px solid #999;padding: 30px 10px 0px 0px;}
+.right_process{padding: 0px 20px;    width: 100%;}
+
+.right_process{}
+.right_process h1{ font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";padding: 30px 0px; color: #0A51A1; font-size: 15px;}
+
+.game_box_darkblue{ background: #00529B; padding: 10px;margin-bottom: 10px;}
+.inside_light_blue{ background: #609FD7; border-radius: 20px; padding:13px 13px;}
+
+.fina_wrapper{    padding:1px 0px;}
+.fina_wrapper h2{    font-size: 6.5px; display: flex; color: #FFF; font-weight: normal;}
+
+.numbfn{ background: #C2DAF3; width: 7px; height: 7px; border-radius: 2px; color: #000;display: flex;
+  align-items: center;
+  justify-content: center;    margin-right: 6px;    font-size: 5px;
+}
+.inside_light_blue .box_heading h3{ font-size: 13px;}
+.fina_wrapper h2{}
+
+.process_list{    padding: 4px 0px 4px 18px;}
+.process_list li{ font-size:6px; padding:2px 5px;list-style: initial; color: #00529B;}
+.big-siz{ font-weight: bold;}
+
+/*=======*/
+.game_process_wrapp.market_info_wrapp{ width: 1100px;}
+.year_bts{     padding: 7px 25px; display: table; border-radius:5px; font-size:13px; color: #FFF; background: #98BDE6;
+text-decoration: none;}
+.customer_box{ margin: auto; width: 400px; }
+.customer_inside{}
+
+.blue_cc_headi{ padding:14px 15px; background: #3B74B4; color: #FFF; font-size:13px; font-weight:normal;
+    margin: 5px 0px;
+}
+.customer_inside{ margin: 20px 0px;}
+
+.total_numb_xd{     padding: 4px 0px 0px 10px; display:flex;
+  align-items: center;
+  justify-content: center;}
+.graph_gr{ background: #eaeaea; margin-left: auto; text-align: right; padding: 10px; font-weight: normal;}
+
+.total_numb_xd h3{ font-weight: normal; font-size: 13px; color: #333;}
+.gry{ background: #A8A8A7; width: 20%;}
+.yello-cc{ background: #FBDF88; width: 40%;}
+
+.white-bord{ background: #FFF; border: 1px solid #999;}
+.gry.gra_sm{ width: 10%;}
+
+.comp_heading{display:flex;
+  align-items: center;
+  justify-content: left;}
+
+.comp_heading{ background: #3B74B4; height: 40px; color: #FFF; display: flex; width: 100%; padding:0px 0px; }
+
+.complter_lets{font-size: 12px !important; color: #FFF !important;padding: 0px !important; font-weight: normal;padding-left: 10px !important; font-weight: bold;}
+.year_lets{  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-weight:bold;font-size: 12px !important; color: #FFF !important;margin-left: auto;padding-right: 10px;}
+.row_light_row{ display: flex; background: #C2DAF3; height: 33px;}
+
+.num1{ border-right: 1px solid #b0c2d4; width: 38px; height:33px;display:flex;
+  align-items: center;
+  justify-content: center; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";    font-size: 10px;
+    font-weight: bold;}
+
+.making-cc{ border-right:none; width:190px; padding-left: 10px; height:33px;display:flex;
+  align-items: center;
+  justify-content: left;    font-size: 12px;}
+
+
+.you_he{border-right:none; width:75px; height:33px;display:flex; color: #3B74B4;
+  align-items: center;
+  justify-content: center;font-size: 12px; background: #e5effa;}
+
+
+.teambx{ border-right: 1px solid #ecf1f7; width:75px; height:33px;display:flex;
+  align-items: center;
+  justify-content: center;font-size: 12px;}
+
+.team6{ border-right:none; width:75px; height:33px;display:flex;
+  align-items: center;
+  justify-content: center;font-size: 12px;}
+
+
+
+
+.income_state_insideWrapp.marketamian{ width: 700px;}
+.row_light_row.marketing_power{ background: #F5F5F5;}
+.making-cc.power_market{     font-size: 12px;   width: 418px;    justify-content:left !important; padding-left: 10px;}
+.you_he.bg-he{ background: none !important;}
+
+.row_light_row.qty_white_bg{ background: #FFF;}
+
+/*================*/
+
+.bud_year{ width: 100%; height: 30px; background: #0063AA;display: flex;
+  align-items: center;
+  justify-content: center;}
+
+
+
+.net_list {
+    display: flex;
+    height: 27px; padding: 0px;align-items: center;
+  justify-content: center;
+}
+
+.income_one{    border-right: 1px solid #d0d0d0; height: 27px;align-items: center;
+  justify-content: left; display: flex;}
+.income_bue_heading .income_one{ height: auto; border: none;}
+.income_two{border-right: 1px solid #d0d0d0; height: 27px;align-items: center;
+  justify-content: center; display: flex;}
+.income_bue_heading .income_two{ border: none; height: auto;}
+
+.income_two:last-child{ border: none;}
+.net_list .income_one{ padding-left: 10px;}
+
+
+.blue_bgs_noCross {
+    background: #E6F2FF;
+}
+
+.blue_bgs_noCross .income_one{ border: none;}
+.hear_andAllWrapp.balance_sheet_wrapp.wertical_wrapp{}
+
+.tabcontent.wertical_wrapp{ width: 900px;}
+
+.income_state_insideWrapp.calculation_main_wrapp{ width: auto;}
+
+
+
+.income_state_insideWrapp.calculation_main_wrapp .hear_andAllWrapp{ width:634px;  margin: auto;}
+
+.income_state_insideWrapp.calculation_main_wrapp .tabcontent.wertical_wrapp .hear_andAllWrapp.balance_sheet_wrapp{ width: 900px !important; margin: auto;}
+.wertical_wrapp .net_list{justify-content: left;}
+
+.wertical_wrapp .income_one{    width: 248px;}
+.wertical_wrapp .income_bue_heading .income_two{    border-right: 1px solid #0063aa;}
+
+.wertical_wrapp .income_bue_heading .income_one{border-right: 1px solid #0063aa;}
+.blr_nsa{ background: #749FCA;}
+
+
+.action_box{width: 253px;bottom: 131px;    box-shadow: 0px 3px 8px #dedede; background: #ebebeb; border: none; text-align: center;
+  background: #FFF; padding-top:20px;border: 1px solid #cecece;
+  -webkit-box-shadow:inset 0 0 30px 10px rgba(0,0,0,.1);
+box-shadow:inset 0 0 30px 10px rgba(0,0,0,.1); padding-bottom: 26px; height: auto !important;
+}
+.action_box p{ text-align: center; color: #000;font-size: 14px;line-height: 22px;}
+.act_head{ text-align: center;}
+
+.light_inside_sh_bts{ background: #0099cc;
+      padding: 13px 45px;
+    color: #FFF;
+   
+    text-decoration: none; border: 1px solid #007299;
+    border-radius: 6px;
+    display: table;
+    font-size: 13px;
+    margin: 15px auto 0px;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+  
+  -webkit-box-shadow:inset 0 0 10px 3px rgba(0,0,0,.1);
+box-shadow:inset 0 0 10px 3px rgba(0,0,0,.1);
+
+}
+
+.dummy_msd{  width: 800px; margin: 50px auto;}
+.dummy_msd img{ width: 100%;}
+
+
+.fix_box{align-items: flex-start !important;}
+.circle_fix{    margin-top: 14px !important;}
+
+.benifit_wrapp{align-items: flex-start !important;}
+header nav.navbar .navbar-nav a:hover {
+    background: transparent;
+    color: #3c9b05 !important;
+}
+
+.order_blue_box.indivnew {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: 20px auto;
+    z-index: 100;
+}
+.order_blue_box.indivnew.sec{ top: 30px; 
+-webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,.5);
+box-shadow: 0 0 10px 5px rgba(0,0,0,.5);
+
+}
+
+
+
+
 
 
 
