@@ -26,10 +26,11 @@
                             <div class="short_one">
                                 <div class="short_lib_all">
                                     <h2 class="shor_sub_hed">Short-term financial liabilites</h2>
-                                    <div class="blue_updon">
-                                        <a href="" class="plus_min"><img src="images/min_ns.svg" alt=""/></a>
-                                        <div class="ten_cds">1</div>
-                                        <a href="" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""/></a>
+                                    <div class="blue_updon" id="short_term_financial">
+                                        <a href="javascript:void(0);" class="plus_min" onclick="decreaseShortTermLoan()"><img src="images/min_ns.svg" alt=""/></a>
+                                        <div class="ten_cds" id="showShortTermLoan">0</div>
+                                        <input type="hidden" id="shortTermLoanValue" value="0">
+                                        <a href="javascript:void(0);" class="plus_min_dark" onclick="increaseShortTermLoan()"><img src="images/plus_ns.svg" alt=""/></a>
                                     </div>
                                 </div>
                                 <div class="percentage_list">
@@ -38,10 +39,11 @@
                                 </div>
                                 <div class="short_lib_all">
                                     <h2 class="shor_sub_hed">Share Capital</h2>
-                                    <div class="blue_updon">
-                                        <a href="" class="plus_min"><img src="images/min_ns.svg" alt=""/></a>
-                                        <div class="ten_cds">1</div>
-                                        <a href="" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""/></a>
+                                    <div class="blue_updon" id="share_capital_financial">
+                                        <a href="javascript:void(0);" class="plus_min" onclick="decreaseShareCapital()"><img src="images/min_ns.svg" alt=""/></a>
+                                        <div class="ten_cds" id="showShareCapitalValue">0</div>
+                                        <input type="hidden" id="shareCapitalValue" value="0">
+                                        <a href="javascript:void(0);" class="plus_min_dark" onclick="increaseShareCapital()"><img src="images/plus_ns.svg" alt=""/></a>
                                     </div>
                                 </div>
                                 <div class="percentage_list">
@@ -51,10 +53,11 @@
                             <div class="short_one">
                                 <div class="short_lib_all">
                                     <h2 class="shor_sub_hed">Long-term financial liabilites</h2>
-                                    <div class="blue_updon">
-                                        <a href="" class="plus_min"><img src="images/min_ns.svg" alt=""/></a>
-                                        <div class="ten_cds">1</div>
-                                        <a href="" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""/></a>
+                                    <div class="blue_updon" id="long_term_financial">
+                                        <a href="javascript:void(0);" class="plus_min" onclick="decreaseLongTermLoan()"><img src="images/min_ns.svg" alt=""/></a>
+                                        <div class="ten_cds" id="showLongTermLoan">0</div>
+                                        <input type="hidden" id="longTermLoanValue" value="0">
+                                        <a href="javascript:void(0);" class="plus_min_dark" onclick="increaseLongTermLoan()"><img src="images/plus_ns.svg" alt=""/></a>
                                     </div>
                                 </div>
                                 <div class="percentage_list">
@@ -440,7 +443,9 @@
                     <h2 class="sub_heading_ns">ACTION (DECISION)</h2>
                     <div class="aircon_wrap">
                         <div class="blue_mark_lab">A</div>
-                        <div class="aircon_white org_ns">CONFIRM</div>
+                        <div id="gameConfirmButton">
+                            <div class="aircon_white org_ns" onclick="startGame()" id="startGame">START GAME</div>
+                        </div>
                     </div>
                 </div>
                 <div class="asset_and_liba_blueWrapp">
@@ -454,7 +459,7 @@
                                 <div class="big_circle_yellow" id="cash_value">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><span>1</span>Trade receivables</h3>
+                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="tradeUpdateToCash()" id="trade_receivable">1</a>Trade receivables</h3>
                                 <div class="big_circle_yellow" id="trade_receivable_value">0</div>
                             </div>
                             <div class="eqi_list">
@@ -490,11 +495,11 @@
                         <h4 class="light_bg_s">Liabilities</h4>
                         <div class="height_adjut_belt">
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><span>1</span>Short-term Financial liablity</h3>
+                                <h3 class="trade_heading"><a id="updateShortLoanIncome" href="javascript:void(0);" onclick="updateLoan()">1</a>Short-term Financial liablity</h3>
                                 <div class="light_bg_gray_ns" id="Short_term_liabilities">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><span>2</span>Long-term Financial liablity</h3>
+                                <h3 class="trade_heading"><a id="updateLongLoanIncome" href="javascript:void(0);" onclick="updateLoan()">1</a>Long-term Financial liablity</h3>
                                 <div class="light_bg_gray_ns" id="Long_term_liabilities">0</div>
                             </div>
                             <div class="eqi_list">
@@ -550,15 +555,15 @@
                         <div class="light_bg_gray_ns">42</div>
                     </div>
                     <div class="eqi_list">
-                        <h3 class="trade_heading"><span>1</span>Interest</h3>
-                        <div class="light_bg_gray_ns">42</div>
+                        <h3 class="trade_heading"><a id="payInterest" href="javascript:void(0);" onclick="payInterest()">1</a>Interest</h3>
+                        <div class="light_bg_gray_ns" id="Interest">42</div>
                     </div>
                     <div class="total_assets_wrapp static_styel">
                         <h2 class="total_assetas">Total Assets</h2>
                         <div class="big_circle_yellow gray_cd">120</div>
                     </div>
                     <div class="eqi_list">
-                        <h3 class="trade_heading"><span>1</span>Interest</h3>
+                        <h3 class="trade_heading"><span>1</span>Taxes</h3>
                         <div class="light_bg_gray_ns">42</div>
                     </div>
                     <div class="total_assets_wrapp BTS_N">
