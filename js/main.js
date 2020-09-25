@@ -13,12 +13,20 @@ const data = {
 socket.emit('initialConditionBySocket', team_id, data);
 
 socket.on('receive_initialConditionBySocket', function(initialData){
-	console.log("MSG", initialData);
-	console.log("Cash", initialData.Cash);
-	document.getElementById("cash_value").innerHTML = initialData.Cash;
-	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
+	setInitialConditionToAll(initialData)
+	//console.log("MSG", initialData);
+	//console.log("Cash", initialData.Cash);
+	//document.getElementById("cash_value").innerHTML = initialData.Cash;
+	//document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
 
 });
+
+
+function setInitialConditionToAll(initialData){
+	console.log('initialData');
+	console.log(initialData);
+
+}
 
 
 /**
