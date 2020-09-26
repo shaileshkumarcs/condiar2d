@@ -144,10 +144,12 @@ function Order_material(){
         initialData = responseData;
         document.getElementById("bluew_for_container").style.backgroundColor = '#cfe0f4';
         document.getElementById("blue_updon").style.backgroundColor = '#cfe0f4';
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" id="startGame">ASSEMBLY SECTION ON PROCESS</div>';
+        //Shailesh code start
+        var changecolor = document.getElementById("goods_in_progress");
+        changecolor.classList.add("color_change");
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
         
     });
-
 
 }
 

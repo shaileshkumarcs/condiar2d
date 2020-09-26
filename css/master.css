@@ -1921,10 +1921,12 @@ display: flex;
 .inboun_white{ width: 280px; background: #FFF; margin: 0px 10px; border-radius:10px;padding: 6px;}
 .tabs_wrapp{ display: flex;    justify-content: center;    margin: 9px 0px;}
 
-.tabs_box{ width:48px; height: 24px; border: 1px solid #4288bc; border-radius: 150px; background: #FFF; 
+.tabs_box{width:48px; height: 24px; border: 1px solid #4288bc; border-radius: 150px; background: #FFF; 
  display: flex;
   align-items: center;
-  justify-content: center; margin:auto;}
+  justify-content: center; margin-right: 22px}
+
+  .tabs_box:last-child{ margin-right: 0px !important;}
 
 
 .tab_circle{ background: #FFF; width:18px; height:18px; border-radius: 100px; border: 1px solid #000;
@@ -2353,6 +2355,10 @@ display: flex;
 }
 .lgs img{    margin-top: 10px;
     margin-left: 16px;}
+
+.deactive_color{
+  background: #7daedc;
+}
 
 
 
