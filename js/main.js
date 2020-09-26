@@ -23,11 +23,13 @@ socket.on('receive_initialConditionBySocket', function(initialData){
 
 
 function setInitialConditionToAll(initialData){
+
 	initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
 	updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
 	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
@@ -53,6 +55,10 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("Share_Capital_financial").innerHTML = initialData.Share_Capital;
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
 	// document.getElementById("").innerHTML = initialData.
+
+    initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+    initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
+    initiate_SALES(initialData); // by OM KUMAR YAADAV
 
 }
 
