@@ -13,6 +13,8 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <!-- <script type="text/javascript" src="js/apicall.js"></script> -->
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/js_by_om.js"></script>
+
     </head>
     <body class="bgs_new">
         <!-- headersection start-->
@@ -72,7 +74,7 @@
                     </div>
                     <div class="adminst_white">
                         <div class="admin_top_head">
-                            <h3 class="fin_heading"><span>1</span>FINANCE &amp; CONTROLLING</h3>
+                            <h3 class="fin_heading"><span>1</span>ADMINISTRATION &amp; IT FINANCE </h3>
                             <div class="man_num_right">
                                 <div class="icon_black"><img src="images/black_man.svg" alt=""/></div>
                                 <div class="ten_cds_yellow">1</div>
@@ -89,13 +91,18 @@
                 <!----->
                 <div class="inboun_white">
                     <div class="admin_top_head">
-                        <h3 class="fin_heading"><span>1</span>FINANCE &amp; CONTROLLING</h3>
+                        <h3 class="fin_heading">
+                            <span id="INBOUND_LOGISTICS_number">2</span>
+                        INBOUND LOGISTICS</h3>
                         <div class="man_num_right">
                             <div class="icon_black"><img src="images/black_man.svg" alt=""></div>
                             <div class="ten_cds_yellow">1</div>
                         </div>
                     </div>
-                    <div class="tab_heiht_manaeg">
+                    <div class="tab_heiht_manaeg" id="js_INBOUND_LOGISTICS">
+                       
+
+                    <!--   
                         <div class="tabs_wrapp">
                             <div class="tabs_box">
                                 <div class="tab_circle">1</div>
@@ -150,26 +157,31 @@
                                 <div class="tab_circle_yellow">1</div>
                             </div>
                         </div>
+                    -->
                     </div>
                     <!------>
                     <div class="truck_main_contianer">
-                        <div class="bluew_for_container">
-                            <div class="blue_updon">
-                                <a href="" class="plus_min"><img src="images/min_ns.svg" alt=""></a>
-                                <div class="white_truck">16</div>
-                                <div class="yellow_truck">16</div>
-                                <a href="" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""></a>
+                        <div class="bluew_for_container" id="bluew_for_container">
+                            <div class="blue_updon" id="blue_updon">
+
+                                <a href="javascript:void(0)" onclick="decreaseinbound()" class="plus_min"><img src="images/min_ns.svg" alt=""></a>
+
+                                <div class="white_truck" id="inboundprod">0</div>
+                                <div class="yellow_truck" id="inboundval">0</div>
+
+                                <a href="javascript:void(0)" onclick="increaseinbound()" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""></a>
+
                             </div>
                             <div class="admi_liblue"><img src="images/white_man.svg" alt=""></div>
                         </div>
                         <div class="pakka_trekk">
-                            <div class="white_truck_line">16</div>
+                            <div class="white_truck_line" id="Ordered_Materials"></div>
                         </div>
                     </div>
                 </div>
                 <div  class="assembly_wapp">
                     <div class="admin_top_head">
-                        <h3 class="fin_heading"><span>1</span>FINANCE &amp; CONTROLLING</h3>
+                        <h3 class="fin_heading"><span>3</span>ASSEMBLY</h3>
                         <div class="man_num_right">
                             <div class="icon_black home-po"><img src="images/home_pole.svg" alt=""></div>
                             <div class="ten_cds_red_sa">1</div>
@@ -345,7 +357,7 @@
                 <!------->
                 <div class="inboun_white">
                     <div class="admin_top_head">
-                        <h3 class="fin_heading"><span>1</span>FINANCE &amp; CONTROLLING</h3>
+                        <h3 class="fin_heading"><span>8</span>OUTBOUND LOGISTICS</h3>
                         <div class="man_num_right">
                             <div class="icon_black"><img src="images/black_man.svg" alt=""></div>
                             <div class="ten_cds_yellow">1</div>

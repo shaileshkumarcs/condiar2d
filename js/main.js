@@ -2,9 +2,11 @@ var team_id = 11;
 var workshop_id = 9;
 var participant_id = 181;
 var number_of_team = 4;
+
 var quarter = 1;
 var year = 1;
 var initialData;
+
 
 var socket = io('http://54.198.46.240:3006/');
 socket.emit('team', team_id);
@@ -16,19 +18,12 @@ const data = {
 socket.emit('initialConditionBySocket', team_id, data);
 
 socket.on('receive_initialConditionBySocket', function(initialData){
-
 	setInitialConditionToAll(initialData)
-	console.log("MSG", initialData);
-	console.log("Cash", initialData.Cash);
-
 });
 
 
 function setInitialConditionToAll(initialData){
-	console.log('initialData');
-	console.log(initialData);
-	console.log("MSG", initialData);
-	console.log("Cash", initialData.Cash);
+	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
 	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
@@ -315,6 +310,8 @@ function applyLoans(){
     console.log("longTermLoanApply", longTermLoanApply);
     socket.emit('game_page_data', team_id, shortTermLoanApply);
     socket.emit('game_page_data', team_id, longTermLoanApply);
+
+    start_Inbound_Logistics();
 
     
 }
