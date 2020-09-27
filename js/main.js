@@ -8,7 +8,7 @@ var year = 1;
 var initialData;
 
 
-var socket = io('http://localhost:3006/');
+var socket = io('http://54.198.46.240:3006/');
 socket.emit('team', team_id);
 
 const data = {
@@ -24,11 +24,11 @@ socket.on('receive_initialConditionBySocket', function(initialData){
 
 function setInitialConditionToAll(initialData){
 
-	initialOutbound(initialData);
+	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
 	updateNewProduction(initialData);
-	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+	
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
@@ -60,6 +60,8 @@ function setInitialConditionToAll(initialData){
     initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
     initiate_SALES(initialData); // by OM KUMAR YAADAV
     initiate_OUTBOUND_LOGISTICS(initialData); // by OM KUMAR YAADAV
+    initiate_SALES_EXPENSSES(initialData); // by OM KUMAR YAADAV
+    initiate_MARKETING_EXPENSSES(initialData); // by OM KUMAR YAADAV
 
 }
 
@@ -335,7 +337,7 @@ function applyLoans(){
 }
 
 // Action 3 code start here
-
+/*
 function initialOutbound(initialData){
 	console.log("Test", initialData);
 
@@ -360,6 +362,8 @@ function initialOutbound(initialData){
 
 
 }
+
+*/
 
 function updateProduction(){
 	var updateOngoingProduction = {
