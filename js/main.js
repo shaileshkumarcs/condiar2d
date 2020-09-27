@@ -8,7 +8,7 @@ var year = 1;
 var initialData;
 
 
-var socket = io('http://54.198.46.240:3006/');
+var socket = io('http://localhost:3006/');
 socket.emit('team', team_id);
 
 const data = {
@@ -59,6 +59,7 @@ function setInitialConditionToAll(initialData){
     initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
     initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
     initiate_SALES(initialData); // by OM KUMAR YAADAV
+    initiate_OUTBOUND_LOGISTICS(initialData); // by OM KUMAR YAADAV
 
 }
 

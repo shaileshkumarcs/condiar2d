@@ -198,7 +198,7 @@ function Adjust_administration_IT_resources(val){
 
 
 function initiate_SALES(initialConditionData){
-    console.log('initialConditionData', initialConditionData);
+   
     var Sales = initialConditionData.Sales
 
       var Sales = parseInt(initialConditionData.Sales);
@@ -227,7 +227,6 @@ function start_SALES(){
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
 }
 
-
 function Adjust_sales_force(val){
     var data = {
         'workshop_id': workshop_id,
@@ -247,6 +246,17 @@ function Adjust_sales_force(val){
     document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
     });
 }
+
+
+function initiate_OUTBOUND_LOGISTICS(initialConditionData){
+    
+    console.log('initiate_OUTBOUND_LOGISTICS', initialConditionData);
+ 
+   
+   start_SALES();
+
+}
+
 
 
 
