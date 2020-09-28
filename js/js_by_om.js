@@ -139,7 +139,7 @@ function Order_material(){
         document.getElementById("bluew_for_container").style.backgroundColor = '#cfe0f4';
         document.getElementById("blue_updon").style.backgroundColor = '#cfe0f4';
         //Shailesh code start
-        var changecolor = document.getElementById("goods_in_progress");
+        var changecolor = document.getElementById("finished_goods");
         changecolor.classList.add("color_change");
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
         

@@ -355,7 +355,7 @@
                         </div>
                     </div>
                     <!--End 3rd Slot -->
-                    <div class="asm_belt_nsw">
+                    <div class="asm_belt_nsw" id="assembltBeltSlot2">
                         <div class="belt_one">
                             <div class="tre_jc">
                                 <div class="tcs_box">
@@ -403,66 +403,63 @@
                                     <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>
                                     <div class="ten_cds_red_sa">5</div>
                                 </div>
-                                <!-- <h3>Yellow Belt</h3> -->
+                                    <!-- <h3>Yellow Belt</h3> -->
                             </div>
                         </div>
                     </div>
                     <!--Start Slot 1 -->
-                    <div id="assembltBeltSlot1">
-                        <div class="asm_belt_nsw" id="yellow_belt_slot1">
-                            <div class="belt_one">
-                                <div class="tre_jc">
-                                    <div class="tcs_box">
-                                        <img src="images/jcb.svg" alt=""/> 
-                                    </div>
-                                    <div class="tcs_box">
-                                        <img src="images/refresh_cs.svg" alt=""/> 
-                                    </div>
-                                    <div class="tcs_box man-b">
-                                        <img src="images/black_man.svg" alt=""/> 
+                    <div class="asm_belt_nsw" id="assembltBeltSlot1">
+                        <div class="belt_one">
+                            <div class="tre_jc">
+                                <div class="tcs_box">
+                                    <img src="images/jcb.svg" alt=""/> 
+                                </div>
+                                <div class="tcs_box">
+                                    <img src="images/refresh_cs.svg" alt=""/> 
+                                </div>
+                                <div class="tcs_box man-b">
+                                    <img src="images/black_man.svg" alt=""/> 
+                                </div>
+                            </div>
+                            <div class="tre_jc_two">
+                                <div class="ten_cds_red_sa">5</div>
+                                <div class="ten_cds_yellow">1</div>
+                                <div class="ten_cds_yellow">1</div>
+                            </div>
+                        </div>
+                        <div class=" mid_person">
+                            <div class="flex_wrap_center last_art" id="goodsPlaceSlot1">
+                                <div class="chane_box line_down">
+                                    <div class="tabs_box">
+                                        <div class="tab_circle">1</div>
+                                        <div class="tab_circle_yellow">3</div>
                                     </div>
                                 </div>
-                                <div class="tre_jc_two">
+                                <div class="chane_box line_down">
+                                    <div class="tabs_box">
+                                        <div class="tab_circle">1</div>
+                                        <div class="tab_circle_yellow">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="persons_ble_hand" id="workerSlot1">
+                                <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
+                                <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
+                                <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
+                                <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="black_built_drk" id="upgradePointSlot1">
+                            <div onclick="upgradeGreenBeltSlot1()">
+                                <h3>Upgrade</h3>
+                                <div class="jcb_smwr">
+                                    <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>
                                     <div class="ten_cds_red_sa">5</div>
-                                    <div class="ten_cds_yellow">1</div>
-                                    <div class="ten_cds_yellow">1</div>
                                 </div>
-                            </div>
-                            <div class=" mid_person">
-                                <div class="flex_wrap_center last_art" id="goodsPlaceSlot1">
-                                    <div class="chane_box line_down">
-                                        <div class="tabs_box">
-                                            <div class="tab_circle">1</div>
-                                            <div class="tab_circle_yellow">3</div>
-                                        </div>
-                                    </div>
-                                    <div class="chane_box line_down">
-                                        <div class="tabs_box">
-                                            <div class="tab_circle">1</div>
-                                            <div class="tab_circle_yellow">3</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="persons_ble_hand" id="workerSlot1">
-                                    <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
-                                    <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
-                                    <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
-                                    <div class="admi_liblue" onclick="changeColor(this)"><img src="images/white_man.svg" alt=""></div>
-                                </div>
-                            </div>
-                            <div class="black_built_drk" id="upgradePointSlot1">
-                                <div onclick="upgradeGreenBeltSlot1()">
-                                    <h3>Upgrade</h3>
-                                    <div class="jcb_smwr">
-                                        <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>
-                                        <div class="ten_cds_red_sa">5</div>
-                                    </div>
-                                    <h3>Yellow Belt</h3>
-                                </div>
+                                <h3>Yellow Belt</h3>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <!---END ASSEMBLY BELT---->
                 <div class="inboun_white">
@@ -589,11 +586,11 @@
                                 <div class="big_circle_yellow" id="material_inventory">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="updateProduction()" id="goods_in_progress">3</a>Goods in progress inventory</h3>
+                                <h3 class="trade_heading" id=""><a class="" href="javascript:void(0);" onclick="updateNewProduction()" id="goods_in_progress">3</a>Goods in progress inventory</h3>
                                 <div class="big_circle_yellow">12</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><span>4</span>Finished goods inventory</h3>
+                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="updateFinishedGoods()" id="finished_goods">3</a>Finished goods inventory</h3>
                                 <div class="big_circle_yellow">12</div>
                             </div>
                         </div>
@@ -709,7 +706,7 @@
                         </div>
                         <div class="graph_enthall">
                             <div class="light_blue_lefret" id="researchDevelopemtWorker">
-                                <div class="plus_all_gra">
+                                <!-- <div class="plus_all_gra">
                                     <div class="ver_tiw">
                                         <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>
                                         <div class="numbs_small">+1</div>
@@ -728,7 +725,7 @@
                                         <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>
                                         <div class="numbs_small">+1</div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="graph_down">
                                 <div class="man_hole">

@@ -23,14 +23,14 @@ socket.on('receive_initialConditionBySocket', function(initialData){
 
 
 function setInitialConditionToAll(initialData){
-
+    // showAssemblyBeltUpgrade();
 	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
     initialSetupResearchDevelopment(initialData);
 	// updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
-	updateNewProduction(initialData);
+	// updateNewProduction(initialData);
 	
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
@@ -99,9 +99,9 @@ function tradeUpdateToCash(){
     	console.log("Response Data", responseData);
     	setInitialConditionToAll(responseData);
     	//initialOutbound(responseData);
-    	initialAssemblySetup(responseData);
-    	initialWorkerSetup(responseData);
-        initialSetupResearchDevelopment(responseData);
+    	// initialAssemblySetup(responseData);
+    	// initialWorkerSetup(responseData);
+        // initialSetupResearchDevelopment(responseData);
     	// updateNewProduction(responseData);
     	initialData = responseData;
     });
@@ -367,7 +367,7 @@ function initialOutbound(initialData){
 
 */
 
-function updateProduction(){
+function updateFinishedGoods(){
     // console.log("initialData", initialData);
 	var updateOngoingProduction = {
         Update_ongoing_production: initialData.Goods_in_Assembly_in_Units,
@@ -382,20 +382,30 @@ function updateProduction(){
     socket.emit('game_page_data', team_id, updateOngoingProduction);
 
     socket.on('receive_game_page_data', function(responseData){
-    setInitialConditionToAll(responseData);
-    initialData = responseData;
+        setInitialConditionToAll(responseData);
+        initialData = responseData;
 
-    console.log("updateProduction");
-
-    var changecolor = document.getElementById("goods_in_progress");
-    changecolor.classList.remove("color_change");
-        // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
-    document.getElementById("gameConfirmButton").innerHTML = "";
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAssemblyBeltUpgrade()">CONFIRM</div>';
+        var changecolor = document.getElementById("finished_goods");
+        changecolor.classList.remove("color_change");
+            // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAssemblyBeltUpgrade()">CONFIRM</div>';
      
     });
 
 	
+}
+
+function showAssemblyBeltUpgrade(){
+    console.log("TTEST");
+    var changecolor = document.getElementById("upgradePointSlot1");
+    changecolor.classList.add("color_change");
+    var changecolor = document.getElementById("upgradePointSlot2");
+    changecolor.classList.add("color_change");
+    var changecolor = document.getElementById("upgradePointSlot3");
+    changecolor.classList.add("color_change");
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white>ADJUST CAPACITY</div>';
 }
 
 
@@ -580,13 +590,13 @@ function initialAssemblySetup(initialData){
 	                </div>';
             }
 
-            upgradePlaceSlot1 += '<div onclick="upgradeBlackBeltSlot1()">\
+            upgradePlaceSlot1 += '<div onclick="upgradeBlankBeltSlot1()">\
                                     <h3>Upgrade</h3>\
                                     <div class="jcb_smwr">\
                                         <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                         <div class="ten_cds_red_sa">5</div>\
                                     </div>\
-                                    <h3>Green Belt</h3>\
+                                    <h3>Black Belt</h3>\
                                 </div>';
             var removeClass = document.getElementById("goodsPlaceSlot1");   
             removeClass.classList.remove("last_art");
@@ -703,7 +713,7 @@ function initialAssemblySetup(initialData){
 	                </div>';
             }
 
-            upgradePlaceSlot2 += '<div onclick="upgradeGreenBeltSlot1()">\
+            upgradePlaceSlot2 += '<div onclick="upgradeGreenBeltSlot2()">\
                                     <h3>Upgrade</h3>\
                                     <div class="jcb_smwr">\
                                         <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
@@ -762,7 +772,7 @@ function initialAssemblySetup(initialData){
 	                </div>';
             }
 
-            upgradePlaceSlot2 += '<div onclick="upgradeBlackBeltSlot1()">\
+            upgradePlaceSlot2 += '<div onclick="upgradeBlackBeltSlot2()">\
                                     <h3>Upgrade</h3>\
                                     <div class="jcb_smwr">\
                                         <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
@@ -842,13 +852,13 @@ function initialAssemblySetup(initialData){
 	                </div>';
             }
 
-            upgradePlaceSlot2 += '<div onclick="upgradeBlackBeltSlot1()">\
+            upgradePlaceSlot2 += '<div onclick="upgradeBlankBeltSlot2()">\
                                     <h3>Upgrade</h3>\
                                     <div class="jcb_smwr">\
                                         <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                         <div class="ten_cds_red_sa">5</div>\
                                     </div>\
-                                    <h3>Green Belt</h3>\
+                                    <h3>Black Belt</h3>\
                                 </div>';
             var removeClass = document.getElementById("goodsPlaceSlot2");   
             removeClass.classList.remove("last_art");
@@ -966,7 +976,20 @@ function initialAssemblySetup(initialData){
 }
 
 function addYellowBeltSlot1(){
-	var goodsHtml ='<div class="chane_box line_down">\
+    var investUpgradeAssemblyBelt1 = {
+        Assembly_Belt_color: "Yellow",
+        Invest_upgrade_assembly_belt_1: 1,
+        action: "Invest_upgrade_assembly_belt_1",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt1);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle">1</div>\
                                 <div class="tab_circle_yellow">3</div>\
@@ -985,16 +1008,21 @@ function addYellowBeltSlot1(){
                                 <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                 <div class="ten_cds_red_sa">5</div>\
                             </div>\
-                            <h3>Green Belt</h3>\
+                            <h3>Yellow Belt</h3>\
                         </div>';
 
         var removeClass = document.getElementById("goodsPlaceSlot1");               
         removeClass.classList.add("last_art");
         document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
 		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    });
 }
 
 function upgradeGreenBeltSlot1(){
+    console.log("upgradeGreenBeltSlot1");
 	var investUpgradeAssemblyBelt1 = {
         Assembly_Belt_color: "Green",
         Invest_upgrade_assembly_belt_1: 1,
@@ -1009,9 +1037,7 @@ function upgradeGreenBeltSlot1(){
     socket.on('receive_game_page_data', function(responseData){
     	console.log("Response data", responseData);
     	initialAssemblySetup(responseData);
-    });
-
-	console.log("Slot1");
+    
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle">1</div>\
@@ -1043,7 +1069,13 @@ function upgradeGreenBeltSlot1(){
         var removeClass = document.getElementById("goodsPlaceSlot1");               
         removeClass.classList.remove("last_art");
         document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace;                
+		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>'; 
+    });
+
+
             
 	// document.getElementById("assembltBeltSlot1").innerHTML='<div class="asm_belt_nsw">\
  //                        <div class="belt_one">\
@@ -1111,7 +1143,7 @@ function upgradeGreenBeltSlot1(){
 function upgradeBlackBeltSlot1(){
 	var investUpgradeAssemblyBelt1 = {
         Assembly_Belt_color: "Black",
-        Invest_upgrade_assembly_belt_2: 5,
+        Invest_upgrade_assembly_belt_1: 1,
         action: "Invest_upgrade_assembly_belt_1",
         participant_id: participant_id,
         quarter: quarter,
@@ -1119,46 +1151,54 @@ function upgradeBlackBeltSlot1(){
         workshop_id: workshop_id,
         year: year,
     }
+    console.log("upgradeBlackBeltSlot1", investUpgradeAssemblyBelt1);
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt1);
-	var goodsHtml ='<div class="chane_box line_down">\
-                                    <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        initialAssemblySetup(responseData);
+    	var goodsHtml ='<div class="chane_box line_down">\
+                                        <div class="tabs_box">\
+                                            <div class="tab_circle">1</div>\
+                                            <div class="tab_circle_yellow">2</div>\
+                                        </div>\
                                     </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                                    <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                    <div class="chane_box line_down">\
+                                        <div class="tabs_box">\
+                                            <div class="tab_circle">1</div>\
+                                            <div class="tab_circle_yellow">2</div>\
+                                        </div>\
                                     </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                                    <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                    <div class="chane_box line_down">\
+                                        <div class="tabs_box">\
+                                            <div class="tab_circle">1</div>\
+                                            <div class="tab_circle_yellow">2</div>\
+                                        </div>\
                                     </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                                    <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
-                                    </div>\
-                                </div>';
+                                    <div class="chane_box line_down">\
+                                        <div class="tabs_box">\
+                                            <div class="tab_circle">1</div>\
+                                            <div class="tab_circle_yellow">2</div>\
+                                        </div>\
+                                    </div>';
 
-        var upgradePlace = '<div onclick="upgradeBlankBeltSlot1()">\
-                            <h3>Upgrade</h3>\
-                            <div class="jcb_smwr">\
-                                <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
-                                <div class="ten_cds_red_sa">5</div>\
-                            </div>\
-                            <h3>Black Belt</h3>\
-                        </div>';
+            var upgradePlace = '<div onclick="upgradeBlankBeltSlot1()">\
+                                <h3>Upgrade</h3>\
+                                <div class="jcb_smwr">\
+                                    <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
+                                    <div class="ten_cds_red_sa">5</div>\
+                                </div>\
+                                <h3>Black Belt</h3>\
+                            </div>';
 
 
-        var removeClass = document.getElementById("goodsPlaceSlot1");               
-        removeClass.classList.remove("last_art");
-        document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace;  
+            var removeClass = document.getElementById("goodsPlaceSlot1");               
+            removeClass.classList.remove("last_art");
+            document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
+
+            document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    }); 
 	// document.getElementById("assembltBeltSlot1").innerHTML='<div class="asm_belt_nsw">\
  //                        <div class="belt_one">\
  //                            <div class="tre_jc">\
@@ -1226,7 +1266,7 @@ function upgradeBlackBeltSlot1(){
 function upgradeBlankBeltSlot1(){
 	var investUpgradeAssemblyBelt1 = {
         Assembly_Belt_color: "",
-        Invest_upgrade_assembly_belt_2: 5,
+        Invest_upgrade_assembly_belt_1: "",
         action: "Invest_upgrade_assembly_belt_1",
         participant_id: participant_id,
         quarter: quarter,
@@ -1235,7 +1275,10 @@ function upgradeBlankBeltSlot1(){
         year: year,
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt1);
-	var goodsHtml ='<div class="chane_box line_down">\
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        initialAssemblySetup(responseData);
+        var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle"></div>\
                                         <div class="tab_circle_yellow"></div>\
@@ -1248,13 +1291,13 @@ function upgradeBlankBeltSlot1(){
                                     </div>\
                                 </div>';
 
-        var upgradePlace = '<div onclick="upgradeGreenBeltSlot1()">\
+        var upgradePlace = '<div onclick="addYellowBeltSlot1()">\
                             <h3>Upgrade</h3>\
                             <div class="jcb_smwr">\
                                 <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                 <div class="ten_cds_red_sa">5</div>\
                             </div>\
-                            <h3>Black Belt</h3>\
+                            <h3>Blank Belt</h3>\
                         </div>';
 
 
@@ -1262,12 +1305,15 @@ function upgradeBlankBeltSlot1(){
         removeClass.classList.add("last_art");
         document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
 		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
+        document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    });
 }
 
 // Assembly belt slot2
 function addYellowBeltSlot2(){
 	var investUpgradeAssemblyBelt2 = {
-        Assembly_Belt_color: "Green",
+        Assembly_Belt_color: "Yellow",
         Invest_upgrade_assembly_belt_2: 1,
         action: "Invest_upgrade_assembly_belt_2",
         participant_id: participant_id,
@@ -1277,31 +1323,38 @@ function addYellowBeltSlot2(){
         year: year,
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        initialAssemblySetup(responseData);
     
-	var goodsHtmlSlot2 = '<div class="chane_box line_down">\
-					<div class="tabs_box">\
-                                <div class="tab_circle"></div>\
-                                <div class="tab_circle_yellow"></div>\
-                            </div>\
-                        </div>\
-                        <div class="chane_box line_down">\
-        					<div class="tabs_box">\
-                                <div class="tab_circle"></div>\
-                                <div class="tab_circle_yellow"></div>\
-                            </div>\
-                        </div>';
-            
-
-    var upgradePlaceSlot2 = '<div onclick="upgradeGreenBeltSlot2()">\
-                                <h3>Upgrade</h3>\
-                                <div class="jcb_smwr">\
-                                    <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
-                                    <div class="ten_cds_red_sa">5</div>\
+    	var goodsHtmlSlot2 = '<div class="chane_box line_down">\
+    					<div class="tabs_box">\
+                                    <div class="tab_circle"></div>\
+                                    <div class="tab_circle_yellow"></div>\
                                 </div>\
-                                <h3>Yellow Belt</h3>\
+                            </div>\
+                            <div class="chane_box line_down">\
+            					<div class="tabs_box">\
+                                    <div class="tab_circle"></div>\
+                                    <div class="tab_circle_yellow"></div>\
+                                </div>\
                             </div>';
-	document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtmlSlot2;
-	document.getElementById("upgradePointSlot2").innerHTML = upgradePlaceSlot2;
+                
+
+        var upgradePlaceSlot2 = '<div onclick="upgradeGreenBeltSlot2()">\
+                                    <h3>Upgrade</h3>\
+                                    <div class="jcb_smwr">\
+                                        <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
+                                        <div class="ten_cds_red_sa">5</div>\
+                                    </div>\
+                                    <h3>Yellow Belt</h3>\
+                                </div>';
+    	document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtmlSlot2;
+    	document.getElementById("upgradePointSlot2").innerHTML = upgradePlaceSlot2;
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    })
 }
 function upgradeGreenBeltSlot2(){
 	var investUpgradeAssemblyBelt2 = {
@@ -1315,7 +1368,8 @@ function upgradeGreenBeltSlot2(){
         year: year,
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
-
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle">1</div>\
@@ -1347,7 +1401,11 @@ function upgradeGreenBeltSlot2(){
         var removeClass = document.getElementById("goodsPlaceSlot2");               
         removeClass.classList.remove("last_art");
         document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;                
+		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    })                
 }
 
 
@@ -1363,8 +1421,9 @@ function upgradeBlackBeltSlot2(){
         year: year,
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
-
-	var goodsHtml ='<div class="chane_box line_down">\
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
                                         <div class="tab_circle_yellow">2</div>\
@@ -1402,7 +1461,11 @@ function upgradeBlackBeltSlot2(){
         var removeClass = document.getElementById("goodsPlaceSlot2");               
         removeClass.classList.remove("last_art");
         document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;  
+		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+    });  
 }
 
 function upgradeBlankBeltSlot2(){
@@ -1417,7 +1480,9 @@ function upgradeBlankBeltSlot2(){
         year: year,
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
-	var goodsHtml ='<div class="chane_box line_down">\
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response data", responseData);
+        var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle"></div>\
                                         <div class="tab_circle_yellow"></div>\
@@ -1430,20 +1495,24 @@ function upgradeBlankBeltSlot2(){
                                     </div>\
                                 </div>';
 
-        var upgradePlace = '<div onclick="upgradeGreenBeltSlot2()">\
+        var upgradePlace = '<div onclick="addYellowBeltSlot2()">\
                             <h3>Upgrade</h3>\
                             <div class="jcb_smwr">\
                                 <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                 <div class="ten_cds_red_sa">5</div>\
                             </div>\
-                            <h3>Black Belt</h3>\
+                            <h3>Blank Belt</h3>\
                         </div>';
 
 
         var removeClass = document.getElementById("goodsPlaceSlot2");               
         removeClass.classList.add("last_art");
         document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace; 
+		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>'; 
+    })
 }
 
 // Assembly belt slot3
@@ -1723,6 +1792,18 @@ function initialWorkerSetup(initialData){
 
 }
 
+function showAdjustWorker(){
+    console.log("showAdjustWorker");
+    var removeAddClass = document.getElementById("assembltBeltSlot1");               
+    removeAddClass.classList.add("color_change");
+
+    var removeAddClass = document.getElementById("assembltBeltSlot2");               
+    removeAddClass.classList.add("color_change");
+
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST WORKERS</div>'; 
+}
+
 function changeColor(e){
 	console.log("Change Color");
 	var belt_number = $(e).attr('belt_number');
@@ -1752,7 +1833,10 @@ function changeColor(e){
 		socket.emit('game_page_data', team_id, updateWorker1);
 		socket.on('receive_game_page_data', function(responseData){
 	    	// console.log("Response Data", responseData);
-	    	initialWorkerSetup(responseData);
+	    	// initialWorkerSetup(responseData);
+            setInitialConditionToAll(responseData);
+            document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
 	    });
 	}
 
@@ -1770,8 +1854,11 @@ function changeColor(e){
 		socket.emit('game_page_data', team_id, updateWorker2);
 		socket.on('receive_game_page_data', function(responseData){
 	    	// console.log("Response Data", responseData);
-	    	initialWorkerSetup(responseData);
-	    });
+	    	// initialWorkerSetup(responseData);
+            setInitialConditionToAll(responseData);
+            document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
+    });
 	}
 
 	if(parseInt(belt_number) == 3){
@@ -1788,20 +1875,84 @@ function changeColor(e){
 		socket.emit('game_page_data', team_id, updateWorker3);
 		socket.on('receive_game_page_data', function(responseData){
 	    	// console.log("Response Data", responseData);
-	    	initialWorkerSetup(responseData);
+	    	// initialWorkerSetup(responseData);
+            setInitialConditionToAll(responseData);
+            document.getElementById("gameConfirmButton").innerHTML = "";
+            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
 	    });
 	}
+
+
 	
 }
 
 
-function showAssemblyBeltUpgrade(){
+function startAssembly(){
+    console.log("startAssembly");
+    var removeAddClass = document.getElementById("assembltBeltSlot1");               
+    removeAddClass.classList.remove("color_change");
 
+    var removeAddClass = document.getElementById("assembltBeltSlot2");               
+    removeAddClass.classList.remove("color_change");
 
+    var removeAddClass = document.getElementById("goods_in_progress");               
+    removeAddClass.classList.add("color_change");
+
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">START ASSEMBLY</div>'; 
 }
 
-function updateNewProduction(initialData){
-	// console.log("updateNewProduction", initialData);
+function updateNewProduction(){
+	console.log("updateNewProduction", initialData);
+    var totalCapacity = 0;
+    if(initialData.Assembly_Belt_1_color == "Yellow"){
+        totalCapacity = totalCapacity + 2;
+
+        // var goodsHtml ='<div class="chane_box line_down">\
+        //                     <div class="tabs_box">\
+        //                         <div class="tab_circle">1</div>\
+        //                         <div class="tab_circle_yellow">2</div>\
+        //                     </div>\
+        //                 </div>';
+
+        // var goodsHtml ='<div class="chane_box line_down">\
+        //                     <div class="tabs_box">\
+        //                         <div class="tab_circle">1</div>\
+        //                         <div class="tab_circle_yellow">2</div>\
+        //                     </div>\
+        //                 </div>';
+
+        // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
+
+    if(initialData.Assembly_Belt_1_color == "Green"){
+        totalCapacity = totalCapacity + 3;
+       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
+
+    if(initialData.Assembly_Belt_1_color == "Black"){
+        totalCapacity = totalCapacity + 4;
+       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
+
+    if(initialData.Assembly_Belt_2_color == "Yellow"){
+        totalCapacity = totalCapacity + 2;
+       // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
+
+    if(initialData.Assembly_Belt_2_color == "Green"){
+        totalCapacity = totalCapacity + 3;
+      //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
+
+    if(initialData.Assembly_Belt_2_color == "Black"){
+        totalCapacity = totalCapacity + 4;
+        // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
+
+    console.log("Total capacity", totalCapacity);
+
+
 	// var goodsHtmlBelt1 = '';
 	// var goodsHtmlBelt2 = '';
 	// var goodsHtmlBelt3 = '';
@@ -1832,14 +1983,112 @@ function updateNewProduction(initialData){
 }
 
 
-// Code for Action 6
+// Code for Action 5
 function initialSetupResearchDevelopment(initialData){
     console.log("initialSetupResearchDevelopment", initialData);
 
     var removeClass = document.getElementById("researchDevelopemtWorker");               
     removeClass.classList.add("color_change");
+    // light_blue
+    var rd_quantity = parseInt(initialData.R_D_Quality_Development);
+    var researchDevelopmet = '';
+
+    if(rd_quantity > 0){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+    }
+    else{
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+    }
+
+    if(rd_quantity > 1){
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div>';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div></div><div class="plus_all_gra">';
+    }
+
+    if(rd_quantity > 2){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div>';
+    }
+
+    if(rd_quantity > 3){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div></div><div class="plus_all_gra">';
+    }
+    
+    document.getElementById("researchDevelopemtWorker").innerHTML = researchDevelopmet;
+
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 }
 
-function changeRDColor(){
+function changeRDColor(e){
     console.log("changeRDColor");
+
+    var add_worker = 0;
+    if($(e).hasClass('light_blue')){
+        console.log(true);
+        $(e).removeClass("light_blue");
+        add_worker = 1;
+    }
+    else{
+        console.log(false);
+        $(e).addClass("light_blue");
+        add_worker = -1;
+    }
+
+    var changeColor = {
+        Adjust_sales_force: add_worker,
+        action: "Adjust_sales_force",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, changeColor);
+    socket.on('receive_game_page_data', function(responseData){
+        // console.log("Response Data", responseData);
+        // initialWorkerSetup(responseData);
+        setInitialConditionToAll(responseData);
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="">CONFIRM</div>'; 
+    });
 }
