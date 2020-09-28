@@ -27,7 +27,8 @@ function setInitialConditionToAll(initialData){
 	initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
-	updateNewProduction(initialData);
+    initialSetupResearchDevelopment(initialData);
+	// updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
@@ -56,9 +57,9 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
 	// document.getElementById("").innerHTML = initialData.
 
-    initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
-    initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
-    initiate_SALES(initialData); // by OM KUMAR YAADAV
+    // initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+    // initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
+    // initiate_SALES(initialData); // by OM KUMAR YAADAV
 
 }
 
@@ -95,7 +96,8 @@ function tradeUpdateToCash(){
     	initialOutbound(responseData);
     	initialAssemblySetup(responseData);
     	initialWorkerSetup(responseData);
-    	updateNewProduction(responseData);
+        initialSetupResearchDevelopment(responseData);
+    	// updateNewProduction(responseData);
     	initialData = responseData;
     });
 
@@ -103,7 +105,6 @@ function tradeUpdateToCash(){
 	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayInterest()">CONFIRM</div>';
 	var trade_receivable = document.getElementById("trade_receivable");
 	trade_receivable.classList.remove("color_change");
-	// Order_material();
 }
 
 
@@ -361,8 +362,9 @@ function initialOutbound(initialData){
 }
 
 function updateProduction(){
+    // console.log("initialData", initialData);
 	var updateOngoingProduction = {
-        Update_ongoing_production: 4,
+        Update_ongoing_production: initialData.Goods_in_Assembly_in_Units,
         action: "Update_ongoing_production",
         participant_id: participant_id,
         quarter: quarter,
@@ -373,6 +375,12 @@ function updateProduction(){
     };
     socket.emit('game_page_data', team_id, updateOngoingProduction);
 	console.log("updateProduction");
+
+    var changecolor = document.getElementById("goods_in_progress");
+    changecolor.classList.remove("color_change");
+        // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAssemblyBeltUpgrade()">CONFIRM</div>';
 }
 
 
@@ -1771,26 +1779,32 @@ function changeColor(e){
 	
 }
 
+
+function showAssemblyBeltUpgrade(){
+
+
+}
+
 function updateNewProduction(initialData){
-	console.log("updateNewProduction", initialData);
-	var goodsHtmlBelt1 = '';
-	var goodsHtmlBelt2 = '';
-	var goodsHtmlBelt3 = '';
+	// console.log("updateNewProduction", initialData);
+	// var goodsHtmlBelt1 = '';
+	// var goodsHtmlBelt2 = '';
+	// var goodsHtmlBelt3 = '';
 
-	console.log("initialData", initialData.Assembly_Belt_1);
-	console.log("initialData", initialData.Assembly_Belt_1_color);
-	console.log("initialData", initialData.Assembly_Belt_2);
-	console.log("initialData", initialData.Assembly_Belt_2_color);
-	console.log("initialData", initialData.Assembly_Belt_3);
-	console.log("initialData", initialData.Assembly_Belt_3_color);
+	// console.log("initialData", initialData.Assembly_Belt_1);
+	// console.log("initialData", initialData.Assembly_Belt_1_color);
+	// console.log("initialData", initialData.Assembly_Belt_2);
+	// console.log("initialData", initialData.Assembly_Belt_2_color);
+	// console.log("initialData", initialData.Assembly_Belt_3);
+	// console.log("initialData", initialData.Assembly_Belt_3_color);
 
-	var Assembly_Belt_1 = 1;//initialData.Assembly_Belt_1;
-	var Assembly_Belt_2 = 1;//initialData.Assembly_Belt_2;
-	var Assembly_Belt_3 = 0;//initialData.Assembly_Belt_3;
+	// var Assembly_Belt_1 = 1;//initialData.Assembly_Belt_1;
+	// var Assembly_Belt_2 = 1;//initialData.Assembly_Belt_2;
+	// var Assembly_Belt_3 = 0;//initialData.Assembly_Belt_3;
 	
-	var Assembly_Belt_1_color = "Green";//initialData.Assembly_Belt_1_color;
-	var Assembly_Belt_2_color = "Yellow";//initialData.Assembly_Belt_2_color;
-	var Assembly_Belt_3_color = initialData.Assembly_Belt_3_color;
+	// var Assembly_Belt_1_color = "Green";//initialData.Assembly_Belt_1_color;
+	// var Assembly_Belt_2_color = "Yellow";//initialData.Assembly_Belt_2_color;
+	// var Assembly_Belt_3_color = initialData.Assembly_Belt_3_color;
 
 
 	// var goodsHtml ='<div class="chane_box line_down">\
@@ -1800,4 +1814,17 @@ function updateNewProduction(initialData){
 	//                     </div>\
 	//                 </div>';
 
+}
+
+
+// Code for Action 6
+function initialSetupResearchDevelopment(initialData){
+    console.log("initialSetupResearchDevelopment", initialData);
+
+    var removeClass = document.getElementById("researchDevelopemtWorker");               
+    removeClass.classList.add("color_change");
+}
+
+function changeRDColor(){
+    console.log("changeRDColor");
 }

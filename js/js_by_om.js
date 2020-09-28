@@ -115,6 +115,7 @@ function increaseinbound(){
 
 
 function Order_material(){
+    console.log("Order Materials Function called");
     var val = parseInt(document.getElementById("inboundprod").innerHTML); 
 
     var data = {
