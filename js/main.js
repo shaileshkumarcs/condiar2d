@@ -9,6 +9,7 @@ var initialData;
 
 
 var socket = io('http://54.198.46.240:3006/');
+// var socket = io('http://localhost:3006');
 socket.emit('team', team_id);
 
 const data = {
@@ -65,6 +66,9 @@ function setInitialConditionToAll(initialData){
     initiate_OUTBOUND_LOGISTICS(initialData); // by OM KUMAR YAADAV
     initiate_SALES_EXPENSSES(initialData); // by OM KUMAR YAADAV
     initiate_MARKETING_EXPENSSES(initialData); // by OM KUMAR YAADAV
+    initiate_Administration_Information_services_expenses(initialData); // by OM KUMAR YAADAV
+    initiate_R_AND_D_expenses(initialData); // by OM KUMAR YAADAV
+
 
 }
 
@@ -73,7 +77,7 @@ function setInitialConditionToAll(initialData){
 * Game start function 
 **/
 function startGame(){
-	console.log("startGame");
+	////console.log("startGame");
 	var trade_receivable = document.getElementById("trade_receivable");
 	trade_receivable.classList.add("color_change");
 	// trade_receivable.style.pointerEvents = "";
@@ -83,7 +87,7 @@ function startGame(){
 }
 
 function tradeUpdateToCash(){
-	console.log("tradeUpdateToCash");
+	////console.log("tradeUpdateToCash");
 	var data = {
         'quarter': quarter, 
         'team_id': team_id, 
@@ -96,7 +100,7 @@ function tradeUpdateToCash(){
     socket.emit('game_page_data', team_id, data);
 
     socket.on('receive_game_page_data', function(responseData){
-    	console.log("Response Data", responseData);
+    	////console.log("Response Data", responseData);
     	setInitialConditionToAll(responseData);
     	//initialOutbound(responseData);
     	// initialAssemblySetup(responseData);
@@ -122,7 +126,7 @@ function showPayInterest(){
 }	
 
 function payInterest(){
-	console.log("TTTT");
+	////console.log("TTTT");
 
 	var trade_receivable = document.getElementById("payInterest");
 	trade_receivable.classList.remove("color_change");
@@ -167,7 +171,7 @@ function showLoansUpdate(){
 }
 
 function updateLoan(Short_term_liabilities){
-	console.log("Update loan",initialData);
+	////console.log("Update loan",initialData);
 	var data = {
         Short_term_liabilities: initialData.Short_term_liabilities,
         action: "Update_short_term_loans",
@@ -187,7 +191,7 @@ function updateLoan(Short_term_liabilities){
 }
 
 function showTakoutLoan(){
-	console.log("showTakoutLoan");
+	////console.log("showTakoutLoan");
 
     var short_term_financial = document.getElementById("short_term_financial");
     var share_capital_financial = document.getElementById("share_capital_financial");
@@ -207,7 +211,7 @@ function increaseShortTermLoan(){
     var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
     if(shortTermLoanValue < 40){
         shortTermLoanValue = parseInt(shortTermLoanValue) + 10;
-        console.log("yyyyy", shortTermLoanValue);
+        ////console.log("yyyyy", shortTermLoanValue);
         document.getElementById("shortTermLoanValue").value = shortTermLoanValue;
         document.getElementById("showShortTermLoan").innerHTML = shortTermLoanValue;
     }
@@ -215,10 +219,10 @@ function increaseShortTermLoan(){
 function decreaseShortTermLoan(){
 
     var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
-    console.log(shortTermLoanValue);
+    ////console.log(shortTermLoanValue);
     document.getElementById("shortTermLoanValue").value = shortTermLoanValue;
 
-    console.log("nnn", shortTermLoanValue);
+    ////console.log("nnn", shortTermLoanValue);
     if (shortTermLoanValue > 0) {
         shortTermLoanValue = parseInt(shortTermLoanValue) -10;
         document.getElementById("shortTermLoanValue").value = shortTermLoanValue;
@@ -233,7 +237,7 @@ function increaseLongTermLoan(){
     var longTermLoanValue = document.getElementById("longTermLoanValue").value;
     if(longTermLoanValue < 60){
         longTermLoanValue = parseInt(longTermLoanValue) + 20;
-        console.log("yyyyy", longTermLoanValue);
+        ////console.log("yyyyy", longTermLoanValue);
         document.getElementById("longTermLoanValue").value = longTermLoanValue;
         document.getElementById("showLongTermLoan").innerHTML = longTermLoanValue;
     }
@@ -242,10 +246,10 @@ function increaseLongTermLoan(){
 function decreaseLongTermLoan(){
 
     var longTermLoanValue = document.getElementById("longTermLoanValue").value;
-    console.log(longTermLoanValue);
+    ////console.log(longTermLoanValue);
     document.getElementById("longTermLoanValue").value = longTermLoanValue;
 
-    console.log("nnn", longTermLoanValue);
+    ////console.log("nnn", longTermLoanValue);
     if (longTermLoanValue > 0) {
         longTermLoanValue = parseInt(longTermLoanValue) -20;
         document.getElementById("longTermLoanValue").value = longTermLoanValue;
@@ -260,7 +264,7 @@ function increaseShareCapital(){
     var shareCapitalValue = document.getElementById("shareCapitalValue").value;
     if(shareCapitalValue < 60){
         shareCapitalValue = parseInt(shareCapitalValue) + 20;
-        console.log("yyyyy", shareCapitalValue);
+        ////console.log("yyyyy", shareCapitalValue);
         document.getElementById("shareCapitalValue").value = shareCapitalValue;
         document.getElementById("showShareCapitalValue").innerHTML = shareCapitalValue;
     }
@@ -269,10 +273,10 @@ function increaseShareCapital(){
 function decreaseShareCapital(){
 
     var shareCapitalValue = document.getElementById("shareCapitalValue").value;
-    console.log(shareCapitalValue);
+    //console.log(shareCapitalValue);
     document.getElementById("shareCapitalValue").value = shareCapitalValue;
 
-    console.log("nnn", shareCapitalValue);
+    //console.log("nnn", shareCapitalValue);
     if (shareCapitalValue > 0) {
         shareCapitalValue = parseInt(shareCapitalValue) -20;
         document.getElementById("shareCapitalValue").value = shareCapitalValue;
@@ -283,7 +287,7 @@ function decreaseShareCapital(){
 
 
 function showApplyLoan(){
-	console.log("showApplyLoan");
+	//console.log("showApplyLoan");
 
 	document.getElementById("gameConfirmButton").innerHTML = "";
 	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="applyLoans()">APPLY</div>';
@@ -296,9 +300,9 @@ function applyLoans(){
 	// var shareCapitalValue = document.getElementById("shareCapitalValue").value;
 	var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
 
-	console.log("longTermLoanValue", longTermLoanValue);
-	console.log("shareCapitalValue", shareCapitalValue);
-	console.log("shortTermLoanValue", shortTermLoanValue);
+	//console.log("longTermLoanValue", longTermLoanValue);
+	//console.log("shareCapitalValue", shareCapitalValue);
+	//console.log("shortTermLoanValue", shortTermLoanValue);
 
 
 	var short_term_financial = document.getElementById("short_term_financial");
@@ -328,8 +332,8 @@ function applyLoans(){
         year: year,
     }
 
-    console.log("shortTermLoanApply", shortTermLoanApply);
-    console.log("longTermLoanApply", longTermLoanApply);
+    //console.log("shortTermLoanApply", shortTermLoanApply);
+    //console.log("longTermLoanApply", longTermLoanApply);
     socket.emit('game_page_data', team_id, shortTermLoanApply);
     socket.emit('game_page_data', team_id, longTermLoanApply);
 
@@ -341,7 +345,7 @@ function applyLoans(){
 // Action 3 code start here
 /*
 function initialOutbound(initialData){
-	console.log("Test", initialData);
+	//console.log("Test", initialData);
 
 	var finished_goods = parseInt(initialData.Finished_Goods_Store_in_Units);
 	var finished_goods_mu = parseInt(initialData.Finished_goods_store);
@@ -367,6 +371,7 @@ function initialOutbound(initialData){
 
 */
 
+
 function updateFinishedGoods(){
     // console.log("initialData", initialData);
 	var updateOngoingProduction = {
@@ -382,6 +387,7 @@ function updateFinishedGoods(){
     socket.emit('game_page_data', team_id, updateOngoingProduction);
 
     socket.on('receive_game_page_data', function(responseData){
+
         setInitialConditionToAll(responseData);
         initialData = responseData;
 
@@ -411,7 +417,7 @@ function showAssemblyBeltUpgrade(){
 
 function initialAssemblySetup(initialData){
 
-	console.log("initialAssemblySetup", initialData);
+	//console.log("initialAssemblySetup", initialData);
 
 	// Assembly Belt Slot 1 start
 	var goodsHtmlSlot1 = '';
@@ -1035,9 +1041,9 @@ function upgradeGreenBeltSlot1(){
     }
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt1);
     socket.on('receive_game_page_data', function(responseData){
-    	console.log("Response data", responseData);
+    	//console.log("Response data", responseData);
     	initialAssemblySetup(responseData);
-    
+
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle">1</div>\
@@ -1601,7 +1607,7 @@ function upgradeGreenBeltSlot3(){
 
 
 function upgradeBlackBeltSlot3(){
-	// console.log("initialData", initialData);
+	// //console.log("initialData", initialData);
 	var investUpgradeAssemblyBelt3 = {
         Assembly_Belt_color: "Black",
         Invest_upgrade_assembly_belt_2: 1,
@@ -1655,7 +1661,7 @@ function upgradeBlackBeltSlot3(){
 }
 
 function upgradeBlankBeltSlot3(){
-	// console.log("initialData", initialData);
+	// //console.log("initialData", initialData);
 	var investUpgradeAssemblyBelt3 = {
         Assembly_Belt_color: "",
         Invest_upgrade_assembly_belt_2: 1,
@@ -1697,9 +1703,9 @@ function upgradeBlankBeltSlot3(){
 }
 
 function initialWorkerSetup(initialData){
-	console.log("initialWorkerSetup", initialData.Workers_Assembly_1);
-	console.log("initialWorkerSetup", initialData.Workers_Assembly_2);
-	console.log("initialWorkerSetup", initialData.Workers_Assembly_3);
+	//console.log("initialWorkerSetup", initialData.Workers_Assembly_1);
+	//console.log("initialWorkerSetup", initialData.Workers_Assembly_2);
+	//console.log("initialWorkerSetup", initialData.Workers_Assembly_3);
 
 	var workerHtml1 = '';
 	var workerHtml2 = '';
@@ -1805,16 +1811,16 @@ function showAdjustWorker(){
 }
 
 function changeColor(e){
-	console.log("Change Color");
+	//console.log("Change Color");
 	var belt_number = $(e).attr('belt_number');
 	var add_worker = 0;
 	if($(e).hasClass('deactive_color')){
-		console.log(true);
+		//console.log(true);
 		$(e).removeClass("deactive_color");
 		add_worker = 1;
 	}
 	else{
-		console.log(false);
+		//console.log(false);
 		$(e).addClass("deactive_color");
 		add_worker = -1;
 	}
@@ -1829,16 +1835,19 @@ function changeColor(e){
 			workshop_id: workshop_id,
 			year: year,
 		}
-		// console.log("updateWorker1", updateWorker1);
+		// //console.log("updateWorker1", updateWorker1);
 		socket.emit('game_page_data', team_id, updateWorker1);
 		socket.on('receive_game_page_data', function(responseData){
-	    	// console.log("Response Data", responseData);
-	    	// initialWorkerSetup(responseData);
-            setInitialConditionToAll(responseData);
-            document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
-	    });
-	}
+
+    	    	// console.log("Response Data", responseData);
+    	    	// initialWorkerSetup(responseData);
+                setInitialConditionToAll(responseData);
+                document.getElementById("gameConfirmButton").innerHTML = "";
+                document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
+
+    	    	
+    	})
+    }
 
 	if(parseInt(belt_number) == 2){
 		var updateWorker2 = {
@@ -1850,15 +1859,17 @@ function changeColor(e){
 			workshop_id: workshop_id,
 			year: year,
 		}
-		// console.log("updateWorker2", updateWorker2);
+		// //console.log("updateWorker2", updateWorker2);
 		socket.emit('game_page_data', team_id, updateWorker2);
 		socket.on('receive_game_page_data', function(responseData){
+
 	    	// console.log("Response Data", responseData);
 	    	// initialWorkerSetup(responseData);
             setInitialConditionToAll(responseData);
             document.getElementById("gameConfirmButton").innerHTML = "";
             document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startAssembly()">CONFIRM</div>'; 
     });
+
 	}
 
 	if(parseInt(belt_number) == 3){
@@ -1871,9 +1882,10 @@ function changeColor(e){
 			workshop_id: workshop_id,
 			year: year,
 		}
-		// console.log("updateWorker3", updateWorker3);
+		// //console.log("updateWorker3", updateWorker3);
 		socket.emit('game_page_data', team_id, updateWorker3);
 		socket.on('receive_game_page_data', function(responseData){
+
 	    	// console.log("Response Data", responseData);
 	    	// initialWorkerSetup(responseData);
             setInitialConditionToAll(responseData);
@@ -1901,6 +1913,7 @@ function startAssembly(){
     document.getElementById("gameConfirmButton").innerHTML = "";
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">START ASSEMBLY</div>'; 
 }
+
 
 function updateNewProduction(){
 	console.log("updateNewProduction", initialData);
@@ -1957,12 +1970,12 @@ function updateNewProduction(){
 	// var goodsHtmlBelt2 = '';
 	// var goodsHtmlBelt3 = '';
 
-	// console.log("initialData", initialData.Assembly_Belt_1);
-	// console.log("initialData", initialData.Assembly_Belt_1_color);
-	// console.log("initialData", initialData.Assembly_Belt_2);
-	// console.log("initialData", initialData.Assembly_Belt_2_color);
-	// console.log("initialData", initialData.Assembly_Belt_3);
-	// console.log("initialData", initialData.Assembly_Belt_3_color);
+	// //console.log("initialData", initialData.Assembly_Belt_1);
+	// //console.log("initialData", initialData.Assembly_Belt_1_color);
+	// //console.log("initialData", initialData.Assembly_Belt_2);
+	// //console.log("initialData", initialData.Assembly_Belt_2_color);
+	// //console.log("initialData", initialData.Assembly_Belt_3);
+	// //console.log("initialData", initialData.Assembly_Belt_3_color);
 
 	// var Assembly_Belt_1 = 1;//initialData.Assembly_Belt_1;
 	// var Assembly_Belt_2 = 1;//initialData.Assembly_Belt_2;
@@ -1985,7 +1998,7 @@ function updateNewProduction(){
 
 // Code for Action 5
 function initialSetupResearchDevelopment(initialData){
-    console.log("initialSetupResearchDevelopment", initialData);
+    //console.log("initialSetupResearchDevelopment", initialData);
 
     var removeClass = document.getElementById("researchDevelopemtWorker");               
     removeClass.classList.add("color_change");
@@ -2057,6 +2070,7 @@ function initialSetupResearchDevelopment(initialData){
     document.getElementById("gameConfirmButton").innerHTML = "";
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 }
+
 
 function changeRDColor(e){
     console.log("changeRDColor");
