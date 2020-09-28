@@ -24,12 +24,14 @@ socket.on('receive_initialConditionBySocket', function(initialData){
 
 function setInitialConditionToAll(initialData){
 
-	initialOutbound(initialData);
+	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
     initialSetupResearchDevelopment(initialData);
 	// updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+	updateNewProduction(initialData);
+	
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
@@ -57,9 +59,12 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
 	// document.getElementById("").innerHTML = initialData.
 
-    // initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
-    // initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
-    // initiate_SALES(initialData); // by OM KUMAR YAADAV
+    initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
+    initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
+    initiate_SALES(initialData); // by OM KUMAR YAADAV
+    initiate_OUTBOUND_LOGISTICS(initialData); // by OM KUMAR YAADAV
+    initiate_SALES_EXPENSSES(initialData); // by OM KUMAR YAADAV
+    initiate_MARKETING_EXPENSSES(initialData); // by OM KUMAR YAADAV
 
 }
 
@@ -335,7 +340,7 @@ function applyLoans(){
 }
 
 // Action 3 code start here
-
+/*
 function initialOutbound(initialData){
 	console.log("Test", initialData);
 
@@ -360,6 +365,8 @@ function initialOutbound(initialData){
 
 
 }
+
+*/
 
 function updateProduction(){
     // console.log("initialData", initialData);

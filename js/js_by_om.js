@@ -199,7 +199,7 @@ function Adjust_administration_IT_resources(val){
 
 
 function initiate_SALES(initialConditionData){
-    console.log('initialConditionData', initialConditionData);
+   
     var Sales = initialConditionData.Sales
 
       var Sales = parseInt(initialConditionData.Sales);
@@ -228,7 +228,6 @@ function start_SALES(){
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
 }
 
-
 function Adjust_sales_force(val){
     var data = {
         'workshop_id': workshop_id,
@@ -248,6 +247,66 @@ function Adjust_sales_force(val){
     document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
     });
 }
+
+
+function initiate_OUTBOUND_LOGISTICS(initialConditionData){
+  
+
+    var OUTBOUND_LOGISTICS = parseInt(initialConditionData.Finished_Goods_Store_in_Units);
+    var bal = 3; 
+    var html = '<div class="tabs_wrapp">';
+    for(var i=1; i<OUTBOUND_LOGISTICS+1; i++){
+        html = html + '<div class="tabs_box"> <div class="tab_circle">1</div> <div class="tab_circle_yellow">'+bal+'</div> </div>';
+        if(i%4 == 0 && i!=0){
+            
+         html = html + '</div><div class="tabs_wrapp">';
+        }
+
+        if(initialConditionData.action_type == 'Receive_ordered_material'){
+         bal = 0;
+        }
+    }
+    html = html + '</div>';
+   document.getElementById("outbound_container").innerHTML = html;
+   // document.getElementById("Ordered_Materials").innerHTML = initialConditionData.Ordered_Materials;
+    start_OUTBOUND_LOGISTICS();
+
+}
+
+function start_OUTBOUND_LOGISTICS(){
+    document.getElementById("OUTBOUND_LOGISTICS_heading").style.backgroundColor = '#f39b4a';
+    document.getElementById("bluew_for_container_out").style.backgroundColor = '#f39b4a';
+    document.getElementById("blue_updon_out").style.backgroundColor = '#f39b4a';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Receive_ordered_material()" id="startGame">RECIEVED ORDER METERIAL</div>';
+}
+
+
+
+function initiate_SALES_EXPENSSES(initialConditionData){
+    console.log('initialConditionData', initialConditionData);
+    document.getElementById("Sales_expenses").innerHTML = initialConditionData.Sales_expenses;
+    start_SALES_EXPENSSES();
+}
+
+function start_SALES_EXPENSSES(){
+    document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#f39b4a';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Sales Expenses</div>';
+}
+
+
+function initiate_MARKETING_EXPENSSES(initialConditionData){
+    console.log('initialConditionData', initialConditionData);
+    document.getElementById("Marketing_expenses").innerHTML = initialConditionData.Marketing_expenses;
+    start_MARKETING_EXPENSSES();
+}
+
+function start_MARKETING_EXPENSSES(){
+    document.getElementById("Marketing_expenses_HEADING").style.backgroundColor = '#f39b4a';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Marketing Expenses</div>';
+}
+
+
+
 
 
 
