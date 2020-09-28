@@ -27,7 +27,7 @@ function setInitialConditionToAll(initialData){
 	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
-    initialSetupResearchDevelopment(initialData);
+    // initialSetupResearchDevelopment(initialData);
 	// updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 	// updateNewProduction(initialData);
