@@ -383,10 +383,39 @@ function initiate_Administration_Information_services_expenses(initialConditionD
 
 function start_Administration_Information_services_expenses(initialConditionData){
     var dataInit = JSON.stringify(initialConditionData);
-    document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Marketing_expenses_HEADING' onclick='call_Administration_Information_services_expenses("+dataInit+")'>9</span>Marketing expenses";
+    document.getElementById("Administration_Information_services_expenses_p").innerHTML = "<span id='Administration_Information_services_expenses_HEADING' onclick='call_Administration_Information_services_expenses("+dataInit+")'>9</span>Administration & Information<br> services expenses";
 
    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Administration Information Expenses</div>';
-    document.getElementById("Marketing_expenses_HEADING").style.backgroundColor = '#f39b4a';
+    document.getElementById("Administration_Information_services_expenses_HEADING").style.backgroundColor = '#f39b4a';
+
+}
+
+function call_Administration_Information_services_expenses(data){
+       //console.log(data);
+    var Administration_Information_services_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+
+    var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+         
+        'action': 'Administration_Information_services_expenses', 
+        'Administration_Information_services_expenses':Administration_Information_services_expenses,
+    }
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+     document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Administration_Information_services_expenses_HEADING'>9</span>Administration & Information<br> services expenses";
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">R & D expenses </div>';
+    document.getElementById("Administration_Information_services_expenses_HEADING").style.backgroundColor = '#0d65a8';
+    start_initiate_R_AND_D_expenses(responseData);
+
+    });
+
 
 }
 
@@ -398,6 +427,7 @@ function initiate_R_AND_D_expenses(initialConditionData){
 
 
 function start_initiate_R_AND_D_expenses(data){
+    alert('...hii.....');
 
 }
 
