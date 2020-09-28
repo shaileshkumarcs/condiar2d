@@ -115,7 +115,7 @@ function increaseinbound(){
 
 
 function Order_material(){
-    console.log("Order Materials Function called");
+    //console.log("Order Materials Function called");
     var val = parseInt(document.getElementById("inboundprod").innerHTML); 
 
     var data = {
@@ -133,7 +133,7 @@ function Order_material(){
 
         socket.emit('game_page_data', team_id, data);
         socket.on('receive_game_page_data', function(responseData){
-        console.log("Response Data", responseData);
+        //console.log("Response Data", responseData);
         setInitialConditionToAll(responseData);
         initialData = responseData;
         document.getElementById("bluew_for_container").style.backgroundColor = '#cfe0f4';
@@ -283,27 +283,125 @@ function start_OUTBOUND_LOGISTICS(){
 
 
 function initiate_SALES_EXPENSSES(initialConditionData){
-    console.log('initialConditionData', initialConditionData);
+    //console.log('initialConditionData', initialConditionData);
     document.getElementById("Sales_expenses").innerHTML = initialConditionData.Sales_expenses;
-   // start_SALES_EXPENSSES();
+    //start_SALES_EXPENSSES(initialConditionData);
 }
 
-function start_SALES_EXPENSSES(){
-    document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#f39b4a';
+function start_SALES_EXPENSSES(initialConditionData){
+   
+    var dataInit = JSON.stringify(initialConditionData);
+    document.getElementById("Sales_expenses_HEADING_p").innerHTML = "<span id='Sales_expenses_HEADING' onclick='call_SALES_EXPENSSES("+dataInit+")'>9</span>Sales expenses";
+
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Sales Expenses</div>';
+     document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#f39b4a';
 }
 
+
+
+function call_SALES_EXPENSSES(data){
+    //console.log(data);
+
+    var Sales_expenses = 0+ ((parseInt(data.Sales) + parseInt(data.Inbound_Logistics))*parseInt(data.Salaries)) + (parseInt(data.Sales))*(parseInt(data.Sales_T_L_costs));
+
+
+        var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+         
+        'action': 'Sales_expenses', 
+        'Sales_expenses':Sales_expenses,
+    }
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+     document.getElementById("Sales_expenses_HEADING_p").innerHTML = "<span id='Sales_expenses_HEADING'>9</span>Sales expenses";
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Marketing Expenses</div>';
+    document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#0d65a8';
+    start_MARKETING_EXPENSSES(responseData);
+
+
+    });
+
+}
 
 function initiate_MARKETING_EXPENSSES(initialConditionData){
-    console.log('initialConditionData', initialConditionData);
+    //console.log('initialConditionData', initialConditionData);
     document.getElementById("Marketing_expenses").innerHTML = initialConditionData.Marketing_expenses;
-   // start_MARKETING_EXPENSSES();
+    start_MARKETING_EXPENSSES();
 }
 
-function start_MARKETING_EXPENSSES(){
+function start_MARKETING_EXPENSSES(initialConditionData){
+
+    var dataInit = JSON.stringify(initialConditionData);
+    document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Marketing_expenses_HEADING' onclick='call_MARKETING_EXPENSSES("+dataInit+")'>9</span>Marketing expenses";
+
+   // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Sales Expenses</div>';
     document.getElementById("Marketing_expenses_HEADING").style.backgroundColor = '#f39b4a';
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Marketing Expenses</div>';
 }
+
+function call_MARKETING_EXPENSSES(data){
+    //console.log(data);
+    var Marketing_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+
+    var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+         
+        'action': 'Marketing_expenses', 
+        'Marketing_expenses':Marketing_expenses,
+    }
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+     document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Marketing_expenses_HEADING'>9</span>Marketing expenses";
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Administration & Information services expenses</div>';
+    document.getElementById("Marketing_expenses_HEADING").style.backgroundColor = '#0d65a8';
+    start_Administration_Information_services_expenses(responseData);
+
+    });
+
+}
+
+
+
+function initiate_Administration_Information_services_expenses(initialConditionData){
+    //console.log('initialConditionData', initialConditionData);
+    document.getElementById("Administration_Information_services_expenses").innerHTML = initialConditionData.Administration_Information_services_expenses;
+}
+
+
+function start_Administration_Information_services_expenses(initialConditionData){
+    var dataInit = JSON.stringify(initialConditionData);
+    document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Marketing_expenses_HEADING' onclick='call_Administration_Information_services_expenses("+dataInit+")'>9</span>Marketing expenses";
+
+   document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Administration Information Expenses</div>';
+    document.getElementById("Marketing_expenses_HEADING").style.backgroundColor = '#f39b4a';
+
+}
+
+
+function initiate_R_AND_D_expenses(initialConditionData){
+    //console.log('initialConditionData', initialConditionData);
+    document.getElementById("R_AND_D_expenses").innerHTML = initialConditionData.R_AND_D_expenses;
+}
+
+
+function start_initiate_R_AND_D_expenses(data){
+
+}
+
+
 
 
 
