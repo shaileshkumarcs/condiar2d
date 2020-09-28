@@ -164,7 +164,7 @@ function initiate_ADMINISTRATION_IT_AND_FINANCE(initialConditionData){
 
     }
     document.getElementById("ADMINISTRATION_IT_FINANCE").innerHTML = html1;
-    start_ADMINISTRATION_IT_AND_FINANCE();  
+    //start_ADMINISTRATION_IT_AND_FINANCE();  
 }
 
 
@@ -218,7 +218,7 @@ function initiate_SALES(initialConditionData){
     }
    document.getElementById("SALES_BACKGROUND").innerHTML = html1;
    
-   start_SALES();
+  // start_SALES();
 
 }
 
@@ -269,7 +269,7 @@ function initiate_OUTBOUND_LOGISTICS(initialConditionData){
     html = html + '</div>';
    document.getElementById("outbound_container").innerHTML = html;
    // document.getElementById("Ordered_Materials").innerHTML = initialConditionData.Ordered_Materials;
-    start_OUTBOUND_LOGISTICS();
+  //  start_OUTBOUND_LOGISTICS();
 
 }
 
@@ -285,7 +285,7 @@ function start_OUTBOUND_LOGISTICS(){
 function initiate_SALES_EXPENSSES(initialConditionData){
     console.log('initialConditionData', initialConditionData);
     document.getElementById("Sales_expenses").innerHTML = initialConditionData.Sales_expenses;
-    start_SALES_EXPENSSES();
+   // start_SALES_EXPENSSES();
 }
 
 function start_SALES_EXPENSSES(){
@@ -297,7 +297,7 @@ function start_SALES_EXPENSSES(){
 function initiate_MARKETING_EXPENSSES(initialConditionData){
     console.log('initialConditionData', initialConditionData);
     document.getElementById("Marketing_expenses").innerHTML = initialConditionData.Marketing_expenses;
-    start_MARKETING_EXPENSSES();
+   // start_MARKETING_EXPENSSES();
 }
 
 function start_MARKETING_EXPENSSES(){

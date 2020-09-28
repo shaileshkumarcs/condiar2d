@@ -98,7 +98,7 @@ function tradeUpdateToCash(){
     socket.on('receive_game_page_data', function(responseData){
     	console.log("Response Data", responseData);
     	setInitialConditionToAll(responseData);
-    	initialOutbound(responseData);
+    	//initialOutbound(responseData);
     	initialAssemblySetup(responseData);
     	initialWorkerSetup(responseData);
         initialSetupResearchDevelopment(responseData);
@@ -166,7 +166,7 @@ function showLoansUpdate(){
 	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE LOANS</div>';
 }
 
-function updateLoan(){
+function updateLoan(Short_term_liabilities){
 	console.log("Update loan",initialData);
 	var data = {
         Short_term_liabilities: initialData.Short_term_liabilities,
@@ -336,7 +336,6 @@ function applyLoans(){
     // Action 2 called
     start_Inbound_Logistics();
 
-    
 }
 
 // Action 3 code start here
@@ -381,13 +380,22 @@ function updateProduction(){
         year: year,
     };
     socket.emit('game_page_data', team_id, updateOngoingProduction);
-	console.log("updateProduction");
+
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+
+    console.log("updateProduction");
 
     var changecolor = document.getElementById("goods_in_progress");
     changecolor.classList.remove("color_change");
         // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
     document.getElementById("gameConfirmButton").innerHTML = "";
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAssemblyBeltUpgrade()">CONFIRM</div>';
+     
+    });
+
+	
 }
 
 
