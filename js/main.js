@@ -28,10 +28,11 @@ function setInitialConditionToAll(initialData){
 	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
-    // initialSetupResearchDevelopment(initialData);
+    initialSetupResearchDevelopment(initialData);
 	// updateNewProduction(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 	// updateNewProduction(initialData);
+    initialMarketing(initialData);
 	
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
@@ -2025,7 +2026,7 @@ function initialSetupResearchDevelopment(initialData){
         researchDevelopmet += '<div class="ver_tiw">\
                                     <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
                                     <div class="numbs_small">+1</div>\
-                                </div>';
+                                </div></div><div class="plus_all_gra">';
 
     }
     else{
@@ -2055,7 +2056,7 @@ function initialSetupResearchDevelopment(initialData){
                                     <div class="ver_tiw">\
                                         <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
                                         <div class="numbs_small">+1</div>\
-                                    </div>';
+                                    </div></div><div class="plus_all_gra">';
 
     }
     else{
@@ -2075,29 +2076,38 @@ function initialSetupResearchDevelopment(initialData){
 function changeRDColor(e){
     console.log("changeRDColor");
 
-    var add_worker = 0;
+    var rd_worker = 0;
     if($(e).hasClass('light_blue')){
         console.log(true);
         $(e).removeClass("light_blue");
-        add_worker = 1;
+        rd_worker = 1;
     }
     else{
         console.log(false);
         $(e).addClass("light_blue");
-        add_worker = -1;
+        rd_worker = -1;
     }
 
-    var changeColor = {
-        Adjust_sales_force: add_worker,
-        action: "Adjust_sales_force",
+    // var changeColor = {
+    //     Adjust_sales_force: add_worker,
+    //     action: "Adjust_sales_force",
+    //     participant_id: participant_id,
+    //     quarter: quarter,
+    //     team_id: team_id,
+    //     workshop_id: workshop_id,
+    //     year: year,
+    // }
+    var Adjust_R_D_quality_development_resources = {
+        Adjust_R_D_quality_development_resources: rd_worker,
+        action: "Adjust_R_D_quality_development_resources",
         participant_id: participant_id,
         quarter: quarter,
         team_id: team_id,
         workshop_id: workshop_id,
         year: year,
     }
-
-    socket.emit('game_page_data', team_id, changeColor);
+    
+    socket.emit('game_page_data', team_id, Adjust_R_D_quality_development_resources);
     socket.on('receive_game_page_data', function(responseData){
         // console.log("Response Data", responseData);
         // initialWorkerSetup(responseData);
@@ -2106,3 +2116,255 @@ function changeRDColor(e){
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="">CONFIRM</div>'; 
     });
 }
+
+function initialMarketing(initialData){
+    console.log("initialMarketing", initialData);
+
+    var removeAddClass = document.getElementById("marketingCounter");               
+    removeAddClass.classList.add("color_change");
+
+
+    var researchDevelopmetIndex = '';
+
+    researchDevelopmetIndex += '<div class="man_hole">\
+                                    <div class="admi_liblue two_cokka"><img src="images/white_man.svg" alt=""></div><div class="alert_twoRow">';
+
+
+    if(initialData.R_D_Quality_Index > 0){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+
+    if(initialData.R_D_Quality_Index > 3){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    
+    researchDevelopmetIndex +=   '</div>\
+                                    <div class="alert_twoRow">';
+
+    if(initialData.R_D_Quality_Index > 0){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">1</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">1</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 3){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">4</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">4</div>';
+    }
+    researchDevelopmetIndex +=  '</div>\
+                                    <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 1){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">2</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">2</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 4){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">5</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">5</div>';
+    }
+    researchDevelopmetIndex +=  '</div>\
+                                    <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 2){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">3</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">3</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 5){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">6</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">6</div>';
+    }
+    researchDevelopmetIndex += '</div>\
+                                </div>\
+                                <div class="man_hole">';
+
+    if(initialData.R_D_Quality_Management > 1){
+        researchDevelopmetIndex += '<div class="admi_liblue two_cokka light_blue"><img src="images/white_man.svg" alt=""></div>';    
+    }
+    else{
+        researchDevelopmetIndex += '<div class="admi_liblue two_cokka light_blue"><img src="images/white_man.svg" alt=""></div>';
+    }
+        researchDevelopmetIndex += '<div class="alert_twoRow">';
+
+    if(initialData.R_D_Quality_Index > 6){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+
+    if(initialData.R_D_Quality_Index > 9){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+                                    
+    researchDevelopmetIndex += '</div>\
+                                <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 6){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">7</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">7</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 9){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">10</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">10</div>';
+    }
+    researchDevelopmetIndex += '</div>\
+                                <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 7){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">8</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">8</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 10){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">11</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">11</div>';
+    }
+    researchDevelopmetIndex += '</div>\
+                                <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 8){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">9</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">9</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 11){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">12</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">12</div>';
+    }
+    researchDevelopmetIndex += '</div>\
+                            </div>\
+                            <div class="man_hole">';
+    if(initialData.R_D_Quality_Management > 2){
+        researchDevelopmetIndex += '<div class="admi_liblue two_cokka light_blue"><img src="images/white_man.svg" alt=""></div>';    
+    }
+    else{
+        researchDevelopmetIndex += '<div class="admi_liblue two_cokka light_blue"><img src="images/white_man.svg" alt=""></div>';
+    }
+        researchDevelopmetIndex += '<div class="alert_twoRow">';
+    
+    if(initialData.R_D_Quality_Index > 12){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+
+    if(initialData.R_D_Quality_Index > 15){
+        researchDevelopmetIndex += '<div class="alert_circle"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""/></div>';
+    }
+                                    
+    researchDevelopmetIndex += '</div>\
+                                    <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 12){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">13</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">13</div>';   
+    }
+    if(initialData.R_D_Quality_Index > 15){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">16</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">16</div>';
+    }
+    researchDevelopmetIndex += '</div>\
+                                    <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 13){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">14</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">14</div>';   
+    }
+    researchDevelopmetIndex += '</div>\
+                                    <div class="alert_twoRow">';
+    if(initialData.R_D_Quality_Index > 14){
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">15</div>';
+    }
+    else{
+        researchDevelopmetIndex += '<div class="alert_blue_circle">15</div>';   
+    }
+    researchDevelopmetIndex += '</div>\
+                                    </div>\
+                                </div>';
+
+    document.getElementById("researchDevelopemtManagement").innerHTML = researchDevelopmetIndex;
+
+    // document.getElementById("gameConfirmButton").innerHTML = "";
+    // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" onclick="">MARKETING</div>'; 
+}
+
+function decreaseMarketing(){
+    var val = parseInt(document.getElementById("marketingprod").innerHTML); //marketingval
+
+    if(val>1){
+      val = val-1;
+    }else{
+        val = 1;
+    }
+    document.getElementById("marketingprod").innerHTML = val;
+    document.getElementById("marketingval").innerHTML = val;
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketingValue()" id="startGame">CONFIRM</div>';
+
+}
+
+
+function increaseMarketing(){
+    var val = parseInt(document.getElementById("marketingprod").innerHTML); //marketingval
+    if(val<20){
+      val = val+1;
+    }else{
+        val = 1;
+    }
+    document.getElementById("marketingprod").innerHTML = val;
+    document.getElementById("marketingval").innerHTML = val;
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketingValue()" id="startGame">CONFIRM</div>';
+}
+
+function confirmMarketingValue(){
+    console.log("confirmMarketingValue");
+
+    var orderMarketCard = {
+        No_of_teams: 6,
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    console.log("Change Color ", orderMarketCard);
+    socket.emit('game_page_data', team_id, orderMarketCard);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Receive msg ", responseData);
+    });
+}
+
