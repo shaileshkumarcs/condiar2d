@@ -333,7 +333,7 @@ function call_SALES_EXPENSSES(data){
 function initiate_MARKETING_EXPENSSES(initialConditionData){
     //console.log('initialConditionData', initialConditionData);
     document.getElementById("Marketing_expenses").innerHTML = initialConditionData.Marketing_expenses;
-    start_MARKETING_EXPENSSES();
+    //start_MARKETING_EXPENSSES();
 }
 
 function start_MARKETING_EXPENSSES(initialConditionData){
@@ -378,6 +378,7 @@ function call_MARKETING_EXPENSSES(data){
 function initiate_Administration_Information_services_expenses(initialConditionData){
     //console.log('initialConditionData', initialConditionData);
     document.getElementById("Administration_Information_services_expenses").innerHTML = initialConditionData.Administration_Information_services_expenses;
+   start_Administration_Information_services_expenses(initialConditionData); 
 }
 
 
@@ -392,7 +393,11 @@ function start_Administration_Information_services_expenses(initialConditionData
 
 function call_Administration_Information_services_expenses(data){
        //console.log(data);
-    var Administration_Information_services_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+    //var Administration_Information_services_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+    var Administration_Information_services_expenses = 0 + 0 + (parseInt(data.Administration_IT)+0)*(parseInt(data.Salaries))
+    
+     alert(Administration_Information_services_expenses);
+
 
     var data = {
         'workshop_id': workshop_id,
@@ -408,7 +413,7 @@ function call_Administration_Information_services_expenses(data){
     socket.on('receive_game_page_data', function(responseData){
     setInitialConditionToAll(responseData);
     initialData = responseData;
-     document.getElementById("Marketing_expenses_HEADING_p").innerHTML = "<span id='Administration_Information_services_expenses_HEADING'>9</span>Administration & Information<br> services expenses";
+     document.getElementById("Administration_Information_services_expenses_p").innerHTML = "<span id='Administration_Information_services_expenses_HEADING'>9</span>Administration & Information<br> services expenses";
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">R & D expenses </div>';
     document.getElementById("Administration_Information_services_expenses_HEADING").style.backgroundColor = '#0d65a8';
@@ -423,13 +428,121 @@ function call_Administration_Information_services_expenses(data){
 function initiate_R_AND_D_expenses(initialConditionData){
     //console.log('initialConditionData', initialConditionData);
     document.getElementById("R_AND_D_expenses").innerHTML = initialConditionData.R_AND_D_expenses;
+    //start_initiate_R_AND_D_expenses(initialConditionData);
 }
 
 
-function start_initiate_R_AND_D_expenses(data){
-    alert('...hii.....');
+
+function start_initiate_R_AND_D_expenses(initialConditionData){
+     var dataInit = JSON.stringify(initialConditionData);
+    document.getElementById("R_AND_D_expenses_p").innerHTML = "<span id='R_AND_D_expenses_HEADING' onclick='call_R_AND_D_expenses("+dataInit+")'>9</span>R & D expenses";
+
+   document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Administration Information Expenses</div>';
+    document.getElementById("R_AND_D_expenses_HEADING").style.backgroundColor = '#f39b4a';
 
 }
+
+function call_R_AND_D_expenses(data){
+
+    // var R_AND_D_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+    var R_AND_D_expenses = 0+ ((parseInt(data.R_D_Quality_Development)) + (parseInt(data.R_D_Quality_Management)) + 0) * ((parseInt(data.Salaries)) + (parseInt(data.R_D_Consumables_Materials)));
+   
+    var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+         
+        'action': 'R_AND_D_expenses', 
+        'R_AND_D_expenses':R_AND_D_expenses,
+    }
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+     document.getElementById("R_AND_D_expenses_p").innerHTML = "<span id='R_AND_D_expenses_HEADING'>9</span>Administration & Information<br> services expenses";
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Interest</div>';
+    document.getElementById("R_AND_D_expenses_HEADING").style.backgroundColor = '#0d65a8';
+   // start_initiate_R_AND_D_expenses(responseData);
+
+    });
+
+
+}
+
+function initiate_Taxes(initialConditionData){
+    //console.log('initialConditionData', initialConditionData);
+    document.getElementById("initiate_Taxes").innerHTML = initialConditionData.taxes;
+    var EBT = getEbtCalculation(initialConditionData);
+    if(EBT>0){
+        start_initiate_Taxes(initialConditionData);
+    } 
+}
+
+
+function initiate_EBT(initialConditionData){
+
+    var EBT = getEbtCalculation(initialConditionData);
+    document.getElementById("Earnings_before_taxes").innerHTML = EBT;
+    var EAT = EBT - parseInt(initialConditionData.taxes);
+    document.getElementById("Earnings_after_taxes").innerHTML = EAT;
+}
+
+
+function getEbtCalculation(initialConditionData){
+    console.log('START EBT CALCULATION');
+    // var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - ( parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
+    return 5;
+}
+
+
+
+function start_initiate_Taxes(initialConditionData){
+     var dataInit = JSON.stringify(initialConditionData);
+     document.getElementById("TAXES_p").innerHTML = "<span id='TAXES_p_HEADING' onclick='call_Taxes("+dataInit+")'>10</span>Taxes";
+     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">UPDATE TAX INFORMATION</div>';
+     document.getElementById("TAXES_p_HEADING").style.backgroundColor = '#f39b4a';
+
+}
+
+function call_Taxes(data){
+    var ebt = getEbtCalculation(data);
+    var Tax_rate = data.Tax_rate;
+
+    var taxes = (ebt*parseInt(Tax_rate))/100;
+    alert(taxes);
+
+    
+    var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+        'action': 'taxes', 
+        'taxes':taxes,
+    }
+
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+    setInitialConditionToAll(responseData);
+    initialData = responseData;
+
+
+     document.getElementById("TAXES_p").innerHTML = "<span id='TAXES_p_HEADING'>10</span>Taxes";
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">START YEAR 2</div>';
+    document.getElementById("TAXES_p_HEADING").style.backgroundColor = '#0d65a8';
+   // start_initiate_R_AND_D_expenses(responseData);
+
+    });
+
+   
+
+}
+
 
 
 

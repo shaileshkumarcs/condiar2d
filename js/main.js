@@ -8,8 +8,8 @@ var year = 1;
 var initialData;
 
 
-var socket = io('http://54.198.46.240:3006/');
-// var socket = io('http://localhost:3006');
+//var socket = io('http://54.198.46.240:3006/');
+var socket = io('http://localhost:3006');
 socket.emit('team', team_id);
 
 const data = {
@@ -97,6 +97,8 @@ function setInitialConditionToAll(initialData){
     initiate_MARKETING_EXPENSSES(initialData); // by OM KUMAR YAADAV
     initiate_Administration_Information_services_expenses(initialData); // by OM KUMAR YAADAV
     initiate_R_AND_D_expenses(initialData); // by OM KUMAR YAADAV
+    initiate_Taxes(initialData); // by OM KUMAR YAADAV
+    initiate_EBT(initialData); // by OM KUMAR YAADAV
 
 
 }
