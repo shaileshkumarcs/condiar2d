@@ -2536,15 +2536,15 @@ function selectOrderCard(data){
     socket.emit('joinWorshop', workshop_id);
 
     var orderCardRequest = {
-        Letter_ref: 'a', 
-        Net_sales: 10, 
-        No_of_teams: 0, 
-        Order_No: '1a', 
-        Payment_terms: 'Cash', 
-        Price: 10, 
-        Units: 1, 
+        Letter_ref: data.Letter_ref, 
+        Net_sales: data.Net_sales, 
+        No_of_teams: data.No_of_teams, 
+        Order_No: data.Order_No, 
+        Payment_terms: data.Payment_terms, 
+        Price: data.Price, 
+        Units: data.Unites, 
         Year: year, 
-        id: 1,
+        id: data.card_id,
         participant_id: participant_id,
         team_id: team_id,
         workshop_id: workshop_id,
