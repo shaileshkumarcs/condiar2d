@@ -212,7 +212,7 @@ function initiate_SALES(initialConditionData){
                 
     }
     for (var j = 1; j <=nulled; j++) {
-        html1 = html1 + '<div class="ver_tiw" onclick="Adjust_sales_force('+count+')"> <div class="admi_liblue bellow_line admi_blue_light_cc"><img src="images/white_man.svg" alt=""></div> <div class="alert_circle"><img src="images/alert_black.svg" alt=""></div> </div>'; 
+        html1 = html1 + '<div class="ver_tiw" onclick="Adjust_sales_force('+count+')"> <div class="admi_liblue bellow_line admi_blue_light_cc"><img src="images/white_man.svg" alt=""></div> <div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""></div> </div>'; 
         count++; 
 
     }

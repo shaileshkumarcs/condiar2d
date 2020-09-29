@@ -1,6 +1,6 @@
-var team_id = 11;
+var team_id = localStorage.getItem("team_id");
 var workshop_id = 9;
-var participant_id = 181;
+var participant_id = localStorage.getItem("participant_id");
 var number_of_team = 4;
 
 var quarter = 1;
@@ -59,7 +59,35 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("financial_long_term_libabilities_percent").innerHTML = initialData.Long_term_loan_interest_rate+'%';
 	document.getElementById("Share_Capital_financial").innerHTML = initialData.Share_Capital;
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
-	// document.getElementById("").innerHTML = initialData.
+
+    // Calculation of marketing power
+    /**
+    *  check the board, (1 = 1GP, 4 = 2GP, 7 = 3GP, 10 = 4 GP, 13 = 5 GP, 16 = 6GP)
+    *  GP means green points
+    *  MArketing power = R+D GP + Sales GP + Advertising GP
+    *
+    **/
+    var rd_gp = 0;
+    if(initialData.R_D_Quality_Index > 1){
+        rd_gp = 1;
+    }
+    if(initialData.R_D_Quality_Index > 3){
+        rd_gp = 2;
+    }
+    if(initialData.R_D_Quality_Index > 6){
+        rd_gp = 3;
+    }
+    if(initialData.R_D_Quality_Index > 9){
+        rd_gp = 4;
+    }
+    if(initialData.R_D_Quality_Index > 12){
+        rd_gp = 5;
+    }
+    if(initialData.R_D_Quality_Index > 15){
+        rd_gp = 6;
+    }
+    var total_power = parseInt(rd_gp) + parseInt(initialData.Sales) + parseInt(initialData.Material_expense);
+    document.getElementById("marketing_power").innerHTML = total_power;
 
     initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
     initiate_ADMINISTRATION_IT_AND_FINANCE(initialData); // by OM KUMAR YAADAV
@@ -2331,7 +2359,7 @@ function decreaseMarketing(){
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketingValue()" id="startGame">CONFIRM</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
 
 }
 
@@ -2346,25 +2374,228 @@ function increaseMarketing(){
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketingValue()" id="startGame">CONFIRM</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+
 }
 
-function confirmMarketingValue(){
+function confirmMarketing(){
     console.log("confirmMarketingValue");
 
-    var orderMarketCard = {
-        No_of_teams: 6,
-        participant_id: participant_id,
-        quarter: quarter,
-        team_id: team_id,
-        workshop_id: workshop_id,
-        year: year,
-    }
 
-    console.log("Change Color ", orderMarketCard);
-    socket.emit('game_page_data', team_id, orderMarketCard);
-    socket.on('receive_game_page_data', function(responseData){
-        console.log("Receive msg ", responseData);
+
+
+    var participant_jwt = "Bearer "+localStorage.getItem("participant_jwt");
+    var data = {workshop_id:workshop_id};
+    $.ajax({
+        type: 'POST',
+        url: 'http://54.198.46.240:3006/participant/code/getTeam',
+        dataType: "json",
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        headers: {
+            Authorization: participant_jwt
+        },
+        success: function(response) {
+            if(response.success == 1){
+                console.log("Response data 12333", response.responceData);
+                teamData = response.responceData;
+                // var teamData.forEach(function(data, index){
+                renderMarketBoard(teamData);
+                // })
+            }else{
+                alert(response.message);
+                window.location.replace("index.html");
+            }
+        },
+        error: function (textStatus, errorThrown) {
+            alert('Unable tp proccess');  
+        }   
     });
+    allOrderCards();
 }
 
+function allOrderCards(){
+    var orderMarketCard = {
+        No_of_teams: 5,
+        team_id: "11",
+        workshop_id: workshop_id,
+        Year: year,
+    }
+    console.log("Change Color ", orderMarketCard);
+    socket.emit('getTeamOrderCard', team_id, orderMarketCard);
+    socket.on('getTeamOrderCard_recieve', function(msg){
+        console.log("Message ", msg.results);  
+        var orderCard = '';
+        msg.results.forEach(function (data, index) { 
+            var cardData = JSON.stringify(data);
+            if(data.selected){
+                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")' style='opacity: 0.5;'>\
+                        <div class='oder_head'>\
+                            <h4>Order</h4>\
+                            <h2>"+data.Order_No+"</h2>\
+                        </div>\
+                        <div class='secBg_head'>\
+                            <div class='oder_unit_box'>\
+                                <h4>Unites</h4>\
+                                <div class='circle_green_stor'>\
+                                    <h2>"+data.Units+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Price</h4>\
+                                <h5 class='cash_ri'>"+data.Price+"</h5>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Net Sales</h4>\
+                                <div class='circle_green_stor yellow'>\
+                                    <h2>"+data.Net_sales+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Payment <br> terms</h4>\
+                                <h5 class='cash_ri'>"+data.Payment_terms+"</h5>\
+                            </div>\
+                        </div>\
+                    </div>";
+            }
+            else{
+                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")'>\
+                        <div class='oder_head'>\
+                            <h4>Order</h4>\
+                            <h2>"+data.Order_No+"</h2>\
+                        </div>\
+                        <div class='secBg_head'>\
+                            <div class='oder_unit_box'>\
+                                <h4>Unites</h4>\
+                                <div class='circle_green_stor'>\
+                                    <h2>"+data.Units+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Price</h4>\
+                                <h5 class='cash_ri'>"+data.Price+"</h5>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Net Sales</h4>\
+                                <div class='circle_green_stor yellow'>\
+                                    <h2>"+data.Net_sales+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Payment <br> terms</h4>\
+                                <h5 class='cash_ri'>"+data.Payment_terms+"</h5>\
+                            </div>\
+                        </div>\
+                    </div>";
+            }
+            
+        });
+
+        document.getElementById("orderCards").innerHTML = orderCard;
+    }); 
+}
+
+function renderMarketBoard(teamData){
+    console.log("Team data", teamData);
+    var companyList = '';
+    teamData.forEach(function(data, index){
+        console.log("Data", data);
+        companyList += '<div class="company_long_box">\
+                    <h3 class="sub_heading_ns">COMPANY</h3>\
+                    <div class="aircon_wrap">\
+                        <div class="blue_mark_lab">B</div>\
+                        <div class="aircon_white">'+data.virtual_company_name+'</div>\
+                    </div>\
+                    <h4 class="marketing_pw">MARKETING POWER <span>RANK</span></h4>\
+                    <div class="allert_main_one">\
+                        <div class="alert_green_sy_left">\
+                            <div class="alet_big"><img src="images/alert_black.svg" alt=""></div>\
+                            <div class="big_circle_green_ms">'+data.number_of_green+'</div>\
+                        </div>\
+                        <div class="alert_right_blue_mark_lab">'+data.rank+'</div>\
+                    </div>\
+                    <div class="allert_main_one">\
+                        <h2 class="marketing_pw">ORDERS</h2>\
+                        <div class="order_right_white">5</div>\
+                    </div>\
+                    <div class="order_for_by_two" id="company'+data.id+'">\
+                        \
+                    </div>\
+                    <h5 class="marketing_pw">ACTION (DECISION)</h5>\
+                    <div class="aircon_wrap">\
+                        <div class="blue_mark_lab">7</div>\
+                        <div class="aircon_light_blues">WAITING</div>\
+                    </div>\
+                </div>';
+    });
+    document.getElementById("companyList").innerHTML = companyList;
+}
+
+function selectOrderCard(data){
+    console.log("selectOrderCard", data);
+    socket.emit('joinWorshop', workshop_id);
+
+    var orderCardRequest = {
+        Letter_ref: 'a', 
+        Net_sales: 10, 
+        No_of_teams: 0, 
+        Order_No: '1a', 
+        Payment_terms: 'Cash', 
+        Price: 10, 
+        Units: 1, 
+        Year: year, 
+        id: 1,
+        participant_id: participant_id,
+        team_id: team_id,
+        workshop_id: workshop_id,
+    }
+
+    socket.emit('card_selection', workshop_id, orderCardRequest);
+    var cardHtml = '';
+    socket.on('card_selection_recieve', function(responseData){
+        console.log("Response data ",responseData);  
+        allOrderCards(responseData);
+        console.log("Response data-------",responseData.team_id);  
+        var team_id = localStorage.getItem("team_id");
+        console.log("Team id--------", team_id);
+        if(responseData.team_id == team_id){
+
+            cardHtml += '<div class="order_light_box">\
+                            <div class="order_blue_box">\
+                                <div class="oder_head">\
+                                    <h4>Order</h4>\
+                                    <h2>1a</h2>\
+                                </div>\
+                                <div class="secBg_head">\
+                                    <div class="oder_unit_box">\
+                                        <h4>Unites</h4>\
+                                        <div class="circle_green_stor">\
+                                            <h2>1</h2>\
+                                        </div>\
+                                    </div>\
+                                    <div class="oder_unit_box">\
+                                        <h4>Price</h4>\
+                                        <h5 class="cash_ri">10</h5>\
+                                    </div>\
+                                    <div class="oder_unit_box">\
+                                        <h4>Net Sales</h4>\
+                                        <div class="circle_green_stor yellow">\
+                                            <h2>10</h2>\
+                                        </div>\
+                                    </div>\
+                                    <div class="oder_unit_box">\
+                                        <h4>Payment <br> terms</h4>\
+                                        <h5 class="cash_ri">Cash</h5>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>';
+        }
+        var oldHtml = "";
+        oldHtml = document.getElementById("company"+responseData.team_id).innerHTML;
+        console.log("old html ",oldHtml);
+        oldHtml = oldHtml + cardHtml;
+        document.getElementById('company'+responseData.team_id).innerHTML = oldHtml;
+
+    }); 
+}
