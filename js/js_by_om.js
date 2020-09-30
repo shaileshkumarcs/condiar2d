@@ -347,7 +347,7 @@ function start_MARKETING_EXPENSSES(initialConditionData){
 
 function call_MARKETING_EXPENSSES(data){
     //console.log(data);
-    var Marketing_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
+    var Marketing_expenses = data.ADVERTISING; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
 
     var data = {
         'workshop_id': workshop_id,
@@ -359,6 +359,7 @@ function call_MARKETING_EXPENSSES(data){
         'action': 'Marketing_expenses', 
         'Marketing_expenses':Marketing_expenses,
     }
+
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
     setInitialConditionToAll(responseData);
