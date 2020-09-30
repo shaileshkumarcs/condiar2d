@@ -114,6 +114,40 @@ function increaseinbound(){
 }
 
 
+function decreaseoutbound(){
+    var val = parseInt(document.getElementById("white_truck_out").innerHTML); //inboundval
+
+    if(val>1){
+      val = val-1;
+    }else{
+        val = 1;
+    }
+    document.getElementById("white_truck_out").innerHTML = val;
+    document.getElementById("yellow_truck_out").innerHTML = val * 3;
+    document.getElementById("white_truck_line_out").innerHTML = val * 3;
+
+    
+
+}
+
+
+function increaseoutbound(){
+    var val = parseInt(document.getElementById("white_truck_out").innerHTML); //inboundval
+    if(val<8){
+      val = val+1;
+    }else{
+        val = 8;
+    }
+    document.getElementById("white_truck_out").innerHTML = val;
+    document.getElementById("yellow_truck_out").innerHTML = val * 3;
+    document.getElementById("white_truck_line_out").innerHTML = val * 3;
+     
+}
+
+
+
+
+
 function Order_material(){
     //console.log("Order Materials Function called");
     var val = parseInt(document.getElementById("inboundprod").innerHTML); 
@@ -283,8 +317,26 @@ function start_OUTBOUND_LOGISTICS(){
     document.getElementById("OUTBOUND_LOGISTICS_heading").style.backgroundColor = '#f39b4a';
     document.getElementById("bluew_for_container_out").style.backgroundColor = '#f39b4a';
     document.getElementById("blue_updon_out").style.backgroundColor = '#f39b4a';
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Receive_ordered_material()" id="startGame">RECIEVED ORDER METERIAL</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirm_OUTBOUND_LOGISTICS()" id="startGame">CONFIRM</div>';
 }
+
+function confirm_OUTBOUND_LOGISTICS(){
+
+    const data = {
+     
+      'team_id': team_id,
+      'workshop_id': workshop_id,
+      
+    }
+
+    socket.emit('initialConditionBySocket', team_id, data);
+      socket.on('receive_initialConditionBySocket', function(msg){
+         start_SALES_EXPENSSES(msg); 
+    }); 
+ 
+}
+
+
 
 
 
@@ -329,7 +381,7 @@ function call_SALES_EXPENSSES(data){
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Marketing Expenses</div>';
     document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#0d65a8';
-    //start_MARKETING_EXPENSSES(responseData);
+    start_MARKETING_EXPENSSES(responseData);
 
 
     });
@@ -385,7 +437,7 @@ function call_MARKETING_EXPENSSES(data){
 function initiate_Administration_Information_services_expenses(initialConditionData){
     //console.log('initialConditionData', initialConditionData);
     document.getElementById("Administration_Information_services_expenses").innerHTML = initialConditionData.Administration_Information_services_expenses;
-   // start_Administration_Information_services_expenses(initialConditionData); 
+   //start_Administration_Information_services_expenses(initialConditionData);  // hello
 }
 
 
@@ -424,7 +476,7 @@ function call_Administration_Information_services_expenses(data){
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">R & D expenses </div>';
     document.getElementById("Administration_Information_services_expenses_HEADING").style.backgroundColor = '#0d65a8';
-   // start_initiate_R_AND_D_expenses(responseData);
+    start_initiate_R_AND_D_expenses(responseData);
 
     });
 
@@ -474,6 +526,11 @@ function call_R_AND_D_expenses(data){
     document.getElementById("R_AND_D_expenses_HEADING").style.backgroundColor = '#0d65a8';
    // start_initiate_R_AND_D_expenses(responseData);
 
+   var EBT = getEbtCalculation(responseData);
+    if(EBT>0){
+       start_initiate_Taxes(responseData);
+    } 
+
     });
 
 
@@ -484,26 +541,9 @@ function initiate_Taxes(initialConditionData){
     document.getElementById("initiate_Taxes").innerHTML = initialConditionData.taxes;
     var EBT = getEbtCalculation(initialConditionData);
     if(EBT>0){
-       // start_initiate_Taxes(initialConditionData);
+      // start_initiate_Taxes(initialConditionData);
     } 
 }
-
-
-function initiate_EBT(initialConditionData){
-
-    var EBT = getEbtCalculation(initialConditionData);
-    document.getElementById("Earnings_before_taxes").innerHTML = EBT;
-    var EAT = EBT - parseInt(initialConditionData.taxes);
-    document.getElementById("Earnings_after_taxes").innerHTML = EAT;
-}
-
-
-function getEbtCalculation(initialConditionData){
-    console.log('START EBT CALCULATION');
-    // var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - ( parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
-    return 5;
-}
-
 
 
 function start_initiate_Taxes(initialConditionData){
@@ -549,6 +589,27 @@ function call_Taxes(data){
    
 
 }
+
+
+
+function initiate_EBT(initialConditionData){
+
+    var EBT = getEbtCalculation(initialConditionData);
+    document.getElementById("Earnings_before_taxes").innerHTML = EBT;
+    var EAT = EBT - parseInt(initialConditionData.taxes);
+    document.getElementById("Earnings_after_taxes").innerHTML = EAT;
+}
+
+
+function getEbtCalculation(initialConditionData){
+    console.log('START EBT CALCULATION');
+    // var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - ( parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
+    return 5;
+}
+
+
+
+
 
 
 
