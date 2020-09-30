@@ -2540,6 +2540,8 @@ function allOrderCards(){
         });
 
         document.getElementById("orderCards").innerHTML = orderCard;
+
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">Start Outbound</div>';
     }); 
 }
 
@@ -2644,8 +2646,9 @@ function selectOrderCard(data){
         console.log("old html ",oldHtml);
         oldHtml = oldHtml + cardHtml;
         document.getElementById('company'+responseData.team_id).innerHTML = oldHtml;
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">Start Outbound</div>';
 
     }); 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">CONFIRM</div>';
+    
 
 }
