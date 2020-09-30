@@ -2104,8 +2104,8 @@ function initialSetupResearchDevelopment(initialData){
     
     document.getElementById("researchDevelopemtWorker").innerHTML = researchDevelopmet;
 
-    document.getElementById("gameConfirmButton").innerHTML = "";
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
+    // document.getElementById("gameConfirmButton").innerHTML = "";
+    // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 }
 
 

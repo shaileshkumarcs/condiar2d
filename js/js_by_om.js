@@ -323,7 +323,7 @@ function call_SALES_EXPENSSES(data){
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">Marketing Expenses</div>';
     document.getElementById("Sales_expenses_HEADING").style.backgroundColor = '#0d65a8';
-    start_MARKETING_EXPENSSES(responseData);
+    //start_MARKETING_EXPENSSES(responseData);
 
 
     });
@@ -378,7 +378,7 @@ function call_MARKETING_EXPENSSES(data){
 function initiate_Administration_Information_services_expenses(initialConditionData){
     //console.log('initialConditionData', initialConditionData);
     document.getElementById("Administration_Information_services_expenses").innerHTML = initialConditionData.Administration_Information_services_expenses;
-   start_Administration_Information_services_expenses(initialConditionData); 
+   // start_Administration_Information_services_expenses(initialConditionData); 
 }
 
 
@@ -417,7 +417,7 @@ function call_Administration_Information_services_expenses(data){
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">R & D expenses </div>';
     document.getElementById("Administration_Information_services_expenses_HEADING").style.backgroundColor = '#0d65a8';
-    start_initiate_R_AND_D_expenses(responseData);
+   // start_initiate_R_AND_D_expenses(responseData);
 
     });
 
@@ -477,7 +477,7 @@ function initiate_Taxes(initialConditionData){
     document.getElementById("initiate_Taxes").innerHTML = initialConditionData.taxes;
     var EBT = getEbtCalculation(initialConditionData);
     if(EBT>0){
-        start_initiate_Taxes(initialConditionData);
+       // start_initiate_Taxes(initialConditionData);
     } 
 }
 
