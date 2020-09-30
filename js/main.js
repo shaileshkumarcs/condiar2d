@@ -2459,7 +2459,10 @@ function confirmMarketing(){
             alert('Unable tp proccess');  
         }   
     });
-    allOrderCards();
+    setTimeout(function(){
+        allOrderCards();
+    },3000)
+    
 }
 
 function allOrderCards(){
@@ -2472,7 +2475,7 @@ function allOrderCards(){
     console.log("Change Color ", orderMarketCard);
     socket.emit('getTeamOrderCard', team_id, orderMarketCard);
     socket.on('getTeamOrderCard_recieve', function(msg){
-        console.log("Message ", msg.results);  
+        console.log("Message ", msg);  
         var orderCard = '';
         msg.results.forEach(function (data, index) { 
             var cardData = JSON.stringify(data);
@@ -2539,6 +2542,9 @@ function allOrderCards(){
             
         });
 
+        console.log('waiting'+msg.enable_team_id);
+        document.getElementById('waiting'+msg.enable_team_id).innerHTML = "<div class='aircon_light_blues' style='background:#F59C33;'>CONFIRM</div>";
+
         document.getElementById("orderCards").innerHTML = orderCard;
 
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">Start Outbound</div>';
@@ -2574,7 +2580,9 @@ function renderMarketBoard(teamData){
                     <h5 class="marketing_pw">ACTION (DECISION)</h5>\
                     <div class="aircon_wrap">\
                         <div class="blue_mark_lab">7</div>\
-                        <div class="aircon_light_blues">WAITING</div>\
+                        <div class="" id="waiting'+data.id+'">\
+                            <div class="aircon_light_blues">WAITING</div>\
+                        </div>\
                     </div>\
                 </div>';
     });
@@ -2603,7 +2611,7 @@ function selectOrderCard(data){
     socket.emit('card_selection', workshop_id, orderCardRequest);
     var cardHtml = '';
     socket.on('card_selection_recieve', function(responseData){
-        console.log("Response data ",responseData);  
+        console.log("Response data after card selection ",responseData);  
         allOrderCards(responseData);
         console.log("Response data-------",responseData.team_id);  
         var team_id = localStorage.getItem("team_id");
@@ -2614,28 +2622,28 @@ function selectOrderCard(data){
                             <div class="order_blue_box">\
                                 <div class="oder_head">\
                                     <h4>Order</h4>\
-                                    <h2>1a</h2>\
+                                    <h2>'+data.Order_No+'</h2>\
                                 </div>\
                                 <div class="secBg_head">\
                                     <div class="oder_unit_box">\
                                         <h4>Unites</h4>\
                                         <div class="circle_green_stor">\
-                                            <h2>1</h2>\
+                                            <h2>'+data.Units+'</h2>\
                                         </div>\
                                     </div>\
                                     <div class="oder_unit_box">\
                                         <h4>Price</h4>\
-                                        <h5 class="cash_ri">10</h5>\
+                                        <h5 class="cash_ri">'+data.Price+'</h5>\
                                     </div>\
                                     <div class="oder_unit_box">\
                                         <h4>Net Sales</h4>\
                                         <div class="circle_green_stor yellow">\
-                                            <h2>10</h2>\
+                                            <h2>'+data.Net_sales+'</h2>\
                                         </div>\
                                     </div>\
                                     <div class="oder_unit_box">\
                                         <h4>Payment <br> terms</h4>\
-                                        <h5 class="cash_ri">Cash</h5>\
+                                        <h5 class="cash_ri">'+data.Payment_terms+'</h5>\
                                     </div>\
                                 </div>\
                             </div>\
