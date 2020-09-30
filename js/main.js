@@ -10,7 +10,7 @@ var initialData;
 
 
 var socket = io('http://54.198.46.240:3006/');
-// var socket = io('http://localhost:3006');
+ //var socket = io('http://localhost:3006');
 
 socket.emit('team', team_id);
 
@@ -41,29 +41,49 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
 	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
 	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
-	document.getElementById("Property_Plant_and_Equipment_Plant_value").innerHTML = initialData.Property_Plant_and_Equipment_Plant_value;
+	document.getElementById("Property_Plant_and_Equipment_Plant_value").innerHTML =  parseInt(initialData.Property_Plant_and_Equipment_Plant_value) + parseInt(initialData.Property_Plant_and_Equipment_Assembly_belts_value);
 	document.getElementById("Intangible_assets_Goodwill").innerHTML = initialData.Intangible_assets_Goodwill;
 	document.getElementById("Short_term_liabilities").innerHTML = initialData.Short_term_liabilities;
-	document.getElementById("Long_term_liabilities").innerHTML = initialData.Long_term_liabilities_3_Year;
+    document.getElementById("Long_term_liabilities").innerHTML = initialData.Long_term_liabilities;
+
+    document.getElementById("Shareholder_loans").innerHTML = initialData.share_holder_loan;
+	
+
+
 	document.getElementById("Other_liabilities").innerHTML = initialData.Other_liabilities;
 	document.getElementById("Share_Capital").innerHTML = initialData.Share_Capital;
-	document.getElementById("showShareCapitalValue").innerHTML = initialData.Share_Capital;
+	document.getElementById("showShareCapitalValue").innerHTML = initialData.share_holder_loan;
 	document.getElementById("shareCapitalValue").innerHTML = initialData.Share_Capital;
-	document.getElementById("Reserves").innerHTML = initialData.Reserves;
+    document.getElementById("Reserves").innerHTML = initialData.Reserves;
 
+	
 	document.getElementById("financial_short_term_libabilities_value").innerHTML = initialData.Short_term_liabilities;
 	document.getElementById("showShortTermLoan").innerHTML = initialData.Short_term_liabilities;
 	document.getElementById("shortTermLoanValue").value = initialData.Short_term_liabilities;
 	document.getElementById("financial_short_term_libabilities_percent").innerHTML = initialData.Short_term_loan_interest_rate+'%';
-	document.getElementById("financial_long_term_libabilities_value").innerHTML = initialData.Long_term_liabilities_3_Year;
+	document.getElementById("financial_long_term_libabilities_value").innerHTML = initialData.Long_term_liabilities;
 	document.getElementById("showLongTermLoan").innerHTML = initialData.Long_term_liabilities_3_Year;
 	document.getElementById("longTermLoanValue").value = initialData.Long_term_liabilities_3_Year;
 	document.getElementById("financial_long_term_libabilities_percent").innerHTML = initialData.Long_term_loan_interest_rate+'%';
-	document.getElementById("Share_Capital_financial").innerHTML = initialData.Share_Capital;
+	document.getElementById("Share_Capital_financial").innerHTML = initialData.share_holder_loan;
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
 
     document.getElementById("marketingprod").innerHTML = initialData.ADVERTISING;
     document.getElementById("marketingval").innerHTML = initialData.ADVERTISING;
+
+    document.getElementById("Goods_in_assembly").innerHTML = initialData.Goods_in_assembly; 
+    document.getElementById("Finished_goods_store").innerHTML = initialData.Finished_goods_store; 
+    document.getElementById("total_assets_count").innerHTML = parseInt(initialData.Cash) + parseInt(initialData.Trade_receivables) + parseInt(initialData.Inventory_materials) + parseInt(initialData.Goods_in_assembly) + parseInt(initialData.Finished_goods_store) + parseInt(initialData.Property_Plant_and_Equipment_Plant_value) + parseInt(initialData.Property_Plant_and_Equipment_Assembly_belts_value) + parseInt(initialData.Intangible_assets_Goodwill); 
+
+    document.getElementById("Net_sales_value").innerHTML = initialData.Net_sales;
+
+    document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(initialData.Short_term_liabilities) + parseInt(initialData.Long_term_liabilities) + parseInt(initialData.share_holder_loan) + parseInt(initialData.Other_liabilities) + parseInt(initialData.Share_Capital)  + parseInt(initialData.Reserves) ;  
+    
+
+
+    
+
+
 
     // Calculation of marketing power
     /**

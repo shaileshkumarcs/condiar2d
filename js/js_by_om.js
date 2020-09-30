@@ -604,7 +604,7 @@ function initiate_EBT(initialConditionData){
 function getEbtCalculation(initialConditionData){
     console.log('START EBT CALCULATION');
     // var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - ( parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
-    return 5;
+    return 0;
 }
 
 
