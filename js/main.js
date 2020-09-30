@@ -8,8 +8,8 @@ var year = 1;
 var initialData;
 
 
-//var socket = io('http://54.198.46.240:3006/');
-var socket = io('http://localhost:3006');
+var socket = io('http://54.198.46.240:3006/');
+// var socket = io('http://localhost:3006');
 socket.emit('team', team_id);
 
 const data = {
@@ -60,6 +60,9 @@ function setInitialConditionToAll(initialData){
 	document.getElementById("Share_Capital_financial").innerHTML = initialData.Share_Capital;
 	document.getElementById("Interest").innerHTML = parseInt(initialData.long_term_loans_interest) + parseInt(initialData.short_term_loans_interest);
 
+    document.getElementById("marketingprod").innerHTML = initialData.ADVERTISING;
+    document.getElementById("marketingval").innerHTML = initialData.ADVERTISING;
+
     // Calculation of marketing power
     /**
     *  check the board, (1 = 1GP, 4 = 2GP, 7 = 3GP, 10 = 4 GP, 13 = 5 GP, 16 = 6GP)
@@ -68,13 +71,13 @@ function setInitialConditionToAll(initialData){
     *
     **/
     var rd_gp = 0;
-    if(initialData.R_D_Quality_Index > 1){
+    if(initialData.R_D_Quality_Index > 0){
         rd_gp = 1;
     }
     if(initialData.R_D_Quality_Index > 3){
         rd_gp = 2;
     }
-    if(initialData.R_D_Quality_Index > 6){
+    if(initialData.R_D_Quality_Index > 5){
         rd_gp = 3;
     }
     if(initialData.R_D_Quality_Index > 9){
@@ -86,7 +89,10 @@ function setInitialConditionToAll(initialData){
     if(initialData.R_D_Quality_Index > 15){
         rd_gp = 6;
     }
-    var total_power = parseInt(rd_gp) + parseInt(initialData.Sales) + parseInt(initialData.Material_expense);
+    console.log("rd_gp", rd_gp);
+    console.log("initialData.Sales", initialData.Sales);
+    console.log("initialData.ADVERTISING", initialData.ADVERTISING);
+    var total_power = parseInt(rd_gp) + parseInt(initialData.Sales) + parseInt(initialData.ADVERTISING);
     document.getElementById("marketing_power").innerHTML = total_power;
 
     initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
@@ -2361,8 +2367,23 @@ function decreaseMarketing(){
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
-
+    var Update_marketing_board_sales_strategy = {
+        ADVERTISING: -1,
+        action: "ADVERTISING",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    console.log("Update_marketing_board_sales_strategy", Update_marketing_board_sales_strategy);
+    socket.emit('game_page_data', team_id, Update_marketing_board_sales_strategy);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("receive_game_page_data", responseData);
+        setInitialConditionToAll(responseData);
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+    });
+        
 }
 
 
@@ -2376,7 +2397,22 @@ function increaseMarketing(){
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+    var Update_marketing_board_sales_strategy = {
+        ADVERTISING: 1,
+        action: "ADVERTISING",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    console.log("Update_marketing_board_sales_strategy", Update_marketing_board_sales_strategy);
+    socket.emit('game_page_data', team_id, Update_marketing_board_sales_strategy);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("receive_game_page_data", responseData);
+        setInitialConditionToAll(responseData);
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+    });
 
 }
 
