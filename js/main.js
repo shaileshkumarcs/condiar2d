@@ -450,7 +450,7 @@ function showAssemblyBeltUpgrade(){
     var changecolor = document.getElementById("upgradePointSlot3");
     changecolor.classList.add("color_change");
     document.getElementById("gameConfirmButton").innerHTML = "";
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white>ADJUST CAPACITY</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST CAPACITY</div>';
 }
 
 
@@ -2031,6 +2031,8 @@ function updateNewProduction(){
 	//                         <div class="tab_circle_yellow">2</div>\
 	//                     </div>\
 	//                 </div>';
+
+    start_ADMINISTRATION_IT_AND_FINANCE();
 
 }
 

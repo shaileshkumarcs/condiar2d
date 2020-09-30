@@ -195,6 +195,8 @@ function Adjust_administration_IT_resources(val){
     document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
     });
 
+    
+
 }
 
 
@@ -397,7 +399,7 @@ function call_Administration_Information_services_expenses(data){
     //var Administration_Information_services_expenses = 1; // HERE WE NEED TO FIND EXACT FORMULA FOR MARKETING EXPENSES
     var Administration_Information_services_expenses = 0 + 0 + (parseInt(data.Administration_IT)+0)*(parseInt(data.Salaries))
     
-     alert(Administration_Information_services_expenses);
+     //alert(Administration_Information_services_expenses);
 
 
     var data = {
@@ -513,7 +515,7 @@ function call_Taxes(data){
     var Tax_rate = data.Tax_rate;
 
     var taxes = (ebt*parseInt(Tax_rate))/100;
-    alert(taxes);
+    //alert(taxes);
 
     
     var data = {
