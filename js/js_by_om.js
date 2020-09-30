@@ -193,9 +193,10 @@ function Adjust_administration_IT_resources(val){
     initialData = responseData;
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#0d65a8';
     document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
+
     });
 
-    
+    startResearchDevelopment();
 
 }
 
@@ -247,7 +248,10 @@ function Adjust_sales_force(val){
     initialData = responseData;
      document.getElementById("SALES_HEADING").style.backgroundColor = '#0d65a8';
     document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startMarketing()">CONFIRM</div>';
     });
+
+
 }
 
 

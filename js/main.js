@@ -2036,13 +2036,15 @@ function updateNewProduction(){
 
 }
 
+function startResearchDevelopment(){
+    var removeClass = document.getElementById("researchDevelopemtWorker");               
+    removeClass.classList.add("color_change");
+}
+
 
 // Code for Action 5
 function initialSetupResearchDevelopment(initialData){
     //console.log("initialSetupResearchDevelopment", initialData);
-
-    var removeClass = document.getElementById("researchDevelopemtWorker");               
-    removeClass.classList.add("color_change");
     // light_blue
     var rd_quantity = parseInt(initialData.R_D_Quality_Development);
     var researchDevelopmet = '';
@@ -2153,16 +2155,20 @@ function changeRDColor(e){
         // initialWorkerSetup(responseData);
         setInitialConditionToAll(responseData);
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="">CONFIRM</div>'; 
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_SALES()">CONFIRM</div>'; 
     });
+}
+
+function startMarketing(){
+    var removeAddClass = document.getElementById("marketingCounter");               
+    removeAddClass.classList.add("color_change");
+
 }
 
 function initialMarketing(initialData){
     console.log("initialMarketing", initialData);
-
     var removeAddClass = document.getElementById("marketingCounter");               
-    removeAddClass.classList.add("color_change");
-
+    removeAddClass.classList.remove("color_change");
 
     var researchDevelopmetIndex = '';
 
@@ -2640,4 +2646,6 @@ function selectOrderCard(data){
         document.getElementById('company'+responseData.team_id).innerHTML = oldHtml;
 
     }); 
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">CONFIRM</div>';
+
 }
