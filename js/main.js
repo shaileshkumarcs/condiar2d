@@ -35,7 +35,7 @@ function setInitialConditionToAll(initialData){
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 	// updateNewProduction(initialData);
     initialMarketing(initialData);
-	
+
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
@@ -136,24 +136,25 @@ function setInitialConditionToAll(initialData){
 * Game start function 
 **/
 function startGame(){
-	////console.log("startGame");
-	var trade_receivable = document.getElementById("trade_receivable");
-	trade_receivable.classList.add("color_change");
-	// trade_receivable.style.pointerEvents = "";
+
+    socket.emit('initialConditionBySocket', team_id, data);
+    socket.on('receive_initialConditionBySocket', function(initialData){
+        var data = JSON.stringify(initialData);
+        document.getElementById("trade_receivable_click").innerHTML = "<a class='color_change' href='javascript:void(0);' onclick='tradeUpdateToCash("+data+")' id='trade_receivable'>1</a>Trade receivables";
+    });
 	document.getElementById("gameConfirmButton").innerHTML = "";
 	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">TRADE RECEIVABLES</div>';
 
 }
 
-function tradeUpdateToCash(){
-	////console.log("tradeUpdateToCash");
+function tradeUpdateToCash(initialData){
 	var data = {
         'quarter': quarter, 
         'team_id': team_id, 
         'participant_id': participant_id, 
         'year': year, 
         'action': 'Update_trade_receivables', 
-        'Update_trade_receivables':25,
+        'Update_trade_receivables': initialData.Trade_receivables,
         'workshop_id': workshop_id
     }
     socket.emit('game_page_data', team_id, data);
@@ -161,32 +162,36 @@ function tradeUpdateToCash(){
     socket.on('receive_game_page_data', function(responseData){
     	////console.log("Response Data", responseData);
     	setInitialConditionToAll(responseData);
-    	//initialOutbound(responseData);
-    	// initialAssemblySetup(responseData);
-    	// initialWorkerSetup(responseData);
-        // initialSetupResearchDevelopment(responseData);
-    	// updateNewProduction(responseData);
     	initialData = responseData;
+        var trade_receivable = document.getElementById("trade_receivable");
+        trade_receivable.classList.remove("color_change");
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayInterest()">CONFIRM</div>';
     });
 
-    document.getElementById("gameConfirmButton").innerHTML = "";
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayInterest()">CONFIRM</div>';
-	var trade_receivable = document.getElementById("trade_receivable");
-	trade_receivable.classList.remove("color_change");
+    
 }
 
 
 function showPayInterest(){
-	var trade_receivable = document.getElementById("payInterest");
-	trade_receivable.classList.add("color_change");
+	// var trade_receivable = document.getElementById("payInterest");
+	// trade_receivable.classList.add("color_change");
 
-	document.getElementById("gameConfirmButton").innerHTML = "";
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY INTEREST</div>';
+    socket.emit('initialConditionBySocket', team_id, data);
+    socket.on('receive_initialConditionBySocket', function(initialData){
+        var data = JSON.stringify(initialData);
+        var trade_receivable = document.getElementById("trade_receivable");
+        trade_receivable.classList.remove("color_change");
+        document.getElementById("interestPay").innerHTML = "<a class='color_change' id='payInterest' href='javascript:void(0);' onclick='payInterest("+data+")'>1</a>Interest";
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY INTEREST</div>';
+    });
+
+	
 }	
 
-function payInterest(){
+function payInterest(initialData){
 	////console.log("TTTT");
-
 	var trade_receivable = document.getElementById("payInterest");
 	trade_receivable.classList.remove("color_change");
 
@@ -194,39 +199,54 @@ function payInterest(){
         action: "Pay_short_term_loans_interest",
         participant_id: participant_id,
         quarter: quarter,
-        short_term_loans_interest: 3,
-        team_id: team_id,
-        workshop_id: workshop_id,
-        year: year,
-    }
-
-    var longTermInterestData = {
-        action: "Pay_long_term_loans_interest",
-        long_term_loans_interest: 2,
-        participant_id: participant_id,
-        quarter: quarter,
+        short_term_loans_interest: initialData.Short_term_liabilities,
         team_id: team_id,
         workshop_id: workshop_id,
         year: year,
     }
 
     socket.emit('game_page_data', team_id, shortTermInterestData);
+    socket.on('receive_game_page_data', function(responseData){
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM UUUUU</div>';
+    })
+
+    var longTermInterestData = {
+        action: "Pay_long_term_loans_interest",
+        long_term_loans_interest: initialData.Long_term_liabilities,
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
     socket.emit('game_page_data', team_id, longTermInterestData);
 
-    document.getElementById("gameConfirmButton").innerHTML = "";
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM</div>';
+    socket.on('receive_game_page_data', function(responseData){
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM  TTTT</div>';
 
+
+    })
+    
 }
 
 function showLoansUpdate(){
 
-	var updateShortLoan = document.getElementById("updateShortLoanIncome");
-    // var updateLongLoan = document.getElementById("updateLongLoanIncome");
-    updateShortLoan.classList.add("color_change");
-    // updateLongLoan.classList.add("color_change");
+    socket.emit('initialConditionBySocket', team_id, data);
+    socket.on('receive_initialConditionBySocket', function(initialData){
+        var data = JSON.stringify(initialData);
+        document.getElementById("shortTermLoan").innerHTML = "<span class='color_change' id='updateShortLoanIncome' onclick='updateLoan()'>1</span>Short-term Financial liablity";
 
-	document.getElementById("gameConfirmButton").innerHTML = "";
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE LOANS</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE LOANS</div>';
+    });
+	// var updateShortLoan = document.getElementById("updateShortLoanIncome");
+ //    // var updateLongLoan = document.getElementById("updateLongLoanIncome");
+ //    updateShortLoan.classList.add("color_change");
+ //    // updateLongLoan.classList.add("color_change");
+
+	
 }
 
 function updateLoan(Short_term_liabilities){

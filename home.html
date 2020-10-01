@@ -578,7 +578,7 @@
                                 <div class="big_circle_yellow" id="cash_value">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="tradeUpdateToCash()" id="trade_receivable">1</a>Trade receivables</h3>
+                                <h3 class="trade_heading" id="trade_receivable_click"><a class="" href="javascript:void(0);" id="trade_receivable">1</a>Trade receivables</h3>
                                 <div class="big_circle_yellow" id="trade_receivable_value">0</div>
                             </div>
                             <div class="eqi_list">
@@ -590,7 +590,7 @@
                                 <div class="big_circle_yellow" id="Goods_in_assembly">12</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="updateFinishedGoods()" id="finished_goods">3</a>Finished goods inventory</h3>
+                                <h3 class="trade_heading"><a class="" href="javascript:void(0);" onclick="updateFinishedGoods()" id="finished_goods">8</a>Finished goods inventory</h3>
                                 <div class="big_circle_yellow" id="Finished_goods_store">12</div>
                             </div>
                         </div>
@@ -614,11 +614,11 @@
                         <h4 class="light_bg_s">Liabilities</h4>
                         <div class="height_adjut_belt">
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><a id="updateShortLoanIncome" href="javascript:void(0);" onclick="updateLoan()">1</a>Short-term Financial liablity</h3>
+                                <h3 class="trade_heading" id="shortTermLoan"><span id="updateShortLoanIncome" onclick="updateLoan()">1</span>Short-term Financial liablity</h3>
                                 <div class="light_bg_gray_ns" id="Short_term_liabilities">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><a id="updateLongLoanIncome" href="javascript:void(0);" onclick="updateLoan()">1</a>Long-term Financial liablity</h3>
+                                <h3 class="trade_heading" id="longTermLoan"><span id="updateLongLoanIncome" href="javascript:void(0);" onclick="updateLoan()">1</span>Long-term Financial liablity</h3>
                                 <div class="light_bg_gray_ns" id="Long_term_liabilities">10</div>
                             </div>
                             <div class="eqi_list">
@@ -632,11 +632,11 @@
                         </div>
                         <h4 class="light_bg_s">Non-current assets</h4>
                         <div class="eqi_list">
-                             <h3 class="trade_heading"><span>3</span>Share Capital</h3>
+                             <h3 class="cs_subg">Share Capital</h3>
                             <div class="light_bg_gray_ns" id="Share_Capital">0</div>
                         </div>
                         <div class="eqi_list">
-                            <h3 class="cs_subg">Reserves</h3>
+                            <h3 class="trade_heading"><span>10</span>Reserves</h3>
                             <div class="light_bg_gray_ns" id="Reserves">0</div>
                         </div>
                         <div class="total_assets_wrapp">
@@ -676,7 +676,7 @@
                         <div class="big_circle_yellow" id="R_AND_D_expenses">42</div>
                     </div>
                     <div class="eqi_list">
-                        <h3 class="trade_heading"><a id="payInterest" href="javascript:void(0);" onclick="payInterest()">1</a>Interest</h3>
+                        <h3 class="trade_heading" id="interestPay"><a id="payInterest" href="javascript:void(0);" >1</a>Interest</h3>
                         <div class="big_circle_yellow" id="Interest">42</div>
                     </div>
                     <div class="total_assets_wrapp static_styel">
@@ -843,8 +843,8 @@
                             <h3 class="fin_heading"><span>7</span>ADVERTISING</h3>
                             <div class="man_num_right">
                                 <div class="icon_black"><img src="images/alert_black.svg" width="30" alt=""></div>
-                                <div class="ten_cds_yellow">1</div>
-                                <div class="min_ico">-</div>
+                                <!-- <div class="ten_cds_yellow">1</div>
+                                <div class="min_ico">-</div> -->
                                 <div class="ten_cds_yellow">1</div>
                             </div>
                         </div>
