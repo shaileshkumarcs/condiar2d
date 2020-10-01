@@ -610,12 +610,11 @@ function getEbtCalculation(initialConditionData){
     
     //var COGS = F58 + F60 + F61 + F62 + F63;
 
+
     var COGS = parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales);
-    
+
 
     var EBT = parseInt(initialConditionData.Net_sales) - (parseInt(COGS)) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
-
-
 
     return 0;
 }
