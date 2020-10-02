@@ -188,6 +188,27 @@ function initiate_ADMINISTRATION_IT_AND_FINANCE(initialConditionData){
     var html1 = '';
     var count = 1-Administration_IT;    
     for (var i = 1; i <=Administration_IT; i++) {
+        html1 = html1 + ' <div class="admi_liblue"><img src="images/white_man.svg" alt=""/></div>';
+        count++;
+                
+    }
+    for (var j = 1; j <=nulled; j++) {
+        html1 = html1 + '<div class="admi_blue_light_cc"><img src="images/white_man.svg" alt=""/></div>'; 
+        count++; 
+
+    }
+    document.getElementById("ADMINISTRATION_IT_FINANCE").innerHTML = html1;
+    //start_ADMINISTRATION_IT_AND_FINANCE();  
+}
+
+
+function start_ADMINISTRATION_IT_AND_FINANCE(){
+
+       var Administration_IT = parseInt(initialConditionData.Administration_IT);
+    var nulled = 4-Administration_IT;
+    var html1 = '';
+    var count = 1-Administration_IT;    
+    for (var i = 1; i <=Administration_IT; i++) {
         html1 = html1 + ' <div class="admi_liblue" onclick="Adjust_administration_IT_resources('+count+')"><img src="images/white_man.svg" alt=""/></div>';
         count++;
                 
@@ -198,11 +219,11 @@ function initiate_ADMINISTRATION_IT_AND_FINANCE(initialConditionData){
 
     }
     document.getElementById("ADMINISTRATION_IT_FINANCE").innerHTML = html1;
-    //start_ADMINISTRATION_IT_AND_FINANCE();  
-}
 
 
-function start_ADMINISTRATION_IT_AND_FINANCE(){
+
+
+
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#f39b4a';
     document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#f39b4a';
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ADJUST ADMINISTRATION & IT FINANCE</div>';

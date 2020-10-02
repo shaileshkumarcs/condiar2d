@@ -10,7 +10,7 @@ var initialData;
 
 
 var socket = io('http://54.198.46.240:3006/');
-// var socket = io('http://localhost:3006');
+//var socket = io('http://localhost:3006');
 
 socket.emit('team', team_id);
 
@@ -52,13 +52,13 @@ function setInitialConditionToAll(initialData){
 
 	document.getElementById("Other_liabilities").innerHTML = initialData.Other_liabilities;
 	document.getElementById("Share_Capital").innerHTML = initialData.Share_Capital;
-	document.getElementById("showShareCapitalValue").innerHTML = initialData.share_holder_loan;
+	document.getElementById("showShareCapitalValue").innerHTML = 0; //initialData.share_holder_loan;
 	document.getElementById("shareCapitalValue").innerHTML = initialData.Share_Capital;
     document.getElementById("Reserves").innerHTML = initialData.Reserves;
 
 	
 	document.getElementById("financial_short_term_libabilities_value").innerHTML = initialData.Short_term_liabilities;
-	document.getElementById("showShortTermLoan").innerHTML = initialData.Short_term_liabilities;
+	document.getElementById("showShortTermLoan").innerHTML = 0; //initialData.Short_term_liabilities;
 	document.getElementById("shortTermLoanValue").value = initialData.Short_term_liabilities;
 	document.getElementById("financial_short_term_libabilities_percent").innerHTML = initialData.Short_term_loan_interest_rate+'%';
 	document.getElementById("financial_long_term_libabilities_value").innerHTML = initialData.Long_term_liabilities;
@@ -292,10 +292,11 @@ function showTakoutLoan(){
 // For increment and decrement function for short term loan
 function increaseShortTermLoan(){
 	showApplyLoan();
-    var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
+    var shortTermLoanValue = document.getElementById("showShortTermLoan").innerHTML;
     if(shortTermLoanValue < 40){
+       
+        console.log(shortTermLoanValue);
         shortTermLoanValue = parseInt(shortTermLoanValue) + 10;
-        ////console.log("yyyyy", shortTermLoanValue);
         document.getElementById("shortTermLoanValue").value = shortTermLoanValue;
         document.getElementById("showShortTermLoan").innerHTML = shortTermLoanValue;
     }
@@ -2090,7 +2091,7 @@ function updateNewProduction(){
 	//                     </div>\
 	//                 </div>';
 
-    start_ADMINISTRATION_IT_AND_FINANCE();
+    start_ADMINISTRATION_IT_AND_FINANCE(initialData);
 
 }
 
