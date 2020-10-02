@@ -24,7 +24,7 @@ function initiate_Inbound_Logistics(initialConditionData){
 
 function start_Inbound_Logistics(){
     document.getElementById("action_count_num").innerHTML = '2';
-	document.getElementById("INBOUND_LOGISTICS_number").style.backgroundColor = '#f39b4a';
+	//document.getElementById("INBOUND_LOGISTICS_number").style.backgroundColor = '#f39b4a';
     
     var Ordered_Materials = document.getElementById("Ordered_Materials").innerHTML;
 

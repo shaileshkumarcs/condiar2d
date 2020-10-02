@@ -2061,20 +2061,23 @@ function updateNewProduction(initialData){
     console.log("initialData", initialData);
 
     var leftMaterial = initialData.Materials;
-
+    var totalCapacity;
     if(leftMaterial > 0)
     {
         var beltCapacity;
         if(initialData.Assembly_Belt_1_color == "Yellow"){
-            beltCapacity = 2;            
+            // beltCapacity = 2;  
+            totalCapacity = totalCapacity+ 2;            
         }
         else if(initialData.Assembly_Belt_1_color == "Green"){
-            beltCapacity = 3;                            
+            // beltCapacity = 3; 
+            totalCapacity = totalCapacity+ 3;                             
         }
         else if(initialData.Assembly_Belt_1_color == "Black"){
-            beltCapacity = 4;            
+            // beltCapacity = 4;   
+            totalCapacity = totalCapacity+ 4;           
         }
-        document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+        // document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
         leftMaterial = leftMaterial - beltCapacity;
     }
 
@@ -2082,17 +2085,94 @@ function updateNewProduction(initialData){
     {
         var beltCapacity;
         if(initialData.Assembly_Belt_2_color == "Yellow"){
-            beltCapacity = 2;            
+            // beltCapacity = 2; 
+            totalCapacity = totalCapacity+ 2;            
         }
         else if(initialData.Assembly_Belt_2_color == "Green"){
-            beltCapacity = 3;                            
+            // beltCapacity = 3;  
+            totalCapacity = totalCapacity+ 3;                           
         }
         else if(initialData.Assembly_Belt_2_color == "Black"){
-            beltCapacity = 4;            
+            // beltCapacity = 4; 
+            totalCapacity = totalCapacity+ 4;            
         }
-        document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
-        leftMaterial = leftMaterial - beltCapacity;
+        // document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+        // leftMaterial = leftMaterial - beltCapacity;
     }
+
+    var updatedCapacity;
+    if(initialData.Materials >= totalCapacity){
+        updatedCapacity = totalCapacity;
+    }
+    else{
+        updatedCapacity = initialData.Materials;
+    }
+
+
+    var Start_new_production = {
+        Start_new_production: updatedCapacity,
+        action: "Start_new_production",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    console.log("YY START NEW PRODUCTION", Start_new_production);
+    socket.emit('game_page_data', team_id, Start_new_production);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Response");
+        setInitialConditionToAll(responseData);
+        
+
+        var leftMaterial = initialData.Materials;
+        var totalCapacity;
+        if(leftMaterial > 0)
+        {
+            var beltCapacity;
+            if(initialData.Assembly_Belt_1_color == "Yellow"){
+                beltCapacity = 2;  
+                totalCapacity = 2;            
+            }
+            else if(initialData.Assembly_Belt_1_color == "Green"){
+                beltCapacity = 3; 
+                totalCapacity = 3;                             
+            }
+            else if(initialData.Assembly_Belt_1_color == "Black"){
+                beltCapacity = 4;   
+                totalCapacity = 4;           
+            }
+            document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+            leftMaterial = leftMaterial - beltCapacity;
+        }
+
+        if(leftMaterial > 0)
+        {
+            var beltCapacity;
+            if(initialData.Assembly_Belt_2_color == "Yellow"){
+                beltCapacity = 2; 
+                totalCapacity = 2;            
+            }
+            else if(initialData.Assembly_Belt_2_color == "Green"){
+                beltCapacity = 3;  
+                totalCapacity = 3;                           
+            }
+            else if(initialData.Assembly_Belt_2_color == "Black"){
+                beltCapacity = 4; 
+                totalCapacity = 4;            
+            }
+            document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+            leftMaterial = leftMaterial - beltCapacity;
+        }
+
+
+
+
+
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayWrokers()">CONFIRM</div>'; 
+
+    })
 
     // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
 
