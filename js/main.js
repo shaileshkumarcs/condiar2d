@@ -2028,181 +2028,70 @@ function startAssembly(){
 }
 
 
+function fillBeltHtml(beltCapacity,leftMaterial)
+{
+    var goodsHtml = '';
+    for(var i = 0;i<beltCapacity;i++)
+    {
+        if(leftMaterial > 0)
+        {
+            goodsHtml += '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+            leftMaterial--;
+        }
+        else
+        {
+            goodsHtml += '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">0</div>\
+                                        <div class="tab_circle_yellow">0</div>\
+                                    </div>\
+                                </div>';   
+        }
+    }
+    return goodsHtml;
+}
+
 function updateNewProduction(initialData){
 	console.log("Materials", initialData.Materials);
-    console.log("initialData", initialData)
+    console.log("initialData", initialData);
 
-    var totalCapacity = 0;
-    if(initialData.Assembly_Belt_1_color == "Yellow"){
-        totalCapacity = totalCapacity + 2;
-       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
+    var leftMaterial = initialData.Materials;
 
-    if(initialData.Assembly_Belt_1_color == "Green"){
-        totalCapacity = totalCapacity + 3;
-       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
-
-    if(initialData.Assembly_Belt_1_color == "Black"){
-        totalCapacity = totalCapacity + 4;
-       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
-
-    if(initialData.Assembly_Belt_2_color == "Yellow"){
-        totalCapacity = totalCapacity + 2;
-       // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
-
-    if(initialData.Assembly_Belt_2_color == "Green"){
-        totalCapacity = totalCapacity + 3;
-      //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
-
-    if(initialData.Assembly_Belt_2_color == "Black"){
-        totalCapacity = totalCapacity + 4;
-        // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
-
-
-    console.log("Total capacity", totalCapacity);
-
-    if(initialData.Materials >= totalCapacity){
+    if(leftMaterial > 0)
+    {
+        var beltCapacity;
         if(initialData.Assembly_Belt_1_color == "Yellow"){
-            var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+            beltCapacity = 2;            
         }
-
-        if(initialData.Assembly_Belt_1_color == "Green"){
-            
-           var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+        else if(initialData.Assembly_Belt_1_color == "Green"){
+            beltCapacity = 3;                            
         }
-
-        if(initialData.Assembly_Belt_1_color == "Black"){
-            
-           var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+        else if(initialData.Assembly_Belt_1_color == "Black"){
+            beltCapacity = 4;            
         }
+        document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+        leftMaterial = leftMaterial - beltCapacity;
+    }
 
+    if(leftMaterial > 0)
+    {
+        var beltCapacity;
         if(initialData.Assembly_Belt_2_color == "Yellow"){
-           
-           var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+            beltCapacity = 2;            
         }
-
-        if(initialData.Assembly_Belt_2_color == "Green"){
-            
-          var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+        else if(initialData.Assembly_Belt_2_color == "Green"){
+            beltCapacity = 3;                            
         }
-
-        if(initialData.Assembly_Belt_2_color == "Black"){
-            
-            var goodsHtml = '<div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>\
-                                <div class="chane_box line_down">\
-                            <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
-                                    </div>\
-                                </div>';
-           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+        else if(initialData.Assembly_Belt_2_color == "Black"){
+            beltCapacity = 4;            
         }
+        document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+        leftMaterial = leftMaterial - beltCapacity;
     }
 
     // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
