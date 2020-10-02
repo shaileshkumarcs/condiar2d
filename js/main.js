@@ -975,7 +975,7 @@ function initialAssemblySetup(initialData){
             
 
         upgradePlaceSlot2 += '<div onclick="addYellowBeltSlot2()">\
-                                <h3>Upgrade</h3>\
+                                <h3>Add Belt</h3>\
                                 <div class="jcb_smwr">\
                                     <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                     <div class="ten_cds_red_sa">5</div>\
@@ -1052,7 +1052,7 @@ function initialAssemblySetup(initialData){
             
 
         upgradePlaceSlot3 += '<div onclick="addYellowBeltSlot3()">\
-                                <h3>Upgrade</h3>\
+                                <h3>Add Belt</h3>\
                                 <div class="jcb_smwr">\
                                     <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                     <div class="ten_cds_red_sa">5</div>\
@@ -1084,14 +1084,14 @@ function addYellowBeltSlot1(){
         console.log("Response data", responseData);
         var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>';
 
@@ -1133,20 +1133,20 @@ function upgradeGreenBeltSlot1(){
 
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>';
 
@@ -1251,26 +1251,26 @@ function upgradeBlackBeltSlot1(){
         initialAssemblySetup(responseData);
     	var goodsHtml ='<div class="chane_box line_down">\
                                         <div class="tabs_box">\
-                                            <div class="tab_circle">1</div>\
-                                            <div class="tab_circle_yellow">2</div>\
+                                            <div class="tab_circle"></div>\
+                                            <div class="tab_circle_yellow"></div>\
                                         </div>\
                                     </div>\
                                     <div class="chane_box line_down">\
                                         <div class="tabs_box">\
-                                            <div class="tab_circle">1</div>\
-                                            <div class="tab_circle_yellow">2</div>\
+                                            <div class="tab_circle"></div>\
+                                            <div class="tab_circle_yellow"></div>\
                                         </div>\
                                     </div>\
                                     <div class="chane_box line_down">\
                                         <div class="tabs_box">\
-                                            <div class="tab_circle">1</div>\
-                                            <div class="tab_circle_yellow">2</div>\
+                                            <div class="tab_circle"></div>\
+                                            <div class="tab_circle_yellow"></div>\
                                         </div>\
                                     </div>\
                                     <div class="chane_box line_down">\
                                         <div class="tabs_box">\
-                                            <div class="tab_circle">1</div>\
-                                            <div class="tab_circle_yellow">2</div>\
+                                            <div class="tab_circle"></div>\
+                                            <div class="tab_circle_yellow"></div>\
                                         </div>\
                                     </div>';
 
@@ -1385,7 +1385,7 @@ function upgradeBlankBeltSlot1(){
                                 </div>';
 
         var upgradePlace = '<div onclick="addYellowBeltSlot1()">\
-                            <h3>Upgrade</h3>\
+                            <h3>Add Belt</h3>\
                             <div class="jcb_smwr">\
                                 <div class="tcs_box"><img src="images/jcb.svg" alt=""> </div>\
                                 <div class="ten_cds_red_sa">5</div>\
@@ -1465,20 +1465,20 @@ function upgradeGreenBeltSlot2(){
         console.log("Response data", responseData);
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>';
 
@@ -1518,26 +1518,26 @@ function upgradeBlackBeltSlot2(){
         console.log("Response data", responseData);
         var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>';
 
@@ -1660,20 +1660,20 @@ function upgradeGreenBeltSlot3(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt3);
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>\
                         <div class="chane_box line_down">\
         					<div class="tabs_box">\
-                                <div class="tab_circle">1</div>\
-                                <div class="tab_circle_yellow">3</div>\
+                                <div class="tab_circle"></div>\
+                                <div class="tab_circle_yellow"></div>\
                             </div>\
                         </div>';
 
@@ -1708,26 +1708,26 @@ function upgradeBlackBeltSlot3(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt3);
 	var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>\
                                 <div class="chane_box line_down">\
                                     <div class="tabs_box">\
-                                        <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">2</div>\
+                                        <div class="tab_circle"></div>\
+                                        <div class="tab_circle_yellow"></div>\
                                     </div>\
                                 </div>';
 
@@ -1995,28 +1995,43 @@ function changeColor(e){
 
 function startAssembly(){
     console.log("startAssembly");
-    var removeAddClass = document.getElementById("assembltBeltSlot1");               
-    removeAddClass.classList.remove("color_change");
+    
 
-    var removeAddClass = document.getElementById("assembltBeltSlot2");               
-    removeAddClass.classList.remove("color_change");
+    
 
-    var removeAddClass = document.getElementById("assembltBeltSlot2");               
-    removeAddClass.classList.remove("color_change");
+    socket.emit('initialConditionBySocket', team_id, data);
 
-    var removeAddClass = document.getElementById("goods_in_progress");               
-    removeAddClass.classList.add("color_change");
+    socket.on('receive_initialConditionBySocket', function(initialData){
+        // setInitialConditionToAll(initialData)
+        var data = JSON.stringify(initialData);
 
-    document.getElementById("gameConfirmButton").innerHTML = "";
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">START ASSEMBLY</div>'; 
+        var removeAddClass = document.getElementById("assembltBeltSlot1");               
+        removeAddClass.classList.remove("color_change");
+
+        var removeAddClass = document.getElementById("assembltBeltSlot2");               
+        removeAddClass.classList.remove("color_change");
+
+        var removeAddClass = document.getElementById("assembltBeltSlot2");               
+        removeAddClass.classList.remove("color_change");
+
+        var removeAddClass = document.getElementById("goods_in_progress");               
+        removeAddClass.classList.add("color_change");
+
+        document.getElementById("updateNewProductOnMachine").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='updateNewProduction("+data+")' id='goods_in_progress'>3</span>Goods in progress inventory";
+
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">START ASSEMBLY</div>'; 
+    });
+
+    
 }
 
 
-function updateNewProduction(){
+function updateNewProduction(initialData){
 	console.log("updateNewProduction", initialData);
-    var totalCapacity = 0;
-    if(initialData.Assembly_Belt_1_color == "Yellow"){
-        totalCapacity = totalCapacity + 2;
+ //    var totalCapacity = 0;
+ //    if(initialData.Assembly_Belt_1_color == "Yellow"){
+ //        totalCapacity = totalCapacity + 2;
 
         // var goodsHtml ='<div class="chane_box line_down">\
         //                     <div class="tabs_box">\
@@ -2033,34 +2048,34 @@ function updateNewProduction(){
         //                 </div>';
 
         // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
+    // }
 
-    if(initialData.Assembly_Belt_1_color == "Green"){
-        totalCapacity = totalCapacity + 3;
-       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
+    // if(initialData.Assembly_Belt_1_color == "Green"){
+    //     totalCapacity = totalCapacity + 3;
+    //    // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    // }
 
-    if(initialData.Assembly_Belt_1_color == "Black"){
-        totalCapacity = totalCapacity + 4;
-       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    }
+    // if(initialData.Assembly_Belt_1_color == "Black"){
+    //     totalCapacity = totalCapacity + 4;
+    //    // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    // }
 
-    if(initialData.Assembly_Belt_2_color == "Yellow"){
-        totalCapacity = totalCapacity + 2;
-       // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
+    // if(initialData.Assembly_Belt_2_color == "Yellow"){
+    //     totalCapacity = totalCapacity + 2;
+    //    // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    // }
 
-    if(initialData.Assembly_Belt_2_color == "Green"){
-        totalCapacity = totalCapacity + 3;
-      //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
+    // if(initialData.Assembly_Belt_2_color == "Green"){
+    //     totalCapacity = totalCapacity + 3;
+    //   //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    // }
 
-    if(initialData.Assembly_Belt_2_color == "Black"){
-        totalCapacity = totalCapacity + 4;
-        // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    }
+    // if(initialData.Assembly_Belt_2_color == "Black"){
+    //     totalCapacity = totalCapacity + 4;
+    //     // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    // }
 
-    console.log("Total capacity", totalCapacity);
+    // console.log("Total capacity", totalCapacity);
 
 
 	// var goodsHtmlBelt1 = '';
