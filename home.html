@@ -19,6 +19,9 @@
     <body class="bgs_new">
         <!-- headersection start-->
         <!--headersection end-->
+
+<button onclick="start_ADMINISTRATION_IT_AND_FINANCE();">start_ADMINISTRATION_IT_AND_FINANCE</button>
+
         <div class="main_bord_continner">
             <div class="finance_top_one">
                 <div class="finance_one">
@@ -165,17 +168,17 @@
                         <div class="bluew_for_container" id="bluew_for_container">
                             <div class="blue_updon" id="blue_updon">
 
-                                <a href="javascript:void(0)" onclick="decreaseinbound()" class="plus_min"><img src="images/min_ns.svg" alt=""></a>
+                                <a href="javascript:void(0)" id="inboundprod_MINUS_BTN" onclick="decreaseinbound()" class="plus_min"><img src="images/min_ns.svg" alt=""></a>
 
                                 <div class="white_truck" id="inboundprod">0</div>
                                 <div class="yellow_truck" id="inboundval">0</div>
 
-                                <a href="javascript:void(0)" onclick="increaseinbound()" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""></a>
+                                <a href="javascript:void(0)" id="inboundprod_PLUS_BTN" onclick="increaseinbound()" class="plus_min_dark"><img src="images/plus_ns.svg" alt=""></a>
 
                             </div>
                             <div class="admi_liblue"><img src="images/white_man.svg" alt=""></div>
                         </div>
-                        <div class="pakka_trekk">
+                        <div class="pakka_trekk" id="Ordered_Materials_HEAD">
                             <div class="white_truck_line" id="Ordered_Materials"></div>
                         </div>
                     </div>
@@ -561,7 +564,7 @@
                     </div>
                     <h2 class="sub_heading_ns">ACTION (DECISION)</h2>
                     <div class="aircon_wrap">
-                        <div class="blue_mark_lab">1</div>
+                        <div class="blue_mark_lab" id="action_count_num">1</div>
                         <div id="gameConfirmButton">
                             <div class="aircon_white org_ns" onclick="startGame()" id="startGame">START GAME</div>
                         </div>
@@ -582,7 +585,11 @@
                                 <div class="big_circle_yellow" id="trade_receivable_value">0</div>
                             </div>
                             <div class="eqi_list">
-                                <h3 class="trade_heading"><span>2</span>Material inventory</h3>
+                                <h3 class="trade_heading" id="Material_inventory_heading">
+
+                                    <span id="Material_inventory_span">2</span>Material inventory
+
+                                </h3>
                                 <div class="big_circle_yellow" id="material_inventory">0</div>
                             </div>
                             <div class="eqi_list">

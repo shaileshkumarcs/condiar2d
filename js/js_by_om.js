@@ -1,7 +1,8 @@
 
 function initiate_Inbound_Logistics(initialConditionData){
 	var Inbound_Logistics = parseInt(initialConditionData.Materials);
-    
+    document.getElementById("inboundprod_MINUS_BTN").removeAttribute("onclick");
+    document.getElementById("inboundprod_PLUS_BTN").removeAttribute("onclick");
     var bal = 1; 
     var html = '<div class="tabs_wrapp">';
 	for(var i=1; i<Inbound_Logistics+1; i++){
@@ -22,9 +23,18 @@ function initiate_Inbound_Logistics(initialConditionData){
 }
 
 function start_Inbound_Logistics(){
+    document.getElementById("action_count_num").innerHTML = '2';
 	document.getElementById("INBOUND_LOGISTICS_number").style.backgroundColor = '#f39b4a';
+    
+    var Ordered_Materials = document.getElementById("Ordered_Materials").innerHTML;
+
+    document.getElementById("Ordered_Materials_HEAD").innerHTML = '<div onclick="Receive_ordered_material()" class="white_truck_line" id="Ordered_Materials">'+Ordered_Materials+'</div>';
+
+
 	document.getElementById("Ordered_Materials").style.backgroundColor = '#f39b4a';
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Receive_ordered_material()" id="startGame">RECIEVED ORDER METERIAL</div>';
+
+    //document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Receive_ordered_material()" id="startGame">RECIEVED ORDER METERIAL</div>';
+	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">RECIEVED METERIALS</div>';
 }
 
 function Receive_ordered_material(){
@@ -49,10 +59,29 @@ function Receive_ordered_material(){
     	setInitialConditionToAll(responseData);
     	initialData = responseData;
     	document.getElementById("Ordered_Materials").style.backgroundColor = '#ffffff';
-    	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Pay_for_materials_received()" id="startGame">PAY FOR ORDER METERIAL</div>';
+        //document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Pay_for_materials_received()" id="startGame">PAY FOR ORDER METERIAL</div>';
+
+
+ document.getElementById("Ordered_Materials_HEAD").innerHTML = '<div class="white_truck_line" id="Ordered_Materials">0</div>';
+
+    	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="go_to_meterial_inventory()" id="startGame">CONFIRM</div>';
 	    
     });
 }
+
+
+function go_to_meterial_inventory(){
+
+    document.getElementById("Material_inventory_span").style.backgroundColor = '#F59C33';
+    document.getElementById("Material_inventory_heading").innerHTML = '<span onclick="Pay_for_materials_received()" id="Material_inventory_span">2</span>Material inventory';
+
+document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">PAY SUPLIER</div>';
+
+    document.getElementById("Material_inventory_span").style.backgroundColor = '#F59C33';
+
+
+}
+
 
 function Pay_for_materials_received(){
 
@@ -75,12 +104,34 @@ function Pay_for_materials_received(){
     
     	setInitialConditionToAll(responseData);
     	initialData = responseData;
-    	document.getElementById("bluew_for_container").style.backgroundColor = '#f39b4a';
-    	document.getElementById("blue_updon").style.backgroundColor = '#f39b4a';
-    	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" id="startGame">SELECT ORDER METERIAL</div>';
+
+        document.getElementById("material_inventory").innerHTML = initialData.Materials;
+
+
+
+    	//document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" id="startGame">SELECT ORDER METERIAL</div>';
+
+        document.getElementById("Material_inventory_span").style.backgroundColor = '#0d65a8';
+        document.getElementById("Material_inventory_heading").innerHTML = '<span id="Material_inventory_span">2</span>Material inventory';
+
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="ordered_meterial_activate()" id="startGame">CONFIRM</div>';
+
+
 	    
     });
 
+
+}
+
+
+function ordered_meterial_activate(){
+        document.getElementById("bluew_for_container").style.backgroundColor = '#f39b4a';
+        document.getElementById("blue_updon").style.backgroundColor = '#f39b4a'; 
+
+     document.getElementById("inboundprod_MINUS_BTN").setAttribute('onclick','decreaseinbound()')
+    document.getElementById("inboundprod_PLUS_BTN").setAttribute('onclick','increaseinbound()')
+
+          document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ORDER METERIAL</div>';
 
 }
 
@@ -96,7 +147,7 @@ function decreaseinbound(){
     document.getElementById("inboundprod").innerHTML = val;
     document.getElementById("inboundval").innerHTML = val;
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Order_material()" id="startGame">ORDER METERIAL NOW</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Order_material()" id="startGame">CONFIRM</div>';
 
 }
 
@@ -110,7 +161,7 @@ function increaseinbound(){
     }
     document.getElementById("inboundprod").innerHTML = val;
     document.getElementById("inboundval").innerHTML = val;
-     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Order_material()" id="startGame">ORDER METERIAL NOW</div>';
+     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="Order_material()" id="startGame">CONFIRM</div>';
 }
 
 
@@ -172,6 +223,17 @@ function Order_material(){
         initialData = responseData;
         document.getElementById("bluew_for_container").style.backgroundColor = '#cfe0f4';
         document.getElementById("blue_updon").style.backgroundColor = '#cfe0f4';
+        document.getElementById("INBOUND_LOGISTICS_number").style.backgroundColor = '#0d65a8';
+
+        document.getElementById("inboundprod").innerHTML = 0;
+        document.getElementById("inboundval").innerHTML = 0;
+
+        
+        
+
+        document.getElementById("inboundprod_MINUS_BTN").removeAttribute("onclick");
+        document.getElementById("inboundprod_PLUS_BTN").removeAttribute("onclick");
+
         //Shailesh code start
         var changecolor = document.getElementById("finished_goods");
         changecolor.classList.add("color_change");
@@ -204,29 +266,45 @@ function initiate_ADMINISTRATION_IT_AND_FINANCE(initialConditionData){
 
 function start_ADMINISTRATION_IT_AND_FINANCE(){
 
-       var Administration_IT = parseInt(initialConditionData.Administration_IT);
+
+const data = {
+    'team_id': team_id,
+    'workshop_id': workshop_id,
+}
+socket.emit('initialConditionBySocket', team_id, data);
+
+socket.on('receive_initialConditionBySocket', function(initialConditionData){
+    var Administration_IT = parseInt(initialConditionData.Administration_IT);
     var nulled = 4-Administration_IT;
     var html1 = '';
     var count = 1-Administration_IT;    
     for (var i = 1; i <=Administration_IT; i++) {
-        html1 = html1 + ' <div class="admi_liblue" onclick="Adjust_administration_IT_resources('+count+')"><img src="images/white_man.svg" alt=""/></div>';
+        //html1 = html1 + ' <div class="admi_liblue" onclick="Adjust_administration_IT_resources('+count+')"><img src="images/white_man.svg" alt=""/></div>';
+        html1 = html1 + ' <div class="admi_liblue"><img src="images/white_man.svg" alt=""/></div>';
         count++;
                 
     }
     for (var j = 1; j <=nulled; j++) {
-        html1 = html1 + '<div class="admi_blue_light_cc" onclick="Adjust_administration_IT_resources('+count+')"><img src="images/white_man.svg" alt=""/></div>'; 
+        //html1 = html1 + '<div class="admi_blue_light_cc" onclick="Adjust_administration_IT_resources('+count+')"><img src="images/white_man.svg" alt=""/></div>'; 
+        html1 = html1 + '<div class="admi_blue_light_cc"><img src="images/white_man.svg" alt=""/></div>'; 
         count++; 
 
     }
+
+    var arg = 1;
     document.getElementById("ADMINISTRATION_IT_FINANCE").innerHTML = html1;
-
-
-
-
-
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#f39b4a';
-    document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#f39b4a';
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ADJUST ADMINISTRATION & IT FINANCE</div>';
+    document.getElementById("ADMINISTRATION_IT_FINANCE_heading").setAttribute('onclick','Adjust_administration_IT_resources('+arg+')')
+
+    
+    //document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#f39b4a';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ADJUST ADMIN/IT</div>';
+    
+});
+
+
+    
+
 }
 
 function Adjust_administration_IT_resources(val){
@@ -248,10 +326,14 @@ function Adjust_administration_IT_resources(val){
     initialData = responseData;
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#0d65a8';
     document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
+     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").removeAttribute("onclick");
 
     });
 
-    startResearchDevelopment();
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div onclick="startResearchDevelopment();" class="aircon_white org_ns" id="startGame">CONFIRM</div>';
+
+    
 
 }
 
