@@ -10,7 +10,7 @@ var initialData;
 
 
 var socket = io('http://54.198.46.240:3006/');
- //var socket = io('http://localhost:3006');
+// var socket = io('http://localhost:3006');
 
 socket.emit('team', team_id);
 
