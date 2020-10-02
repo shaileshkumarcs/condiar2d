@@ -604,20 +604,84 @@ function initiate_EBT(initialConditionData){
 
 
 function getEbtCalculation(initialConditionData){
-    console.log('START EBT CALCULATION');
-    // VAR COGS = F58 + F60 + F61 + F62 + F63; 
+   // console.log('START EBT CALCULATION');
+   
     //var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
     
     //var COGS = F58 + F60 + F61 + F62 + F63;
 
-    var COGS = parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales) + parseInt(initialConditionData.Net_sales);
+    // var F58 =  (STD40 + STD38) - (STD7+STD8);
+       var F58 = (parseInt(initialConditionData.Goods_in_Assembly_in_MU) + parseInt(initialConditionData.Finished_Goods_Store_in_MU)) - (parseInt(initialConditionData.Goods_in_assembly) + parseInt(initialConditionData.Finished_goods_store)) 
+
+    // var F60 =  STD31*STD54;
+
+       var F60 = (parseInt(initialConditionData.Inbound_Logistics) * parseInt(initialConditionData.Finished_Goods_Store_in_MU));
+
+     // var F61 =  Pay manufacturing costs;
+
+      
+
+       var Workers_Assembly_1 = parseInt(initialConditionData.Workers_Assembly_1); 
+       var Workers_Assembly_2 = parseInt(initialConditionData.Workers_Assembly_2);
+       var Workers_Assembly_3 = parseInt(initialConditionData.Workers_Assembly_3);
+       var Workers_Assembly_4 = parseInt(initialConditionData.Workers_Assembly_4);
+
+       var count = 0;
+       if(Workers_Assembly_1 == 0){
+           count++;
+       }
+
+       if(Workers_Assembly_2 == 0){
+           count++;
+       }
+
+        if(Workers_Assembly_3 == 0){
+           count++;
+       }
+
+        if(Workers_Assembly_4 == 0){
+           count++;
+       }
+
+     var F61 =  (4-count)*parseInt(initialConditionData.Assembly_Operating_Costs);
+       
+
+    // var F62 =  Pay inventory costs
+
+    // var F62 =  R49*STD59 + R76*STD62;
+
+    //var F62 =  (Materials inventory in units)*STD59 + (Finished goods store in units)*STD62
+    //var F62 =  (Materials inventory in units)*STD59 + (initialConditionData.Finished_Goods_Store_in_Units)*STD62
+    //var F62 =  (initialConditionData.Materials+initialConditionData.Ordered_Materials-(initialConditionData.Production_capacity_assembly_belt_1 + initialConditionData.Production_capacity_assembly_belt_2 + initialConditionData.Production_capacity_assembly_belt_3 + initialConditionData.Production_capacity_assembly_belt_4))*STD59 + (initialConditionData.Finished_Goods_Store_in_Units)*STD62
+     
+
+     var F62 =  (parseInt(initialConditionData.Materials)+parseInt(initialConditionData.Ordered_Materials)-(parseInt(initialConditionData.Production_capacity_assembly_belt_1) + parseInt(initialConditionData.Production_capacity_assembly_belt_2) + parseInt(initialConditionData.Production_capacity_assembly_belt_3) + parseInt(initialConditionData.Production_capacity_assembly_belt_4)))*parseInt(initialConditionData.Inbound_Logistics_Storage_Cost) + (parseInt(initialConditionData.Finished_Goods_Store_in_Units))*parseInt(initialConditionData.Finished_goods_store_storage_cost);
+
+
+    // var F63 =  Pay rent 
+     var F63 =  0;
+
+    console.clear();
+    console.log('F58 - ', F58);
+    console.log('F60 - ', F60);
+    console.log('F61 - ', F61);
+    console.log('F62 - ', F62);
+    console.log('F63 - ', F63);
     
+
+   
+
+    var COGS = F58 + F60 + F61 + F62 + F63;
+
+
+    document.getElementById("cogs_count").innerHTML = COGS;
 
     var EBT = parseInt(initialConditionData.Net_sales) - (parseInt(COGS)) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
 
+    EBT = EBT - parseInt(initialConditionData.short_term_loans_interest) - parseInt(initialConditionData.long_term_loans_interest);
 
-
-    return 0;
+   
+    return EBT;
 }
 
 

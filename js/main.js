@@ -194,12 +194,12 @@ function payInterest(initialData){
 	////console.log("TTTT");
 	var trade_receivable = document.getElementById("payInterest");
 	trade_receivable.classList.remove("color_change");
-
+    var short_term_loans_interest = ((parseInt(initialData.Short_term_liabilities) * parseInt(initialData.Short_term_loan_interest_rate)))/100;
 	var shortTermInterestData = {
         action: "Pay_short_term_loans_interest",
         participant_id: participant_id,
         quarter: quarter,
-        short_term_loans_interest: initialData.Short_term_liabilities,
+        short_term_loans_interest: short_term_loans_interest, 
         team_id: team_id,
         workshop_id: workshop_id,
         year: year,
@@ -211,9 +211,11 @@ function payInterest(initialData){
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM </div>';
     })
 
+ var Long_term_liabilities = ((parseInt(initialData.Long_term_liabilities) * parseInt(initialData.Long_term_loan_interest_rate)))/100;
+
     var longTermInterestData = {
         action: "Pay_long_term_loans_interest",
-        long_term_loans_interest: initialData.Long_term_liabilities,
+        long_term_loans_interest: Long_term_liabilities,
         participant_id: participant_id,
         quarter: quarter,
         team_id: team_id,
