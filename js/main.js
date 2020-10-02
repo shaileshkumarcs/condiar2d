@@ -2672,6 +2672,9 @@ function selectOrderCard(data){
 
     socket.emit('card_selection', workshop_id, orderCardRequest);
     var cardHtml = '';
+    var oldHtml = "";
+    oldHtml = document.getElementById("company"+team_id).innerHTML;
+    console.log("old html ",oldHtml);
     socket.on('card_selection_recieve', function(responseData){
         console.log("Response data after card selection ",responseData);  
         allOrderCards(responseData);
@@ -2710,10 +2713,7 @@ function selectOrderCard(data){
                                 </div>\
                             </div>\
                         </div>';
-        }
-        var oldHtml = "";
-        oldHtml = document.getElementById("company"+responseData.team_id).innerHTML;
-        console.log("old html ",oldHtml);
+        }        
         oldHtml = oldHtml + cardHtml;
         document.getElementById('company'+responseData.team_id).innerHTML = oldHtml;
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_OUTBOUND_LOGISTICS()" id="startGame">Start Outbound</div>';
