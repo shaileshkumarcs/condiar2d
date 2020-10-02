@@ -208,7 +208,7 @@ function payInterest(initialData){
     socket.emit('game_page_data', team_id, shortTermInterestData);
     socket.on('receive_game_page_data', function(responseData){
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM UUUUU</div>';
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM </div>';
     })
 
     var longTermInterestData = {
@@ -224,7 +224,7 @@ function payInterest(initialData){
 
     socket.on('receive_game_page_data', function(responseData){
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM  TTTT</div>';
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM </div>';
 
 
     })
@@ -236,8 +236,10 @@ function showLoansUpdate(){
     socket.emit('initialConditionBySocket', team_id, data);
     socket.on('receive_initialConditionBySocket', function(initialData){
         var data = JSON.stringify(initialData);
-        document.getElementById("shortTermLoan").innerHTML = "<span class='color_change' id='updateShortLoanIncome' onclick='updateLoan()'>1</span>Short-term Financial liablity";
+        document.getElementById("shortTermLoan").innerHTML = "<span class='color_change' id='updateShortLoanIncome' onclick='updateLoan("+data+")'>1</span>Short-term Financial liablity";
 
+        var trade_receivable = document.getElementById("payInterest");
+        trade_receivable.classList.remove("color_change");
         document.getElementById("gameConfirmButton").innerHTML = "";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE LOANS</div>';
     });
@@ -249,7 +251,7 @@ function showLoansUpdate(){
 	
 }
 
-function updateLoan(Short_term_liabilities){
+function updateLoan(initialData){
 	////console.log("Update loan",initialData);
 	var data = {
         Short_term_liabilities: initialData.Short_term_liabilities,
@@ -261,12 +263,13 @@ function updateLoan(Short_term_liabilities){
         year: year,
     }
     socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+        var updateShortLoan = document.getElementById("updateShortLoanIncome");
+        updateShortLoan.classList.remove("color_change");
 
-    var updateShortLoan = document.getElementById("updateShortLoanIncome");
-    updateShortLoan.classList.remove("color_change");
-
-    document.getElementById("gameConfirmButton").innerHTML = "";
-	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showTakoutLoan()">CONFIRM</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "";
+    	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showTakoutLoan()">CONFIRM</div>';
+    })
 }
 
 function showTakoutLoan(){
@@ -401,6 +404,10 @@ function applyLoans(){
         year: year,
     }
 
+    socket.emit('game_page_data', team_id, shortTermLoanApply);
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    });
     var longTermLoanApply = {
         Long_term_liabilities_4_Year: longTermLoanValue,
         action: "Take_out_new_long_term_loans",
@@ -413,11 +420,11 @@ function applyLoans(){
 
     //console.log("shortTermLoanApply", shortTermLoanApply);
     //console.log("longTermLoanApply", longTermLoanApply);
-    socket.emit('game_page_data', team_id, shortTermLoanApply);
+    
     socket.emit('game_page_data', team_id, longTermLoanApply);
-
-    // Action 2 called
-    start_Inbound_Logistics();
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    });
 
 }
 
@@ -482,7 +489,6 @@ function updateFinishedGoods(){
 }
 
 function showAssemblyBeltUpgrade(){
-    console.log("TTEST");
     var changecolor = document.getElementById("upgradePointSlot1");
     changecolor.classList.add("color_change");
     var changecolor = document.getElementById("upgradePointSlot2");
@@ -1783,7 +1789,7 @@ function upgradeBlankBeltSlot3(){
 
 function initialWorkerSetup(initialData){
 	//console.log("initialWorkerSetup", initialData.Workers_Assembly_1);
-	//console.log("initialWorkerSetup", initialData.Workers_Assembly_2);
+	// console.log("initialWorkerSetup 2 ", initialData.Workers_Assembly_2);
 	//console.log("initialWorkerSetup", initialData.Workers_Assembly_3);
 
 	var workerHtml1 = '';
@@ -1815,32 +1821,32 @@ function initialWorkerSetup(initialData){
 	}
                                 
 
-	if(initialData.Workers_Assembly_2 > 0){
-		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+	if(parseInt(initialData.Workers_Assembly_2) > 0){
+		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 	else{
-		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 
-	if(initialData.Workers_Assembly_2 > 1){
-		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+	if(parseInt(initialData.Workers_Assembly_2) > 1){
+		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 	else{
-		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 
-	if(initialData.Workers_Assembly_2 > 2){
-		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+	if(parseInt(initialData.Workers_Assembly_2) > 2){
+		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 	else{
-		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 
-	if(initialData.Workers_Assembly_2 > 3){
-		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+	if(parseInt(initialData.Workers_Assembly_2) > 3){
+		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 	else{
-		workerHtml2 += '<div class="admi_liblue" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
+		workerHtml2 += '<div class="admi_liblue deactive_color" onclick="changeColor(this)" belt_number="2"><img src="images/white_man.svg" alt=""></div>';
 	}
 
                                 
@@ -1879,6 +1885,13 @@ function initialWorkerSetup(initialData){
 
 function showAdjustWorker(){
     console.log("showAdjustWorker");
+    var removeAddClass = document.getElementById("upgradePointSlot1");               
+    removeAddClass.classList.remove("color_change");
+    var removeAddClass = document.getElementById("upgradePointSlot2");               
+    removeAddClass.classList.remove("color_change");
+    var removeAddClass = document.getElementById("upgradePointSlot3");               
+    removeAddClass.classList.remove("color_change");
+
     var removeAddClass = document.getElementById("assembltBeltSlot1");               
     removeAddClass.classList.add("color_change");
 
@@ -1981,6 +1994,9 @@ function changeColor(e){
 function startAssembly(){
     console.log("startAssembly");
     var removeAddClass = document.getElementById("assembltBeltSlot1");               
+    removeAddClass.classList.remove("color_change");
+
+    var removeAddClass = document.getElementById("assembltBeltSlot2");               
     removeAddClass.classList.remove("color_change");
 
     var removeAddClass = document.getElementById("assembltBeltSlot2");               
@@ -2383,18 +2399,18 @@ function initialMarketing(initialData){
     researchDevelopmetIndex += '</div>\
                                     <div class="alert_twoRow">';
     if(initialData.R_D_Quality_Index > 13){
-        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">14</div>';
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle" style="margin-left:5px">14</div>';
     }
     else{
-        researchDevelopmetIndex += '<div class="alert_blue_circle">14</div>';   
+        researchDevelopmetIndex += '<div class="alert_blue_circle"  style="margin-left:5px">14</div>';   
     }
     researchDevelopmetIndex += '</div>\
                                     <div class="alert_twoRow">';
     if(initialData.R_D_Quality_Index > 14){
-        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle">15</div>';
+        researchDevelopmetIndex += '<div class="alert_Darck_blue_circle"  style="margin-left:5px">15</div>';
     }
     else{
-        researchDevelopmetIndex += '<div class="alert_blue_circle">15</div>';   
+        researchDevelopmetIndex += '<div class="alert_blue_circle"  style="margin-left:5px">15</div>';   
     }
     researchDevelopmetIndex += '</div>\
                                     </div>\
