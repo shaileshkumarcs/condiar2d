@@ -88,10 +88,10 @@ function Pay_for_materials_received(){
 function decreaseinbound(){
     var val = parseInt(document.getElementById("inboundprod").innerHTML); //inboundval
 
-    if(val>5){
-      val = val-5;
+    if(val>1){
+      val = val-1;
     }else{
-        val = 5;
+        val = 1;
     }
     document.getElementById("inboundprod").innerHTML = val;
     document.getElementById("inboundval").innerHTML = val;
@@ -104,7 +104,7 @@ function decreaseinbound(){
 function increaseinbound(){
     var val = parseInt(document.getElementById("inboundprod").innerHTML); //inboundval
     if(val<20){
-      val = val+5;
+      val = val+1;
     }else{
         val = 20;
     }
@@ -661,12 +661,12 @@ function getEbtCalculation(initialConditionData){
     // var F63 =  Pay rent 
      var F63 =  0;
 
-    console.clear();
-    console.log('F58 - ', F58);
-    console.log('F60 - ', F60);
-    console.log('F61 - ', F61);
-    console.log('F62 - ', F62);
-    console.log('F63 - ', F63);
+    // console.clear();
+    // console.log('F58 - ', F58);
+    // console.log('F60 - ', F60);
+    // console.log('F61 - ', F61);
+    // console.log('F62 - ', F62);
+    // console.log('F63 - ', F63);
     
 
    
@@ -674,12 +674,18 @@ function getEbtCalculation(initialConditionData){
     var COGS = F58 + F60 + F61 + F62 + F63;
 
 
-    document.getElementById("cogs_count").innerHTML = COGS;
+    document.getElementById("cogs_count").innerHTML = 0;
 
     var EBT = parseInt(initialConditionData.Net_sales) - (parseInt(COGS)) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
-
+    EBT = 0;
     EBT = EBT - parseInt(initialConditionData.short_term_loans_interest) - parseInt(initialConditionData.long_term_loans_interest);
 
+    
+   document.getElementById("Reserves").innerHTML = EBT;
+
+   var Total_Liabilities_Equity = document.getElementById("Total_Liabilities_Equity").innerHTML;
+
+   document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(Total_Liabilities_Equity) + EBT;
    
     return EBT;
 }
