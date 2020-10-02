@@ -31,7 +31,7 @@ function setInitialConditionToAll(initialData){
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
     initialSetupResearchDevelopment(initialData);
-	// updateNewProduction(initialData);
+	// startAssembly(initialData);
 	initiate_Inbound_Logistics(initialData); // by OM KUMAR YAADAV
 	// updateNewProduction(initialData);
     initialMarketing(initialData);
@@ -2029,84 +2029,183 @@ function startAssembly(){
 
 
 function updateNewProduction(initialData){
-	console.log("updateNewProduction", initialData);
- //    var totalCapacity = 0;
- //    if(initialData.Assembly_Belt_1_color == "Yellow"){
- //        totalCapacity = totalCapacity + 2;
+	console.log("Materials", initialData.Materials);
+    console.log("initialData", initialData)
 
-        // var goodsHtml ='<div class="chane_box line_down">\
-        //                     <div class="tabs_box">\
-        //                         <div class="tab_circle">1</div>\
-        //                         <div class="tab_circle_yellow">2</div>\
-        //                     </div>\
-        //                 </div>';
+    var totalCapacity = 0;
+    if(initialData.Assembly_Belt_1_color == "Yellow"){
+        totalCapacity = totalCapacity + 2;
+       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
 
-        // var goodsHtml ='<div class="chane_box line_down">\
-        //                     <div class="tabs_box">\
-        //                         <div class="tab_circle">1</div>\
-        //                         <div class="tab_circle_yellow">2</div>\
-        //                     </div>\
-        //                 </div>';
+    if(initialData.Assembly_Belt_1_color == "Green"){
+        totalCapacity = totalCapacity + 3;
+       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
 
-        // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    // }
+    if(initialData.Assembly_Belt_1_color == "Black"){
+        totalCapacity = totalCapacity + 4;
+       // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+    }
 
-    // if(initialData.Assembly_Belt_1_color == "Green"){
-    //     totalCapacity = totalCapacity + 3;
-    //    // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    // }
+    if(initialData.Assembly_Belt_2_color == "Yellow"){
+        totalCapacity = totalCapacity + 2;
+       // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
 
-    // if(initialData.Assembly_Belt_1_color == "Black"){
-    //     totalCapacity = totalCapacity + 4;
-    //    // document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
-    // }
+    if(initialData.Assembly_Belt_2_color == "Green"){
+        totalCapacity = totalCapacity + 3;
+      //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
 
-    // if(initialData.Assembly_Belt_2_color == "Yellow"){
-    //     totalCapacity = totalCapacity + 2;
-    //    // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    // }
-
-    // if(initialData.Assembly_Belt_2_color == "Green"){
-    //     totalCapacity = totalCapacity + 3;
-    //   //  document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    // }
-
-    // if(initialData.Assembly_Belt_2_color == "Black"){
-    //     totalCapacity = totalCapacity + 4;
-    //     // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
-    // }
-
-    // console.log("Total capacity", totalCapacity);
+    if(initialData.Assembly_Belt_2_color == "Black"){
+        totalCapacity = totalCapacity + 4;
+        // document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+    }
 
 
-	// var goodsHtmlBelt1 = '';
-	// var goodsHtmlBelt2 = '';
-	// var goodsHtmlBelt3 = '';
+    console.log("Total capacity", totalCapacity);
 
-	// //console.log("initialData", initialData.Assembly_Belt_1);
-	// //console.log("initialData", initialData.Assembly_Belt_1_color);
-	// //console.log("initialData", initialData.Assembly_Belt_2);
-	// //console.log("initialData", initialData.Assembly_Belt_2_color);
-	// //console.log("initialData", initialData.Assembly_Belt_3);
-	// //console.log("initialData", initialData.Assembly_Belt_3_color);
+    if(initialData.Materials >= totalCapacity){
+        if(initialData.Assembly_Belt_1_color == "Yellow"){
+            var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+        }
 
-	// var Assembly_Belt_1 = 1;//initialData.Assembly_Belt_1;
-	// var Assembly_Belt_2 = 1;//initialData.Assembly_Belt_2;
-	// var Assembly_Belt_3 = 0;//initialData.Assembly_Belt_3;
-	
-	// var Assembly_Belt_1_color = "Green";//initialData.Assembly_Belt_1_color;
-	// var Assembly_Belt_2_color = "Yellow";//initialData.Assembly_Belt_2_color;
-	// var Assembly_Belt_3_color = initialData.Assembly_Belt_3_color;
+        if(initialData.Assembly_Belt_1_color == "Green"){
+            
+           var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+        }
 
+        if(initialData.Assembly_Belt_1_color == "Black"){
+            
+           var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
+        }
 
-	// var goodsHtml ='<div class="chane_box line_down">\
-	//                     <div class="tabs_box">\
-	//                         <div class="tab_circle">1</div>\
-	//                         <div class="tab_circle_yellow">2</div>\
-	//                     </div>\
-	//                 </div>';
+        if(initialData.Assembly_Belt_2_color == "Yellow"){
+           
+           var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+        }
 
-    start_ADMINISTRATION_IT_AND_FINANCE(initialData);
+        if(initialData.Assembly_Belt_2_color == "Green"){
+            
+          var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+        }
+
+        if(initialData.Assembly_Belt_2_color == "Black"){
+            
+            var goodsHtml = '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>\
+                                <div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">1</div>\
+                                    </div>\
+                                </div>';
+           document.getElementById("goodsPlaceSlot2").innerHTML = goodsHtml;
+        }
+    }
+
+    // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
 
 }
 
