@@ -2028,7 +2028,7 @@ function startAssembly(){
 }
 
 
-function fillBeltHtml(beltCapacity,leftMaterial)
+function fillBeltHtml(beltCapacity,leftMaterial,numbers)
 {
     var goodsHtml = '';
     for(var i = 0;i<beltCapacity;i++)
@@ -2038,7 +2038,7 @@ function fillBeltHtml(beltCapacity,leftMaterial)
             goodsHtml += '<div class="chane_box line_down">\
                             <div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">1</div>\
+                                        <div class="tab_circle_yellow">'+numbers[i]+'</div>\
                                     </div>\
                                 </div>';
             leftMaterial--;
@@ -2131,38 +2131,46 @@ function updateNewProduction(initialData){
         if(leftMaterial > 0)
         {
             var beltCapacity;
+            var numbers = [];
             if(initialData.Assembly_Belt_1_color == "Yellow"){
                 beltCapacity = 2;  
                 totalCapacity = 2;            
+                numbers = [2,2];
             }
             else if(initialData.Assembly_Belt_1_color == "Green"){
                 beltCapacity = 3; 
                 totalCapacity = 3;                             
+                numbers = [3,2,2];
             }
             else if(initialData.Assembly_Belt_1_color == "Black"){
                 beltCapacity = 4;   
                 totalCapacity = 4;           
+                numbers = [2,2,2,2];
             }
-            document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+            document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial,numbers);
             leftMaterial = leftMaterial - beltCapacity;
         }
 
         if(leftMaterial > 0)
         {
             var beltCapacity;
+            var numbers = [];
             if(initialData.Assembly_Belt_2_color == "Yellow"){
                 beltCapacity = 2; 
                 totalCapacity = 2;            
+                numbers = [2,2];
             }
             else if(initialData.Assembly_Belt_2_color == "Green"){
                 beltCapacity = 3;  
                 totalCapacity = 3;                           
+                numbers = [3,2,2];
             }
             else if(initialData.Assembly_Belt_2_color == "Black"){
                 beltCapacity = 4; 
                 totalCapacity = 4;            
+                numbers = [2,2,2,2];
             }
-            document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+            document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial,numbers);
             leftMaterial = leftMaterial - beltCapacity;
         }
 
