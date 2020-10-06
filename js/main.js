@@ -2027,7 +2027,6 @@ function startAssembly(){
     
 }
 
-
 function fillBeltHtml(beltCapacity,leftMaterial,numbers)
 {
     var goodsHtml = '';
@@ -2038,7 +2037,7 @@ function fillBeltHtml(beltCapacity,leftMaterial,numbers)
             goodsHtml += '<div class="chane_box line_down">\
                             <div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">'+numbers[i]+'</div>\
+                                        <div class="tab_circle_yellow">1</div>\
                                     </div>\
                                 </div>';
             leftMaterial--;
@@ -2061,44 +2060,46 @@ function updateNewProduction(initialData){
     console.log("initialData", initialData);
 
     var leftMaterial = initialData.Materials;
-    var totalCapacity;
+    var totalCapacity = 0;
     if(leftMaterial > 0)
     {
         var beltCapacity;
         if(initialData.Assembly_Belt_1_color == "Yellow"){
-            // beltCapacity = 2;  
+            beltCapacity = 2;  
             totalCapacity = totalCapacity+ 2;            
         }
         else if(initialData.Assembly_Belt_1_color == "Green"){
-            // beltCapacity = 3; 
+            beltCapacity = 3; 
             totalCapacity = totalCapacity+ 3;                             
         }
         else if(initialData.Assembly_Belt_1_color == "Black"){
-            // beltCapacity = 4;   
+            beltCapacity = 4;   
             totalCapacity = totalCapacity+ 4;           
         }
         // document.getElementById("goodsPlaceSlot1").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
         leftMaterial = leftMaterial - beltCapacity;
     }
-
+    console.log("Total capacity", totalCapacity);
     if(leftMaterial > 0)
     {
         var beltCapacity;
         if(initialData.Assembly_Belt_2_color == "Yellow"){
-            // beltCapacity = 2; 
+            beltCapacity = 2; 
             totalCapacity = totalCapacity+ 2;            
         }
         else if(initialData.Assembly_Belt_2_color == "Green"){
-            // beltCapacity = 3;  
+            beltCapacity = 3;  
             totalCapacity = totalCapacity+ 3;                           
         }
         else if(initialData.Assembly_Belt_2_color == "Black"){
-            // beltCapacity = 4; 
+            beltCapacity = 4; 
             totalCapacity = totalCapacity+ 4;            
         }
         // document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
-        // leftMaterial = leftMaterial - beltCapacity;
+        leftMaterial = leftMaterial - beltCapacity;
     }
+    console.log("Total capacity", totalCapacity);
+    console.log("initial Materials", initialData.Materials);
 
     var updatedCapacity;
     if(initialData.Materials >= totalCapacity){
@@ -2125,7 +2126,6 @@ function updateNewProduction(initialData){
         console.log("Response");
         setInitialConditionToAll(responseData);
         
-
         var leftMaterial = initialData.Materials;
         var totalCapacity;
         if(leftMaterial > 0)
@@ -2174,16 +2174,114 @@ function updateNewProduction(initialData){
             leftMaterial = leftMaterial - beltCapacity;
         }
 
-
-
-
-
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayWrokers()">CONFIRM</div>'; 
+        var data = JSON.stringify(initialData);
+        document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayWrokers("+data+")'>CONFIRM</div>"; 
 
     })
 
     // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
 
+}
+
+function showPayWrokers(initialData){
+    console.log("Show pay worker");
+    var data = JSON.stringify(initialData);
+    document.getElementById("updateNewProductOnMachine").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='payWrokersOnMachine("+data+")' id='goods_in_progress'>3</span>Goods in progress inventory";
+
+    document.getElementById("gameConfirmButton").innerHTML = "";
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY WORKERS</div>'; 
+}
+
+function PayBeltWorkerHtml(beltCapacity,leftMaterial,numbers)
+{
+    var goodsHtml = '';
+    for(var i = 0;i<beltCapacity;i++)
+    {
+        if(leftMaterial > 0)
+        {
+            goodsHtml += '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">1</div>\
+                                        <div class="tab_circle_yellow">'+numbers[i]+'</div>\
+                                    </div>\
+                                </div>';
+            leftMaterial--;
+        }
+        else
+        {
+            goodsHtml += '<div class="chane_box line_down">\
+                            <div class="tabs_box">\
+                                        <div class="tab_circle">0</div>\
+                                        <div class="tab_circle_yellow">0</div>\
+                                    </div>\
+                                </div>';   
+        }
+    }
+    return goodsHtml;
+}
+
+function payWrokersOnMachine(initialData){
+    console.log("Show Pay Workers", initialData);
+
+    // socket.emit('game_page_data', team_id, Start_new_production);
+    // socket.on('receive_game_page_data', function(responseData){
+        console.log("Response");
+        // setInitialConditionToAll(responseData);
+        
+        var leftMaterial = initialData.Materials;
+        var totalCapacity;
+        if(leftMaterial > 0)
+        {
+            var beltCapacity;
+            var numbers = [];
+            if(initialData.Assembly_Belt_1_color == "Yellow"){
+                beltCapacity = 2;  
+                totalCapacity = 2;            
+                numbers = [2,2];
+            }
+            else if(initialData.Assembly_Belt_1_color == "Green"){
+                beltCapacity = 3; 
+                totalCapacity = 3;                             
+                numbers = [3,2,2];
+            }
+            else if(initialData.Assembly_Belt_1_color == "Black"){
+                beltCapacity = 4;   
+                totalCapacity = 4;           
+                numbers = [2,2,2,2];
+            }
+            document.getElementById("goodsPlaceSlot1").innerHTML = PayBeltWorkerHtml(beltCapacity,leftMaterial,numbers);
+            leftMaterial = leftMaterial - beltCapacity;
+        }
+
+        if(leftMaterial > 0)
+        {
+            var beltCapacity;
+            var numbers = [];
+            if(initialData.Assembly_Belt_2_color == "Yellow"){
+                beltCapacity = 2; 
+                totalCapacity = 2;            
+                numbers = [2,2];
+            }
+            else if(initialData.Assembly_Belt_2_color == "Green"){
+                beltCapacity = 3;  
+                totalCapacity = 3;                           
+                numbers = [3,2,2];
+            }
+            else if(initialData.Assembly_Belt_2_color == "Black"){
+                beltCapacity = 4; 
+                totalCapacity = 4;            
+                numbers = [2,2,2,2];
+            }
+            document.getElementById("goodsPlaceSlot2").innerHTML = PayBeltWorkerHtml(beltCapacity,leftMaterial,numbers);
+            leftMaterial = leftMaterial - beltCapacity;
+        }
+
+        document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_ADMINISTRATION_IT_AND_FINANCE()">CONFIRM</div>'; 
+
+        // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
+    // })
 }
 
 function startResearchDevelopment(){

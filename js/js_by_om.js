@@ -296,6 +296,8 @@ socket.on('receive_initialConditionBySocket', function(initialConditionData){
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#f39b4a';
     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").setAttribute('onclick','Adjust_administration_IT_resources('+arg+')')
 
+    document.getElementById("shortTermLoan").innerHTML = "<span id='updateShortLoanIncome'>1</span>Short-term Financial liablity";
+    document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
     
     //document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#f39b4a';
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ADJUST ADMIN/IT</div>';
