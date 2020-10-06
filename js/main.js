@@ -382,7 +382,7 @@ function showApplyLoan(){
 
 function applyLoans(){
 	var longTermLoanValue = document.getElementById("longTermLoanValue").value;
-	// var shareCapitalValue = document.getElementById("shareCapitalValue").value;
+	var shareCapitalValue = document.getElementById("shareCapitalValue").value;
 	var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
 
 	//console.log("longTermLoanValue", longTermLoanValue);
@@ -396,7 +396,7 @@ function applyLoans(){
     short_term_financial.classList.remove("color_change");
     share_capital_financial.classList.remove("color_change");
     long_term_financial.classList.remove("color_change");
-
+/*
 	var shortTermLoanApply = {
         Short_term_liabilities: shortTermLoanValue,
         action: "Prolong_take_out_new_short_term_loans",
@@ -411,6 +411,8 @@ function applyLoans(){
     socket.on('receive_game_page_data', function(responseData){
         start_Inbound_Logistics();
     });
+
+
     var longTermLoanApply = {
         Long_term_liabilities_4_Year: longTermLoanValue,
         action: "Take_out_new_long_term_loans",
@@ -421,15 +423,70 @@ function applyLoans(){
         year: year,
     }
 
-    //console.log("shortTermLoanApply", shortTermLoanApply);
-    //console.log("longTermLoanApply", longTermLoanApply);
+
     
     socket.emit('game_page_data', team_id, longTermLoanApply);
     socket.on('receive_game_page_data', function(responseData){
         start_Inbound_Logistics();
     });
 
+
+
+    var longTermLoanApply = {
+        shareCapitalValue: shareCapitalValue,
+        action: "shareCapitalValue",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, longTermLoanApply);
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    }); 
+
+    */
+
+
+      var updateLoan = {
+        Long_term_liabilities_4_Year: longTermLoanValue,
+        Short_term_liabilities: shortTermLoanValue,
+        shareCapitalValue: shareCapitalValue,
+        action: "updateLoan",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, updateLoan);
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    }); 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Action 3 code start here
 /*
