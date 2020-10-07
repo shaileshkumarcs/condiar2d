@@ -9,8 +9,8 @@ var initialData;
 
 
 
-//var socket = io('http://54.198.46.240:3006/');
-var socket = io('http://localhost:3006');
+var socket = io('http://54.198.46.240:3006/');
+//var socket = io('http://localhost:3006');
 
 socket.emit('team', team_id);
 
@@ -411,7 +411,7 @@ function applyLoans(){
     document.getElementById("decreaseLongTermLoan_fun").removeAttribute("onclick");
     document.getElementById("increaseLongTermLoan_fun").removeAttribute("onclick");
 
-    
+
 	var longTermLoanValue = document.getElementById("longTermLoanValue").value;
 	var shareCapitalValue = document.getElementById("shareCapitalValue").value;
 	var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
