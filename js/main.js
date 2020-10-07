@@ -266,8 +266,10 @@ function updateLoan(initialData){
     }
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
-        var updateShortLoan = document.getElementById("updateShortLoanIncome");
-        updateShortLoan.classList.remove("color_change");
+        // var updateShortLoan = document.getElementById("updateShortLoanIncome");
+        // updateShortLoan.classList.remove("color_change");
+
+        document.getElementById("shortTermLoan").innerHTML = "<span id='updateShortLoanIncome'>1</span>Short-term Financial liablity";
 
         document.getElementById("gameConfirmButton").innerHTML = "";
     	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showTakoutLoan()">CONFIRM</div>';
@@ -462,7 +464,7 @@ function initialOutbound(initialData){
 
 
 function updateFinishedGoods(){
-    // console.log("initialData", initialData);
+    console.log("updateFinishedGoods");
 	var updateOngoingProduction = {
         Update_ongoing_production: initialData.Goods_in_Assembly_in_Units,
         action: "Update_ongoing_production",
@@ -505,13 +507,14 @@ function showAssemblyBeltUpgrade(){
 
 function initialAssemblySetup(initialData){
 
-	//console.log("initialAssemblySetup", initialData);
+	console.log("initialAssemblySetup", initialData);
 
 	// Assembly Belt Slot 1 start
 	var goodsHtmlSlot1 = '';
 	var upgradePlaceSlot1 = '';
 	if(initialData.Assembly_Belt_1 == "1"){
 		if(initialData.Assembly_Belt_1_color == "Yellow"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "5";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
@@ -555,6 +558,7 @@ function initialAssemblySetup(initialData){
                                 </div>';
         }
         if(initialData.Assembly_Belt_1_color == "Green"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "10";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
@@ -575,7 +579,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot1 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -591,7 +595,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot1 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -619,11 +623,12 @@ function initialAssemblySetup(initialData){
         }
 
         if(initialData.Assembly_Belt_1_color == "Black"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "15";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -639,7 +644,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot1 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -655,7 +660,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot1 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -671,7 +676,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot1 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -774,6 +779,7 @@ function initialAssemblySetup(initialData){
   //                               </div>';
   //       }
   		if(initialData.Assembly_Belt_2_color == "Yellow"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "5";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
@@ -817,6 +823,7 @@ function initialAssemblySetup(initialData){
                                 </div>';
         }
         if(initialData.Assembly_Belt_2_color == "Green"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "10";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
@@ -837,7 +844,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot2 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -853,7 +860,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot2 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -881,11 +888,12 @@ function initialAssemblySetup(initialData){
         }
 
         if(initialData.Assembly_Belt_2_color == "Black"){
+            document.getElementById("assemblyBeltPrice1").innerHTML = "15";
 			if(initialData.Goods_in_Assembly_in_Units > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -901,7 +909,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot2 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -917,7 +925,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot2 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -933,7 +941,7 @@ function initialAssemblySetup(initialData){
                 goodsHtmlSlot2 += '<div class="chane_box line_down">\
                 					<div class="tabs_box">\
                                         <div class="tab_circle">1</div>\
-                                        <div class="tab_circle_yellow">3</div>\
+                                        <div class="tab_circle_yellow">2</div>\
                                     </div>\
                                 </div>';
             }
@@ -1083,6 +1091,7 @@ function addYellowBeltSlot1(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt1);
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
+        document.getElementById("assemblyBeltPrice1").innerHTML = "5";
         var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -1111,7 +1120,7 @@ function addYellowBeltSlot1(){
 		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+responseData+")'>CONFIRM</div>"; 
     });
 }
 
@@ -1131,7 +1140,7 @@ function upgradeGreenBeltSlot1(){
     socket.on('receive_game_page_data', function(responseData){
     	//console.log("Response data", responseData);
     	initialAssemblySetup(responseData);
-
+        document.getElementById("assemblyBeltPrice1").innerHTML = "10";
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -1166,7 +1175,7 @@ function upgradeGreenBeltSlot1(){
 		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>'; 
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     });
 
 
@@ -1250,6 +1259,7 @@ function upgradeBlackBeltSlot1(){
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
         initialAssemblySetup(responseData);
+        document.getElementById("assemblyBeltPrice1").innerHTML = "15";
     	var goodsHtml ='<div class="chane_box line_down">\
                                         <div class="tabs_box">\
                                             <div class="tab_circle"></div>\
@@ -1291,7 +1301,7 @@ function upgradeBlackBeltSlot1(){
     		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
 
             document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     }); 
 	// document.getElementById("assembltBeltSlot1").innerHTML='<div class="asm_belt_nsw">\
  //                        <div class="belt_one">\
@@ -1372,6 +1382,7 @@ function upgradeBlankBeltSlot1(){
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
         initialAssemblySetup(responseData);
+        document.getElementById("assemblyBeltPrice1").innerHTML = "5";
         var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle"></div>\
@@ -1400,7 +1411,7 @@ function upgradeBlankBeltSlot1(){
         document.getElementById("goodsPlaceSlot1").innerHTML = goodsHtml;
 		document.getElementById("upgradePointSlot1").innerHTML = upgradePlace; 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     });
 }
 
@@ -1420,7 +1431,7 @@ function addYellowBeltSlot2(){
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
         initialAssemblySetup(responseData);
-    
+        document.getElementById("assemblyBeltPrice2").innerHTML = "5";
     	var goodsHtmlSlot2 = '<div class="chane_box line_down">\
     					<div class="tabs_box">\
                                     <div class="tab_circle"></div>\
@@ -1447,7 +1458,7 @@ function addYellowBeltSlot2(){
     	document.getElementById("upgradePointSlot2").innerHTML = upgradePlaceSlot2;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     })
 }
 function upgradeGreenBeltSlot2(){
@@ -1464,6 +1475,7 @@ function upgradeGreenBeltSlot2(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
+        document.getElementById("assemblyBeltPrice2").innerHTML = "10";
 		var goodsHtml ='<div class="chane_box line_down">\
 							<div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -1498,7 +1510,7 @@ function upgradeGreenBeltSlot2(){
 		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     })                
 }
 
@@ -1517,6 +1529,7 @@ function upgradeBlackBeltSlot2(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
+        document.getElementById("assemblyBeltPrice2").innerHTML = "15";
         var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle"></div>\
@@ -1558,7 +1571,7 @@ function upgradeBlackBeltSlot2(){
 		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     });  
 }
 
@@ -1576,6 +1589,7 @@ function upgradeBlankBeltSlot2(){
     socket.emit('game_page_data', team_id, investUpgradeAssemblyBelt2);
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response data", responseData);
+        document.getElementById("assemblyBeltPrice2").innerHTML = "5";
         var goodsHtml ='<div class="chane_box line_down">\
                                     <div class="tabs_box">\
                                         <div class="tab_circle"></div>\
@@ -1605,7 +1619,7 @@ function upgradeBlankBeltSlot2(){
 		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showAdjustWorker()">CONFIRM</div>'; 
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     })
 }
 
@@ -1790,6 +1804,29 @@ function upgradeBlankBeltSlot3(){
 		document.getElementById("upgradePointSlot3").innerHTML = upgradePlace; 
 }
 
+function showPayInvestment(initialData){
+    console.log("Initial data", initialData);
+
+    var removeAddClass = document.getElementById("upgradePointSlot1");               
+    removeAddClass.classList.remove("color_change");
+    var removeAddClass = document.getElementById("upgradePointSlot2");               
+    removeAddClass.classList.remove("color_change");
+    var removeAddClass = document.getElementById("upgradePointSlot3");               
+    removeAddClass.classList.remove("color_change");
+
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY INVESTMENT</div>'; 
+
+    document.getElementById("plantInvestment").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='payInvestment("+JSON.stringify(initialData)+")' id='goods_in_progress'>3</span> Property, plant and equipment ";
+}
+
+function payInvestment(initialData){
+    console.log("Pay investment");
+
+    document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showAdjustWorker("+JSON.stringify(initialData)+")'>CONFIRM</div>"; 
+
+    document.getElementById("plantInvestment").innerHTML = "<span href='javascript:void(0);'>3</span> Property, plant and equipment ";
+}
+
 function initialWorkerSetup(initialData){
 	//console.log("initialWorkerSetup", initialData.Workers_Assembly_1);
 	// console.log("initialWorkerSetup 2 ", initialData.Workers_Assembly_2);
@@ -1888,12 +1925,12 @@ function initialWorkerSetup(initialData){
 
 function showAdjustWorker(){
     console.log("showAdjustWorker");
-    var removeAddClass = document.getElementById("upgradePointSlot1");               
-    removeAddClass.classList.remove("color_change");
-    var removeAddClass = document.getElementById("upgradePointSlot2");               
-    removeAddClass.classList.remove("color_change");
-    var removeAddClass = document.getElementById("upgradePointSlot3");               
-    removeAddClass.classList.remove("color_change");
+    // var removeAddClass = document.getElementById("upgradePointSlot1");               
+    // removeAddClass.classList.remove("color_change");
+    // var removeAddClass = document.getElementById("upgradePointSlot2");               
+    // removeAddClass.classList.remove("color_change");
+    // var removeAddClass = document.getElementById("upgradePointSlot3");               
+    // removeAddClass.classList.remove("color_change");
 
     var removeAddClass = document.getElementById("assembltBeltSlot1");               
     removeAddClass.classList.add("color_change");
@@ -2017,6 +2054,8 @@ function startAssembly(){
 
         var removeAddClass = document.getElementById("goods_in_progress");               
         removeAddClass.classList.add("color_change");
+
+        document.getElementById("shortTermLoan").innerHTML = "<span id='updateShortLoanIncome'>1</span>Short-term Financial liablity";
 
         document.getElementById("updateNewProductOnMachine").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='updateNewProduction("+data+")' id='goods_in_progress'>3</span>Goods in progress inventory";
 

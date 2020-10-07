@@ -200,7 +200,7 @@ function increaseoutbound(){
 
 
 function Order_material(){
-    //console.log("Order Materials Function called");
+    console.log("Order Materials Function called");
     var val = parseInt(document.getElementById("inboundprod").innerHTML); 
 
     var data = {
@@ -238,6 +238,7 @@ function Order_material(){
         var changecolor = document.getElementById("finished_goods");
         changecolor.classList.add("color_change");
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
+        document.getElementById("action_count_num").innerHTML = '3';
         
     });
 
@@ -324,16 +325,17 @@ function Adjust_administration_IT_resources(val){
     }
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
-    setInitialConditionToAll(responseData);
-    initialData = responseData;
-    document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#0d65a8';
-    document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
-     document.getElementById("ADMINISTRATION_IT_FINANCE_heading").removeAttribute("onclick");
+        setInitialConditionToAll(responseData);
+        initialData = responseData;
+        document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#0d65a8';
+        document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
+        document.getElementById("ADMINISTRATION_IT_FINANCE_heading").removeAttribute("onclick");
+        document.getElementById("gameConfirmButton").innerHTML = '<div onclick="startResearchDevelopment();" class="aircon_white org_ns" id="startGame">CONFIRM</div>';
 
     });
 
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div onclick="startResearchDevelopment();" class="aircon_white org_ns" id="startGame">CONFIRM</div>';
+    
 
     
 
