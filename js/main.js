@@ -36,6 +36,19 @@ function setInitialConditionToAll(initialData){
 	// updateNewProduction(initialData);
     initialMarketing(initialData);
 
+    
+
+
+    document.getElementById("decreaseShortTermLoan_fun").removeAttribute("onclick");
+    document.getElementById("increaseShortTermLoan_fun").removeAttribute("onclick");
+
+    document.getElementById("decreaseShareCapital_fun").removeAttribute("onclick");
+    document.getElementById("increaseShareCapital_fun").removeAttribute("onclick");
+
+    document.getElementById("decreaseLongTermLoan_fun").removeAttribute("onclick");
+    document.getElementById("increaseLongTermLoan_fun").removeAttribute("onclick");
+
+
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
@@ -79,11 +92,6 @@ function setInitialConditionToAll(initialData){
 
     document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(initialData.Short_term_liabilities) + parseInt(initialData.Long_term_liabilities) + parseInt(initialData.share_holder_loan) + parseInt(initialData.Other_liabilities) + parseInt(initialData.Share_Capital)  + parseInt(initialData.Reserves) ;  
     
-
-
-    
-
-
 
     // Calculation of marketing power
     /**
@@ -235,6 +243,10 @@ function payInterest(initialData){
 
 function showLoansUpdate(){
 
+
+
+
+
     socket.emit('initialConditionBySocket', team_id, data);
     socket.on('receive_initialConditionBySocket', function(initialData){
         var data = JSON.stringify(initialData);
@@ -278,6 +290,14 @@ function updateLoan(initialData){
 
 function showTakoutLoan(){
 	////console.log("showTakoutLoan");
+        document.getElementById("decreaseShortTermLoan_fun").setAttribute('onclick','decreaseShortTermLoan()');
+    document.getElementById("increaseShortTermLoan_fun").setAttribute('onclick','increaseShortTermLoan()');
+
+    document.getElementById("decreaseShareCapital_fun").setAttribute('onclick','decreaseShareCapital()');
+    document.getElementById("increaseShareCapital_fun").setAttribute('onclick','increaseShareCapital()');
+
+    document.getElementById("decreaseLongTermLoan_fun").setAttribute('onclick','decreaseLongTermLoan()');
+    document.getElementById("increaseLongTermLoan_fun").setAttribute('onclick','increaseLongTermLoan()');
 
     var short_term_financial = document.getElementById("short_term_financial");
     var share_capital_financial = document.getElementById("share_capital_financial");
@@ -383,8 +403,19 @@ function showApplyLoan(){
 
 
 function applyLoans(){
+
+        document.getElementById("decreaseShortTermLoan_fun").removeAttribute("onclick");
+    document.getElementById("increaseShortTermLoan_fun").removeAttribute("onclick");
+
+    document.getElementById("decreaseShareCapital_fun").removeAttribute("onclick");
+    document.getElementById("increaseShareCapital_fun").removeAttribute("onclick");
+
+    document.getElementById("decreaseLongTermLoan_fun").removeAttribute("onclick");
+    document.getElementById("increaseLongTermLoan_fun").removeAttribute("onclick");
+
+
 	var longTermLoanValue = document.getElementById("longTermLoanValue").value;
-	// var shareCapitalValue = document.getElementById("shareCapitalValue").value;
+	var shareCapitalValue = document.getElementById("shareCapitalValue").value;
 	var shortTermLoanValue = document.getElementById("shortTermLoanValue").value;
 
 	//console.log("longTermLoanValue", longTermLoanValue);
@@ -398,7 +429,7 @@ function applyLoans(){
     short_term_financial.classList.remove("color_change");
     share_capital_financial.classList.remove("color_change");
     long_term_financial.classList.remove("color_change");
-
+/*
 	var shortTermLoanApply = {
         Short_term_liabilities: shortTermLoanValue,
         action: "Prolong_take_out_new_short_term_loans",
@@ -413,6 +444,8 @@ function applyLoans(){
     socket.on('receive_game_page_data', function(responseData){
         start_Inbound_Logistics();
     });
+
+
     var longTermLoanApply = {
         Long_term_liabilities_4_Year: longTermLoanValue,
         action: "Take_out_new_long_term_loans",
@@ -423,15 +456,70 @@ function applyLoans(){
         year: year,
     }
 
-    //console.log("shortTermLoanApply", shortTermLoanApply);
-    //console.log("longTermLoanApply", longTermLoanApply);
+
     
     socket.emit('game_page_data', team_id, longTermLoanApply);
     socket.on('receive_game_page_data', function(responseData){
         start_Inbound_Logistics();
     });
 
+
+
+    var longTermLoanApply = {
+        shareCapitalValue: shareCapitalValue,
+        action: "shareCapitalValue",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, longTermLoanApply);
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    }); 
+
+    */
+
+
+      var updateLoan = {
+        Long_term_liabilities_4_Year: longTermLoanValue,
+        Short_term_liabilities: shortTermLoanValue,
+        shareCapitalValue: shareCapitalValue,
+        action: "updateLoan",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, updateLoan);
+    socket.on('receive_game_page_data', function(responseData){
+        start_Inbound_Logistics();
+    }); 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Action 3 code start here
 /*
