@@ -2414,6 +2414,8 @@ function payWrokersOnMachine(initialData){
 function startResearchDevelopment(){
     var removeClass = document.getElementById("researchDevelopemtWorker");               
     removeClass.classList.add("color_change");
+
+    document.getElementById("action_count_num").innerHTML = '5';
 }
 
 
@@ -2843,14 +2845,17 @@ function confirmMarketing(){
 function allOrderCards(){
     var orderMarketCard = {
         No_of_teams: 5,
-        team_id: "11",
+        team_id: team_id,
         workshop_id: workshop_id,
         Year: year,
     }
     console.log("Change Color ", orderMarketCard);
+    var local_team_id = localStorage.getItem("team_id");
     socket.emit('getTeamOrderCard', team_id, orderMarketCard);
     socket.on('getTeamOrderCard_recieve', function(msg){
-        console.log("Message ", msg);  
+        console.log("Message ", msg); 
+        console.log("Message ", msg.enable_team_id);  
+        console.log("Message local ", local_team_id);  
         var orderCard = '';
         msg.results.forEach(function (data, index) { 
             var cardData = JSON.stringify(data);
@@ -2884,8 +2889,38 @@ function allOrderCards(){
                         </div>\
                     </div>";
             }
-            else{
-                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")'>\
+            else if(parseInt(msg.enable_team_id) == parseInt(local_team_id)){
+                orderCard += "<div class='order_blue_box'>\
+                        <div class='oder_head'>\
+                            <h4>Order</h4>\
+                            <h2>"+data.Order_No+"</h2>\
+                        </div>\
+                        <div class='secBg_head'>\
+                            <div class='oder_unit_box'>\
+                                <h4>Unites</h4>\
+                                <div class='circle_green_stor'>\
+                                    <h2>"+data.Units+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Price</h4>\
+                                <h5 class='cash_ri'>"+data.Price+"</h5>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Net Sales</h4>\
+                                <div class='circle_green_stor yellow'>\
+                                    <h2>"+data.Net_sales+"</h2>\
+                                </div>\
+                            </div>\
+                            <div class='oder_unit_box'>\
+                                <h4>Payment <br> terms</h4>\
+                                <h5 class='cash_ri'>"+data.Payment_terms+"</h5>\
+                            </div>\
+                        </div>\
+                    </div>";
+            }
+            else {
+                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")' style='opacity: 0.5;'>\
                         <div class='oder_head'>\
                             <h4>Order</h4>\
                             <h2>"+data.Order_No+"</h2>\

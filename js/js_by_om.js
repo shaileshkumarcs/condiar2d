@@ -304,6 +304,7 @@ socket.on('receive_initialConditionBySocket', function(initialConditionData){
     
     //document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#f39b4a';
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">ADJUST ADMIN/IT</div>';
+    document.getElementById("action_count_num").innerHTML = '4';
     
 });
 
@@ -320,7 +321,7 @@ function Adjust_administration_IT_resources(val){
         'participant_id': participant_id, 
         'year': year,
 
-
+        
          
         'action': 'Adjust_administration_IT_resources', 
         'Adjust_administration_IT_resources':val,
@@ -333,7 +334,7 @@ function Adjust_administration_IT_resources(val){
         document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
         document.getElementById("ADMINISTRATION_IT_FINANCE_heading").removeAttribute("onclick");
         document.getElementById("gameConfirmButton").innerHTML = '<div onclick="startResearchDevelopment();" class="aircon_white org_ns" id="startGame">CONFIRM</div>';
-
+        document.getElementById("action_count_num").innerHTML = '4';
     });
 
 
