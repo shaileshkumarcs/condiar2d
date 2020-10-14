@@ -77,7 +77,7 @@ function go_to_meterial_inventory(){
     document.getElementById("Material_inventory_span").style.backgroundColor = '#F59C33';
     document.getElementById("Material_inventory_heading").innerHTML = '<span onclick="Pay_for_materials_received()" id="Material_inventory_span">2</span>Material inventory';
 
-document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">PAY SUPLIER</div>';
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">PAY SUPLIER</div>';
 
     document.getElementById("Material_inventory_span").style.backgroundColor = '#F59C33';
 
@@ -240,6 +240,7 @@ function Order_material(){
         var changecolor = document.getElementById("finished_goods");
         changecolor.classList.add("color_change");
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">UPDATE PRODUCTION</div>';
+        document.getElementById("updateOutboud").innerHTML = "<a class='color_change' href='javascript:void(0);' onclick='updateFinishedGoods("+JSON.stringify(responseData)+")' id='finished_goods'>8</a>Finished goods inventory";
         document.getElementById("action_count_num").innerHTML = '3';
         
     });
