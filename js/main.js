@@ -37,7 +37,9 @@ function setInitialConditionToAll(initialData){
 	// updateNewProduction(initialData);
     initialAssemblyBelt(initialData);
     initialWorkerDactive(initialData);
+    initialAdvertising(initialData);
     initialMarketing(initialData);
+    initialOutbound(initialData);
 
     
 
@@ -94,6 +96,9 @@ function setInitialConditionToAll(initialData){
     document.getElementById("Net_sales_value").innerHTML = initialData.Net_sales;
 
     document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(initialData.Short_term_liabilities) + parseInt(initialData.Long_term_liabilities) + parseInt(initialData.share_holder_loan) + parseInt(initialData.Other_liabilities) + parseInt(initialData.Share_Capital)  + parseInt(initialData.Reserves) ;  
+
+    document.getElementById("white_truck_out").innerHTML = initialData.Finished_Goods_Store_in_Units;
+    document.getElementById("yellow_truck_out").innerHTML = parseInt(initialData.Finished_Goods_Store_in_Units)*3;
     
 
     // Calculation of marketing power
@@ -2355,6 +2360,9 @@ function showAdjustWorker(){
     var removeAddClass = document.getElementById("assembltBeltSlot2");               
     removeAddClass.classList.add("color_change");
 
+    var removeAddClass = document.getElementById("assembltBeltSlot3");               
+    removeAddClass.classList.add("color_change");
+
     document.getElementById("gameConfirmButton").innerHTML = "";
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST WORKERS</div>'; 
 }
@@ -2482,7 +2490,7 @@ function startAssembly(){
         var removeAddClass = document.getElementById("assembltBeltSlot2");               
         removeAddClass.classList.remove("color_change");
 
-        var removeAddClass = document.getElementById("assembltBeltSlot2");               
+        var removeAddClass = document.getElementById("assembltBeltSlot3");               
         removeAddClass.classList.remove("color_change");
 
         var removeAddClass = document.getElementById("goods_in_progress");               
@@ -2756,18 +2764,12 @@ function payWrokersOnMachine(initialData){
     // })
 }
 
-function startResearchDevelopment(){
+function startResearchDevelopment(initialData){
     var removeClass = document.getElementById("researchDevelopemtWorker");               
     removeClass.classList.add("color_change");
 
-    document.getElementById("action_count_num").innerHTML = '5';
-}
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 
-
-// Code for Action 5
-function initialSetupResearchDevelopment(initialData){
-    //console.log("initialSetupResearchDevelopment", initialData);
-    // light_blue
     var rd_quantity = parseInt(initialData.R_D_Quality_Development);
     var researchDevelopmet = '';
 
@@ -2832,6 +2834,78 @@ function initialSetupResearchDevelopment(initialData){
     
     document.getElementById("researchDevelopemtWorker").innerHTML = researchDevelopmet;
 
+    document.getElementById("action_count_num").innerHTML = '5';
+}
+
+
+// Code for Action 5
+function initialSetupResearchDevelopment(initialData){
+    //console.log("initialSetupResearchDevelopment", initialData);
+    // light_blue
+    var rd_quantity = parseInt(initialData.R_D_Quality_Development);
+    var researchDevelopmet = '';
+
+    if(rd_quantity > 0){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+    }
+    else{
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line light_blue"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+    }
+
+    if(rd_quantity > 1){
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div></div><div class="plus_all_gra">';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div></div><div class="plus_all_gra">';
+    }
+
+    if(rd_quantity > 2){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div>';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div>';
+    }
+
+    if(rd_quantity > 3){
+        researchDevelopmet += '<div class="plus_all_gra">\
+                                    <div class="ver_tiw">\
+                                        <div class="admi_liblue bellow_line"><img src="images/white_man.svg" alt=""></div>\
+                                        <div class="numbs_small">+1</div>\
+                                    </div></div><div class="plus_all_gra">';
+
+    }
+    else{
+        researchDevelopmet += '<div class="ver_tiw">\
+                                    <div class="admi_liblue bellow_line light_blue"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="numbs_small">+1</div>\
+                                </div></div><div class="plus_all_gra">';
+    }
+    
+    document.getElementById("researchDevelopemtWorker").innerHTML = researchDevelopmet;
+
     // document.getElementById("gameConfirmButton").innerHTML = "";
     // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 }
@@ -2876,15 +2950,26 @@ function changeRDColor(e){
         // console.log("Response Data", responseData);
         // initialWorkerSetup(responseData);
         setInitialConditionToAll(responseData);
+        startResearchDevelopment(responseData);
         document.getElementById("gameConfirmButton").innerHTML = "";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_SALES()">CONFIRM</div>'; 
     });
 }
 
+function initialAdvertising(initialData){
+    document.getElementById("decreaseMarketing").removeAttribute("onclick");
+    document.getElementById("increaseMarketing").removeAttribute("onclick");
+}
+
 function startMarketing(){
+    document.getElementById("action_count_num").innerHTML = '7';
     var removeAddClass = document.getElementById("marketingCounter");               
     removeAddClass.classList.add("color_change");
 
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">MARKETING</div>'; 
+
+    document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+    document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
 }
 
 function initialMarketing(initialData){
@@ -3114,6 +3199,12 @@ function decreaseMarketing(){
         console.log("receive_game_page_data", responseData);
         setInitialConditionToAll(responseData);
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+
+        var removeAddClass = document.getElementById("marketingCounter");               
+        removeAddClass.classList.add("color_change");
+        document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+        document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
+
     });
         
 }
@@ -3144,6 +3235,11 @@ function increaseMarketing(){
         console.log("receive_game_page_data", responseData);
         setInitialConditionToAll(responseData);
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
+        var removeAddClass = document.getElementById("marketingCounter");               
+        removeAddClass.classList.add("color_change");
+
+        document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+        document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
     });
 
 }
@@ -3152,7 +3248,7 @@ function confirmMarketing(){
     console.log("confirmMarketingValue");
 
 
-
+    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" id="startGame">GO TO MARKET</div>';
 
     var participant_jwt = "Bearer "+localStorage.getItem("participant_jwt");
     var data = {workshop_id:workshop_id};

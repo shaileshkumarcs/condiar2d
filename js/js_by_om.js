@@ -153,6 +153,10 @@ function decreaseinbound(){
 
 }
 
+function initialOutbound(initialData){
+    document.getElementById("increaseoutbound").removeAttribute("onclick");
+    document.getElementById("decreaseoutbound").removeAttribute("onclick");
+}
 
 function increaseinbound(){
     var val = parseInt(document.getElementById("inboundprod").innerHTML); //inboundval
@@ -334,7 +338,7 @@ function Adjust_administration_IT_resources(val){
         document.getElementById("ADMINISTRATION_IT_FINANCE_heading").style.backgroundColor = '#0d65a8';
         document.getElementById("ADMINISTRATION_IT_FINANCE").style.backgroundColor = '#cfe0f4';
         document.getElementById("ADMINISTRATION_IT_FINANCE_heading").removeAttribute("onclick");
-        document.getElementById("gameConfirmButton").innerHTML = '<div onclick="startResearchDevelopment();" class="aircon_white org_ns" id="startGame">CONFIRM</div>';
+        document.getElementById("gameConfirmButton").innerHTML = "<div onclick='startResearchDevelopment("+JSON.stringify(responseData)+");' class='aircon_white org_ns' id='startGame'>CONFIRM</div>";
         document.getElementById("action_count_num").innerHTML = '4';
     });
 
@@ -371,9 +375,15 @@ function initiate_SALES(initialConditionData){
 }
 
 function start_SALES(){
+    document.getElementById("action_count_num").innerHTML = '6';
+    var removeAddClass = document.getElementById("researchDevelopemtWorker");               
+    removeAddClass.classList.remove("color_change");
     document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
     document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
+
+    document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+    document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
 }
 
 function Adjust_sales_force(val){
@@ -389,11 +399,14 @@ function Adjust_sales_force(val){
     }
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
-    setInitialConditionToAll(responseData);
-    initialData = responseData;
-     document.getElementById("SALES_HEADING").style.backgroundColor = '#0d65a8';
-    document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startMarketing()">CONFIRM</div>';
+        setInitialConditionToAll(responseData);
+        initialData = responseData;
+        var removeAddClass = document.getElementById("researchDevelopemtWorker");               
+        removeAddClass.classList.remove("color_change");
+        document.getElementById("SALES_HEADING").style.backgroundColor = '#0d65a8';
+        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startMarketing()">CONFIRM</div>';
+
     });
 
 
@@ -418,9 +431,9 @@ function initiate_OUTBOUND_LOGISTICS(initialConditionData){
         }
     }
     html = html + '</div>';
-   document.getElementById("outbound_container").innerHTML = html;
-   // document.getElementById("Ordered_Materials").innerHTML = initialConditionData.Ordered_Materials;
-  //  start_OUTBOUND_LOGISTICS();
+    document.getElementById("outbound_container").innerHTML = html;
+    // document.getElementById("Ordered_Materials").innerHTML = initialConditionData.Ordered_Materials;
+    //  start_OUTBOUND_LOGISTICS();
 
 }
 
