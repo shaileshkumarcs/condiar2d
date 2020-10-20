@@ -274,7 +274,7 @@ function initiate_ADMINISTRATION_IT_AND_FINANCE(initialConditionData){
 
 function start_ADMINISTRATION_IT_AND_FINANCE(){
 
-
+    console.log("start_ADMINISTRATION_IT_AND_FINANCE");
 const data = {
     'team_id': team_id,
     'workshop_id': workshop_id,
@@ -351,11 +351,34 @@ function Adjust_administration_IT_resources(val){
 
 
 function initiate_SALES(initialConditionData){
-   
+    console.log("initialConditionData", initialConditionData);
     var Sales = initialConditionData.Sales
 
-      var Sales = parseInt(initialConditionData.Sales);
-    var nulled = 5-Sales;
+    var Sales = parseInt(initialConditionData.Sales);
+    var nulled = 6-Sales;
+    var html1 = '';
+    var count = 1-Sales;    
+    for (var i = 1; i <=Sales; i++) {
+        html1 = html1 + '<div class="ver_tiw"> <div class="admi_liblue bellow_line"><img src="images/white_man.svg" alt=""></div> <div class="alert_circle"><img src="images/alert_black.svg" alt=""></div> </div>';
+        count++;
+                
+    }
+    for (var j = 1; j <=nulled; j++) {
+        html1 = html1 + '<div class="ver_tiw"> <div class="admi_liblue bellow_line admi_blue_light_cc"><img src="images/white_man.svg" alt=""></div> <div class="alert_circle light_blue"><img src="images/alert_black.svg" alt=""></div> </div>'; 
+        count++; 
+
+    }
+   document.getElementById("SALES_BACKGROUND").innerHTML = html1;
+   
+  // start_SALES();
+
+}
+
+function activeInitiate_SALES(initialConditionData){
+    console.log("Active Initial Sales", initialConditionData);
+    var Sales = initialConditionData.Sales
+    var Sales = parseInt(initialConditionData.Sales);
+    var nulled = 6-Sales;
     var html1 = '';
     var count = 1-Sales;    
     for (var i = 1; i <=Sales; i++) {
@@ -368,13 +391,11 @@ function initiate_SALES(initialConditionData){
         count++; 
 
     }
-   document.getElementById("SALES_BACKGROUND").innerHTML = html1;
-   
-  // start_SALES();
-
+    document.getElementById("SALES_BACKGROUND").innerHTML = html1;
 }
 
-function start_SALES(){
+function start_SALES(initialData){
+    activeInitiate_SALES(initialData);
     document.getElementById("action_count_num").innerHTML = '6';
     var removeAddClass = document.getElementById("researchDevelopemtWorker");               
     removeAddClass.classList.remove("color_change");
@@ -400,6 +421,7 @@ function Adjust_sales_force(val){
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
         setInitialConditionToAll(responseData);
+        activeInitiate_SALES(responseData);
         initialData = responseData;
         var removeAddClass = document.getElementById("researchDevelopemtWorker");               
         removeAddClass.classList.remove("color_change");
