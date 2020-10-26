@@ -399,7 +399,7 @@ function start_SALES(initialData){
     document.getElementById("action_count_num").innerHTML = '6';
     var removeAddClass = document.getElementById("researchDevelopemtWorker");               
     removeAddClass.classList.remove("color_change");
-    document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
+    // document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
     document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
 
@@ -425,8 +425,10 @@ function Adjust_sales_force(val){
         initialData = responseData;
         var removeAddClass = document.getElementById("researchDevelopemtWorker");               
         removeAddClass.classList.remove("color_change");
-        document.getElementById("SALES_HEADING").style.backgroundColor = '#0d65a8';
-        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+        // document.getElementById("SALES_HEADING").style.backgroundColor = '#0d65a8';
+        // document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
+        document.getElementById("action_count_num").innerHTML = '6';
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="startMarketing()">CONFIRM</div>';
 
     });

@@ -181,6 +181,7 @@ function tradeUpdateToCash(initialData){
     	initialData = responseData;
         var trade_receivable = document.getElementById("trade_receivable");
         trade_receivable.classList.remove("color_change");
+        document.getElementById("trade_receivable").removeAttribute("onclick");
         document.getElementById("gameConfirmButton").innerHTML = "";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showPayInterest()">CONFIRM</div>';
     });
@@ -223,6 +224,7 @@ function payInterest(initialData){
 
     socket.emit('game_page_data', team_id, shortTermInterestData);
     socket.on('receive_game_page_data', function(responseData){
+        document.getElementById("payInterest").removeAttribute("onclick");
         document.getElementById("gameConfirmButton").innerHTML = "";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM </div>';
     })
@@ -241,6 +243,7 @@ function payInterest(initialData){
     socket.emit('game_page_data', team_id, longTermInterestData);
 
     socket.on('receive_game_page_data', function(responseData){
+        document.getElementById("payInterest").removeAttribute("onclick");
         document.getElementById("gameConfirmButton").innerHTML = "";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="showLoansUpdate()">CONFIRM </div>';
 
@@ -679,6 +682,7 @@ function initialAssemblySetup(initialData){
         var beltCapacity = 0;
 		if(initialData.Assembly_Belt_1_color == "Yellow"){
             beltCapacity = 2;
+            document.getElementById("assemblyBeltPriceValue1").value = 5;
             document.getElementById("assemblyBeltPrice1").innerHTML = "5";
 			if(beltPower > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
@@ -724,6 +728,7 @@ function initialAssemblySetup(initialData){
         }
         if(initialData.Assembly_Belt_1_color == "Green"){
             beltCapacity = 3;
+            document.getElementById("assemblyBeltPriceValue1").value = 10;
             document.getElementById("assemblyBeltPrice1").innerHTML = "10";
 			if(beltPower > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
@@ -790,6 +795,7 @@ function initialAssemblySetup(initialData){
 
         if(initialData.Assembly_Belt_1_color == "Black"){
             beltCapacity = 4;
+            document.getElementById("assemblyBeltPriceValue1").value = 15;
             document.getElementById("assemblyBeltPrice1").innerHTML = "15";
 			if(beltPower > 0){
 				goodsHtmlSlot1 += '<div class="chane_box line_down">\
@@ -870,6 +876,7 @@ function initialAssemblySetup(initialData){
 
         }
         if(initialData.Assembly_Belt_1_color == ""){
+            document.getElementById("assemblyBeltPriceValue1").value = "";
             goodsHtmlSlot1 += '<div class="chane_box line_down">\
                     <div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -930,6 +937,7 @@ function initialAssemblySetup(initialData){
         var beltCapacity = 0;
   		if(initialData.Assembly_Belt_2_color == "Yellow"){
             beltCapacity = 2;
+            document.getElementById("assemblyBeltPriceValue2").value = 5;
             document.getElementById("assemblyBeltPrice2").innerHTML = "5";
 			if(beltPower > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
@@ -975,6 +983,7 @@ function initialAssemblySetup(initialData){
         }
         if(initialData.Assembly_Belt_2_color == "Green"){
             beltCapacity = 3;
+            document.getElementById("assemblyBeltPriceValue2").value = 10;
             document.getElementById("assemblyBeltPrice2").innerHTML = "10";
 			if(beltPower > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
@@ -1041,6 +1050,7 @@ function initialAssemblySetup(initialData){
 
         if(initialData.Assembly_Belt_2_color == "Black"){
             beltCapacity = 4;
+            document.getElementById("assemblyBeltPriceValue2").value = 15;
             document.getElementById("assemblyBeltPrice2").innerHTML = "15";
 			if(beltPower > 0){
 				goodsHtmlSlot2 += '<div class="chane_box line_down">\
@@ -1122,6 +1132,7 @@ function initialAssemblySetup(initialData){
         }
 
         if(initialData.Assembly_Belt_2_color == ""){
+            document.getElementById("assemblyBeltPriceValue2").value = "";
             goodsHtmlSlot2 += '<div class="chane_box line_down">\
                     <div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -1183,6 +1194,8 @@ function initialAssemblySetup(initialData){
         var beltCapacity = 0;
 		if(initialData.Assembly_Belt_3_color == "Yellow"){
             beltCapacity = 2;
+            document.getElementById("assemblyBeltPriceValue3").value = 5;
+            document.getElementById("assemblyBeltPrice3").innerHTML = "5";
 			if(beltPower > 0){
                 goodsHtmlSlot3 += '<div class="chane_box line_down">\
                             <div class="tabs_box">\
@@ -1229,6 +1242,7 @@ function initialAssemblySetup(initialData){
         }
     if(initialData.Assembly_Belt_3_color == "Green"){
             beltCapacity = 3;
+            document.getElementById("assemblyBeltPriceValue3").value = 10;
             document.getElementById("assemblyBeltPrice3").innerHTML = "10";
             if(beltPower > 0){
                 goodsHtmlSlot3 += '<div class="chane_box line_down">\
@@ -1295,6 +1309,7 @@ function initialAssemblySetup(initialData){
 
         if(initialData.Assembly_Belt_3_color == "Black"){
             beltCapacity = 4;
+            document.getElementById("assemblyBeltPriceValue3").value = 15;
             document.getElementById("assemblyBeltPrice3").innerHTML = "15";
             if(beltPower > 0){
                 goodsHtmlSlot3 += '<div class="chane_box line_down">\
@@ -1375,6 +1390,7 @@ function initialAssemblySetup(initialData){
 
         }
         if(initialData.Assembly_Belt_3_color == ""){
+            document.getElementById("assemblyBeltPriceValue3").value = "";
             goodsHtmlSlot3 += '<div class="chane_box line_down">\
                     <div class="tabs_box">\
                                 <div class="tab_circle"></div>\
@@ -1815,7 +1831,7 @@ function addYellowBeltSlot2(){
     	document.getElementById("upgradePointSlot2").innerHTML = upgradePlaceSlot2;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     })
 }
 function upgradeGreenBeltSlot2(){
@@ -1867,7 +1883,7 @@ function upgradeGreenBeltSlot2(){
 		document.getElementById("upgradePointSlot2").innerHTML = upgradePlace;
 
         document.getElementById("gameConfirmButton").innerHTML = "";
-            document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showPayInvestment("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
     })                
 }
 
@@ -2182,35 +2198,43 @@ function showPayInvestment(initialData){
     var removeAddClass = document.getElementById("upgradePointSlot3");               
     removeAddClass.classList.remove("color_change");
 
-
-
-    document.getElementById("aworker1").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker2").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker3").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker4").setAttribute("onclick", "changeColor(this)");
-
-    document.getElementById("aworker5").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker6").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker7").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker8").setAttribute("onclick", "changeColor(this)");
-
-    document.getElementById("aworker9").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker10").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker11").setAttribute("onclick", "changeColor(this)");
-    document.getElementById("aworker12").setAttribute("onclick", "changeColor(this)");
-
-
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY INVESTMENT</div>'; 
 
     document.getElementById("plantInvestment").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='payInvestment("+JSON.stringify(initialData)+")' id='goods_in_progress'>3</span> Property, plant and equipment ";
 }
 
 function payInvestment(initialData){
-    console.log("Pay investment");
 
-    document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showAdjustWorker("+JSON.stringify(initialData)+")'>CONFIRM</div>"; 
 
-    document.getElementById("plantInvestment").innerHTML = "<span href='javascript:void(0);'>3</span> Property, plant and equipment ";
+    var machine1 = document.getElementById("assemblyBeltPriceValue1").value;
+    var machine2 = document.getElementById("assemblyBeltPriceValue2").value;
+    var machine3 = document.getElementById("assemblyBeltPriceValue3").value;
+
+    console.log("Machine One value 1", machine1);
+    console.log("Machine One value 2", machine2);
+    console.log("Machine One value 3", machine3);
+
+    var totalMachineValue = parseInt(machine1) + parseInt(machine2) + parseInt(machine3);
+
+    var Invest_plant_and_property = {
+        Invest_plant_and_property: 1,
+        Property_Plant_and_Equipment_Plant_value: totalMachineValue,
+        action: "Invest_plant_and_property",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+
+    socket.emit('game_page_data', team_id, Invest_plant_and_property);
+    socket.on('receive_game_page_data', function(responseData){
+        console.log("Pay investment");
+
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showAdjustWorker("+JSON.stringify(initialData)+")'>CONFIRM</div>"; 
+
+        document.getElementById("plantInvestment").innerHTML = "<span href='javascript:void(0);'>3</span> Property, plant and equipment ";
+    })
 }
 
 function initialWorkerDactive(initialData){
@@ -2349,6 +2373,25 @@ function showAdjustWorker(){
     var removeAddClass = document.getElementById("assembltBeltSlot3");               
     removeAddClass.classList.add("color_change");
 
+    //
+
+    document.getElementById("aworker1").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker2").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker3").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker4").setAttribute("onclick", "changeColor(this)");
+
+    document.getElementById("aworker5").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker6").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker7").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker8").setAttribute("onclick", "changeColor(this)");
+
+    document.getElementById("aworker9").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker10").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker11").setAttribute("onclick", "changeColor(this)");
+    document.getElementById("aworker12").setAttribute("onclick", "changeColor(this)");
+
+    //
+
     document.getElementById("gameConfirmButton").innerHTML = "";
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST WORKERS</div>'; 
 }
@@ -2383,20 +2426,20 @@ function changeColor(e){
 		socket.emit('game_page_data', team_id, updateWorker1);
 		socket.on('receive_game_page_data', function(responseData){
 
-                // document.getElementById("aworker1").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker2").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker3").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker4").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker1").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker2").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker3").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker4").setAttribute("onclick", "changeColor(this)");
 
-                // document.getElementById("aworker5").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker6").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker7").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker8").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker5").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker6").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker7").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker8").setAttribute("onclick", "changeColor(this)");
 
-                // document.getElementById("aworker9").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker10").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker11").setAttribute("onclick", "changeColor(this)");
-                // document.getElementById("aworker12").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker9").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker10").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker11").setAttribute("onclick", "changeColor(this)");
+                document.getElementById("aworker12").setAttribute("onclick", "changeColor(this)");
 
     	    	// console.log("Response Data", responseData);
     	    	// initialWorkerSetup(responseData);
@@ -2997,6 +3040,8 @@ function startMarketing(){
     var removeAddClass = document.getElementById("marketingCounter");               
     removeAddClass.classList.add("color_change");
 
+    document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">MARKETING</div>'; 
 
     document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
@@ -3229,6 +3274,9 @@ function decreaseMarketing(){
     socket.on('receive_game_page_data', function(responseData){
         console.log("receive_game_page_data", responseData);
         setInitialConditionToAll(responseData);
+        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
+        document.getElementById("action_count_num").innerHTML = '7';
+
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
 
         var removeAddClass = document.getElementById("marketingCounter");               
@@ -3265,9 +3313,11 @@ function increaseMarketing(){
     socket.on('receive_game_page_data', function(responseData){
         console.log("receive_game_page_data", responseData);
         setInitialConditionToAll(responseData);
+        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#cfe0f4';
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="confirmMarketing()" id="startGame">CONFIRM</div>';
         var removeAddClass = document.getElementById("marketingCounter");               
         removeAddClass.classList.add("color_change");
+        document.getElementById("action_count_num").innerHTML = '7';
 
         document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
         document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
@@ -3278,6 +3328,10 @@ function increaseMarketing(){
 function confirmMarketing(){
     console.log("confirmMarketingValue");
 
+    document.getElementById("decreaseMarketing").removeAttribute("onclick");
+    document.getElementById("increaseMarketing").removeAttribute("onclick");
+    var removeAddClass = document.getElementById("marketingCounter");               
+    removeAddClass.classList.remove("color_change");
 
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" id="startGame">GO TO MARKET</div>';
 
@@ -3362,7 +3416,7 @@ function allOrderCards(){
                     </div>";
             }
             else if(parseInt(msg.enable_team_id) == parseInt(local_team_id)){
-                orderCard += "<div class='order_blue_box'>\
+                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")'>\
                         <div class='oder_head'>\
                             <h4>Order</h4>\
                             <h2>"+data.Order_No+"</h2>\
@@ -3392,7 +3446,7 @@ function allOrderCards(){
                     </div>";
             }
             else {
-                orderCard += "<div class='order_blue_box' onclick='selectOrderCard("+cardData+")' style='opacity: 0.5;'>\
+                orderCard += "<div class='order_blue_box' style='opacity: 0.5;'>\
                         <div class='oder_head'>\
                             <h4>Order</h4>\
                             <h2>"+data.Order_No+"</h2>\
