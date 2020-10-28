@@ -2607,6 +2607,26 @@ function updateNewProduction(initialData){
         // document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
         leftMaterial = leftMaterial - beltCapacity;
     }
+
+    if(leftMaterial > 0)
+    {
+        var beltCapacity;
+        if(initialData.Assembly_Belt_3_color == "Yellow"){
+            beltCapacity = 2; 
+            totalCapacity = totalCapacity+ 2;            
+        }
+        else if(initialData.Assembly_Belt_3_color == "Green"){
+            beltCapacity = 3;  
+            totalCapacity = totalCapacity+ 3;                           
+        }
+        else if(initialData.Assembly_Belt_3_color == "Black"){
+            beltCapacity = 4; 
+            totalCapacity = totalCapacity+ 4;            
+        }
+        // document.getElementById("goodsPlaceSlot2").innerHTML = fillBeltHtml(beltCapacity,leftMaterial);
+        leftMaterial = leftMaterial - beltCapacity;
+    }
+
     console.log("Total capacity", totalCapacity);
     console.log("initial Materials", initialData.Materials);
 
