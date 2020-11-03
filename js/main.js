@@ -27,7 +27,7 @@ socket.on('receive_initialConditionBySocket', function(initialData){
 
 function setInitialConditionToAll(initialData){
     // updateFinishedGoods();
-    // showAssemblyBeltUpgrade();
+    // showAssemblyBeltUpgrade(initialData);
 	//initialOutbound(initialData);
 	initialAssemblySetup(initialData);
 	initialWorkerSetup(initialData);
@@ -616,6 +616,7 @@ function showAssemblyBeltUpgrade(initialData){
 
     if(initialData.Assembly_Belt_1 == "1")
     {
+        console.log("Assembly_Belt_1");
         if(initialData.Assembly_Belt_1_color == "Yellow"){
             document.getElementById("assembltBeltSlotButton1").setAttribute('onclick','upgradeGreenBeltSlot1()');              
         }
@@ -632,6 +633,7 @@ function showAssemblyBeltUpgrade(initialData){
 
     if(initialData.Assembly_Belt_2 == "1")
     {
+        console.log("Assembly_Belt_2");
         if(initialData.Assembly_Belt_2_color == "Yellow"){
             document.getElementById("assembltBeltSlotButton2").setAttribute('onclick','upgradeGreenBeltSlot2()');      
         }
@@ -645,9 +647,13 @@ function showAssemblyBeltUpgrade(initialData){
             document.getElementById("assembltBeltSlotButton2").setAttribute('onclick','addYellowBeltSlot2()');                    
         }
     }
+    else{
+        document.getElementById("assembltBeltSlotButton2").setAttribute('onclick','addYellowBeltSlot2()');                    
+    }
 
     if(initialData.Assembly_Belt_3 == "1")
     {
+        console.log("Assembly_Belt_3");
         if(initialData.Assembly_Belt_2_color == "Yellow"){
             document.getElementById("assembltBeltSlotButton3").setAttribute('onclick','upgradeGreenBeltSlot3()');      
         }
@@ -660,6 +666,9 @@ function showAssemblyBeltUpgrade(initialData){
         else{
             document.getElementById("assembltBeltSlotButton3").setAttribute('onclick','addYellowBeltSlot3()');                    
         }
+    }
+    else{
+        document.getElementById("assembltBeltSlotButton3").setAttribute('onclick','addYellowBeltSlot2()');                    
     }
 
     // document.getElementById("assembltBeltSlotButton1").setAttribute('onclick','Adjust_administration_IT_resources('+arg+')')
@@ -2198,6 +2207,10 @@ function showPayInvestment(initialData){
     var removeAddClass = document.getElementById("upgradePointSlot3");               
     removeAddClass.classList.remove("color_change");
 
+    document.getElementById("assembltBeltSlotButton1").removeAttribute("onclick");
+    document.getElementById("assembltBeltSlotButton2").removeAttribute("onclick");
+    document.getElementById("assembltBeltSlotButton3").removeAttribute("onclick");
+
     document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">PAY INVESTMENT</div>'; 
 
     document.getElementById("plantInvestment").innerHTML = "<span class='color_change' href='javascript:void(0);' onclick='payInvestment("+JSON.stringify(initialData)+")' id='goods_in_progress'>3</span> Property, plant and equipment ";
@@ -2234,6 +2247,10 @@ function payInvestment(initialData){
         document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='showAdjustWorker("+JSON.stringify(initialData)+")'>CONFIRM</div>"; 
 
         document.getElementById("plantInvestment").innerHTML = "<span href='javascript:void(0);'>3</span> Property, plant and equipment ";
+
+        document.getElementById("assembltBeltSlotButton1").removeAttribute("onclick");
+        document.getElementById("assembltBeltSlotButton2").removeAttribute("onclick");
+        document.getElementById("assembltBeltSlotButton3").removeAttribute("onclick");
     })
 }
 
@@ -3347,7 +3364,6 @@ function increaseMarketing(){
 
 function confirmMarketing(){
     console.log("confirmMarketingValue");
-
     document.getElementById("decreaseMarketing").removeAttribute("onclick");
     document.getElementById("increaseMarketing").removeAttribute("onclick");
     var removeAddClass = document.getElementById("marketingCounter");               
@@ -3507,15 +3523,41 @@ function allOrderCards(){
     }); 
 }
 
+// For generating HEX
+
+var alpha = "abcdefghijklmnopqrstuvwxyz";
+
+function hex(a) {
+    // First figure out how many digits there are.
+    a += 1; // This line is funky
+    c = 0;
+    var x = 1;      
+    while (a >= x) {
+        c++;
+        a -= x;
+        x *= 26;
+    }
+
+    // Now you can do normal base conversion.
+    var s = "";
+    for (var i = 0; i < c; i++) {
+        s = alpha.charAt(a % 26) + s;
+        a = Math.floor(a/26);
+    }
+
+    return s;
+}
+
 function renderMarketBoard(teamData){
     console.log("Team data", teamData);
     var companyList = '';
+    var i = 0;
     teamData.forEach(function(data, index){
         console.log("Data", data);
         companyList += '<div class="company_long_box">\
                     <h3 class="sub_heading_ns">COMPANY</h3>\
                     <div class="aircon_wrap">\
-                        <div class="blue_mark_lab">B</div>\
+                        <div class="blue_mark_lab">'+hex(i).toUpperCase()+'</div>\
                         <div class="aircon_white">'+data.virtual_company_name+'</div>\
                     </div>\
                     <h4 class="marketing_pw">MARKETING POWER <span>RANK</span></h4>\
@@ -3541,6 +3583,7 @@ function renderMarketBoard(teamData){
                         </div>\
                     </div>\
                 </div>';
+                i++;
     });
     document.getElementById("companyList").innerHTML = companyList;
 }

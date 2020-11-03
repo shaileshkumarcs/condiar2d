@@ -1899,7 +1899,7 @@ display: flex;
 .admi_liblue{ background: #0d65a8; width: 32px; height:32px; border-radius: 100px; 
 display: flex;
   align-items: center;
-  justify-content: center;  color: #000; font-size: 9px;font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-weight: bold;     margin: 0px auto;}
+  justify-content: center;  color: #000; font-size: 9px;font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; font-weight: bold;     margin: 0px auto;z-index: 10;}
 .admi_liblue img{ width: 40%; }
 
 
