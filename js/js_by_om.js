@@ -1,6 +1,6 @@
 
 function initiate_Inbound_Logistics(initialConditionData){
-	var Inbound_Logistics = parseInt(initialConditionData.Materials);
+	var Inbound_Logistics = parseInt(initialConditionData.Materials) + parseInt(initialConditionData.Materials_recieved);
     document.getElementById("inboundprod_MINUS_BTN").removeAttribute("onclick");
     document.getElementById("inboundprod_PLUS_BTN").removeAttribute("onclick");
     var bal = 1; 
@@ -30,7 +30,7 @@ function start_Inbound_Logistics(){
     
     var Ordered_Materials = document.getElementById("Ordered_Materials").innerHTML;
 
-    document.getElementById("Ordered_Materials_HEAD").innerHTML = '<div onclick="Receive_ordered_material()" class="white_truck_line" id="Ordered_Materials">'+Ordered_Materials+'</div>';
+    document.getElementById("Ordered_Materials_HEAD").innerHTML = '<div onclick="Receive_ordered_material('+Ordered_Materials+')" class="white_truck_line" id="Ordered_Materials">'+Ordered_Materials+'</div>';
 
 
 	document.getElementById("Ordered_Materials").style.backgroundColor = '#f39b4a';
@@ -39,18 +39,15 @@ function start_Inbound_Logistics(){
 	document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">RECIEVED METERIALS</div>';
 }
 
-function Receive_ordered_material(){
+function Receive_ordered_material(Ordered_Materials){
 	var data = {
 		'workshop_id': workshop_id,
         'quarter': quarter, 
         'team_id': team_id, 
         'participant_id': participant_id, 
         'year': year,
-
-
-
         'action': 'Receive_ordered_material', 
-        'Receive_ordered_material':5,
+        'Receive_ordered_material':Ordered_Materials,
         
     }
 
@@ -752,6 +749,7 @@ function initiate_EBT(initialConditionData){
 
 
 function getEbtCalculation(initialConditionData){
+    /*
    // console.log('START EBT CALCULATION');
    
     //var EBT = NET_SALES - (F58 + F60 + F61 + F62 + F63) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
@@ -834,7 +832,9 @@ function getEbtCalculation(initialConditionData){
    var Total_Liabilities_Equity = document.getElementById("Total_Liabilities_Equity").innerHTML;
 
    document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(Total_Liabilities_Equity) + EBT;
-   
+   */
+    var EBT = parseInt(initialConditionData.Net_sales) - (parseInt(initialConditionData.cogs)) - (parseInt(initialConditionData.Sales_expenses) + parseInt(initialConditionData.Marketing_expenses) +  parseInt(initialConditionData.Administration_Information_services_expenses) +  parseInt(initialConditionData.R_AND_D_expenses));
+    EBT = EBT - parseInt(initialConditionData.short_term_loans_interest) - parseInt(initialConditionData.long_term_loans_interest);
     return EBT;
 }
 

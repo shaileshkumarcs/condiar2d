@@ -9,8 +9,8 @@ var initialData;
 
 
 
-var socket = io('http://54.198.46.240:3006/');
-//var socket = io('http://localhost:3006');
+var socket = io('http://http://54.198.46.240/:3006/');
+//var socket = io('http://http://54.198.46.240/:3006');
 
 socket.emit('team', team_id);
 
@@ -57,8 +57,8 @@ function setInitialConditionToAll(initialData){
 
 	document.getElementById("cash_value").innerHTML = initialData.Cash;
 	document.getElementById("trade_receivable_value").innerHTML = initialData.Trade_receivables;
-	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
-	document.getElementById("material_inventory").innerHTML = initialData.Inventory_materials;
+	document.getElementById("material_inventory").innerHTML = initialData.Materials;
+	document.getElementById("material_inventory").innerHTML = initialData.Materials;
 	document.getElementById("Property_Plant_and_Equipment_Plant_value").innerHTML =  parseInt(initialData.Property_Plant_and_Equipment_Plant_value) + parseInt(initialData.Property_Plant_and_Equipment_Assembly_belts_value);
 	document.getElementById("Intangible_assets_Goodwill").innerHTML = initialData.Intangible_assets_Goodwill;
 	document.getElementById("Short_term_liabilities").innerHTML = initialData.Short_term_liabilities;
@@ -91,7 +91,7 @@ function setInitialConditionToAll(initialData){
 
     document.getElementById("Goods_in_assembly").innerHTML = initialData.Goods_in_assembly; 
     document.getElementById("Finished_goods_store").innerHTML = initialData.Finished_goods_store; 
-    document.getElementById("total_assets_count").innerHTML = parseInt(initialData.Cash) + parseInt(initialData.Trade_receivables) + parseInt(initialData.Inventory_materials) + parseInt(initialData.Goods_in_assembly) + parseInt(initialData.Finished_goods_store) + parseInt(initialData.Property_Plant_and_Equipment_Plant_value) + parseInt(initialData.Property_Plant_and_Equipment_Assembly_belts_value) + parseInt(initialData.Intangible_assets_Goodwill); 
+    document.getElementById("total_assets_count").innerHTML = parseInt(initialData.Cash) + parseInt(initialData.Trade_receivables) + parseInt(initialData.Materials) + parseInt(initialData.Goods_in_assembly) + parseInt(initialData.Finished_goods_store) + parseInt(initialData.Property_Plant_and_Equipment_Plant_value) + parseInt(initialData.Property_Plant_and_Equipment_Assembly_belts_value) + parseInt(initialData.Intangible_assets_Goodwill); 
 
     document.getElementById("Net_sales_value").innerHTML = initialData.Net_sales;
 
@@ -3375,7 +3375,7 @@ function confirmMarketing(){
     var data = {workshop_id:workshop_id};
     $.ajax({
         type: 'POST',
-        url: 'http://54.198.46.240:3006/participant/code/getTeam',
+        url: 'http://http://54.198.46.240/:3006/participant/code/getTeam',
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(data),
