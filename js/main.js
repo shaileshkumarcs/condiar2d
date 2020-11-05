@@ -9,8 +9,8 @@ var initialData;
 
 
 
-var socket = io('http://http://54.198.46.240/:3006/');
-//var socket = io('http://http://54.198.46.240/:3006');
+var socket = io('http://54.198.46.240:3006/');
+//var socket = io('http://54.198.46.240/:3006');
 
 socket.emit('team', team_id);
 
@@ -3375,7 +3375,7 @@ function confirmMarketing(){
     var data = {workshop_id:workshop_id};
     $.ajax({
         type: 'POST',
-        url: 'http://http://54.198.46.240/:3006/participant/code/getTeam',
+        url: 'http://54.198.46.240/:3006/participant/code/getTeam',
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(data),
