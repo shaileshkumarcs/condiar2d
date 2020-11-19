@@ -96,7 +96,9 @@ function setInitialConditionToAll(initialData){
     document.getElementById("Net_sales_value").innerHTML = initialData.Net_sales;
 
     document.getElementById("Total_Liabilities_Equity").innerHTML = parseInt(initialData.Short_term_liabilities) + parseInt(initialData.Long_term_liabilities) + parseInt(initialData.share_holder_loan) + parseInt(initialData.Other_liabilities) + parseInt(initialData.Share_Capital)  + parseInt(initialData.Reserves) ;  
-
+    console.log('Total_Liabilities_Equity');
+    console.log(parseInt(initialData.Short_term_liabilities) + parseInt(initialData.Long_term_liabilities) + parseInt(initialData.share_holder_loan) + parseInt(initialData.Other_liabilities) + parseInt(initialData.Share_Capital)  + parseInt(initialData.Reserves));
+ console.log('Total_Liabilities_Equity');
     document.getElementById("white_truck_out").innerHTML = initialData.Finished_Goods_Store_in_Units;
     document.getElementById("yellow_truck_out").innerHTML = parseInt(initialData.Finished_Goods_Store_in_Units)*3;
     
@@ -2227,7 +2229,7 @@ function payInvestment(initialData){
     console.log("Machine One value 2", machine2);
     console.log("Machine One value 3", machine3);
 
-    var totalMachineValue = parseInt(machine1) + parseInt(machine2) + parseInt(machine3);
+    var totalMachineValue = parseInt(machine1); //+ parseInt(machine2) + parseInt(machine3);
 
     var Invest_plant_and_property = {
         Invest_plant_and_property: 1,
@@ -2868,10 +2870,47 @@ function payWrokersOnMachine(initialData){
             leftMaterial = leftMaterial - beltCapacity;
         }
 
-        document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
-        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_ADMINISTRATION_IT_AND_FINANCE()">CONFIRM</div>'; 
 
-        // start_ADMINISTRATION_IT_AND_FINANCE(initialData);
+        /*
+          code added by OM KUMAR YADAV -- START
+        */
+
+        var payworkers = parseInt(initialData.Workers_Assembly_1) + parseInt(initialData.Workers_Assembly_2) + parseInt(initialData.Workers_Assembly_3) + parseInt(initialData.Workers_Assembly_4);
+
+
+    var data = {
+        'workshop_id': workshop_id,
+        'quarter': quarter, 
+        'team_id': team_id, 
+        'participant_id': participant_id, 
+        'year': year,
+        'action': 'payworkers', 
+        'payworkers':payworkers,
+        
+    }
+
+    
+    socket.emit('game_page_data', team_id, data);
+    socket.on('receive_game_page_data', function(responseData){
+
+        
+        setInitialConditionToAll(responseData);
+        initialData = responseData;
+
+
+ document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_ADMINISTRATION_IT_AND_FINANCE()">CONFIRM</div>'; 
+    });
+
+
+
+        /*
+          code added by OM KUMAR YADAV -- END
+        */
+
+       
+
+        //start_ADMINISTRATION_IT_AND_FINANCE(initialData);
     // })
 }
 
@@ -3375,7 +3414,7 @@ function confirmMarketing(){
     var data = {workshop_id:workshop_id};
     $.ajax({
         type: 'POST',
-        url: 'http://54.198.46.240/:3006/participant/code/getTeam',
+        url: 'http://54.198.46.240:3006/participant/code/getTeam',
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(data),
