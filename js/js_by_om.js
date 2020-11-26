@@ -392,16 +392,49 @@ function activeInitiate_SALES(initialConditionData){
 }
 
 function start_SALES(initialData){
-    activeInitiate_SALES(initialData);
-    document.getElementById("action_count_num").innerHTML = '6';
-    var removeAddClass = document.getElementById("researchDevelopemtWorker");               
-    removeAddClass.classList.remove("color_change");
-    // document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
-    document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
 
-    document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
-    document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
+    var Adjust_R_D_quality_development_resources = {
+        R_D_Quality_Development: 0,
+        R_D_Quality_Index: 1,
+        action: "Adjust_R_D_quality_development_resources_second",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    
+    socket.emit('game_page_data', team_id, Adjust_R_D_quality_development_resources);
+    socket.on('receive_game_page_data', function(responseData){
+        // console.log("Response Data", responseData);
+        // initialWorkerSetup(responseData);
+        setInitialConditionToAll(responseData);
+        startResearchDevelopment(responseData);
+        // document.getElementById("gameConfirmButton").innerHTML = "";
+        // document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='start_SALES("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
+
+        activeInitiate_SALES(responseData);
+        document.getElementById("action_count_num").innerHTML = '6';
+        var removeAddClass = document.getElementById("researchDevelopemtWorker");               
+        removeAddClass.classList.remove("color_change");
+        // document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
+        document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
+        document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
+
+        document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+        document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
+    });
+
+    // activeInitiate_SALES(initialData);
+    // document.getElementById("action_count_num").innerHTML = '6';
+    // var removeAddClass = document.getElementById("researchDevelopemtWorker");               
+    // removeAddClass.classList.remove("color_change");
+    // // document.getElementById("SALES_HEADING").style.backgroundColor = '#f39b4a';
+    // document.getElementById("SALES_BACKGROUND").style.backgroundColor = '#f39b4a';
+    // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white" id="startGame">MANAGE SALES PERSON</div>';
+
+    // document.getElementById("decreaseMarketing").setAttribute("onclick","decreaseMarketing()");
+    // document.getElementById("increaseMarketing").setAttribute("onclick", "increaseMarketing()");
 }
 
 function Adjust_sales_force(val){

@@ -2631,6 +2631,7 @@ function updateNewProduction(initialData){
     {
         var beltCapacity;
         if(initialData.Assembly_Belt_3_color == "Yellow"){
+            console.log("Yellow color");
             beltCapacity = 2; 
             totalCapacity = totalCapacity+ 2;            
         }
@@ -2672,7 +2673,7 @@ function updateNewProduction(initialData){
     socket.emit('game_page_data', team_id, Start_new_production);
     socket.on('receive_game_page_data', function(responseData){
         console.log("Response");
-        setInitialConditionToAll(responseData);
+       // setInitialConditionToAll(responseData);
         
         var leftMaterial = initialData.Materials;
         var totalCapacity;
@@ -2918,7 +2919,8 @@ function startResearchDevelopment(initialData){
     var removeClass = document.getElementById("researchDevelopemtWorker");               
     removeClass.classList.add("color_change");
 
-    document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
+    // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
+    document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='start_SALES("+JSON.stringify(initialData)+")'>CONFIRM</div>"; 
 
     var rd_quantity = parseInt(initialData.R_D_Quality_Development);
     var researchDevelopmet = '';
@@ -2940,14 +2942,14 @@ function startResearchDevelopment(initialData){
 
     if(rd_quantity > 1){
         researchDevelopmet += '<div class="ver_tiw">\
-                                    <div class="admi_liblue bellow_line" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="admi_liblue bellow_line" onclick="changeRDColorSecond(this)"><img src="images/white_man.svg" alt=""></div>\
                                     <div class="numbs_small">+1</div>\
                                 </div></div><div class="plus_all_gra">';
 
     }
     else{
         researchDevelopmet += '<div class="ver_tiw">\
-                                    <div class="admi_liblue bellow_line light_blue" onclick="changeRDColor(this)"><img src="images/white_man.svg" alt=""></div>\
+                                    <div class="admi_liblue bellow_line light_blue" onclick="changeRDColorSecond(this)"><img src="images/white_man.svg" alt=""></div>\
                                     <div class="numbs_small">+1</div>\
                                 </div></div><div class="plus_all_gra">';
     }
@@ -3060,6 +3062,65 @@ function initialSetupResearchDevelopment(initialData){
     // document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white">ADJUST R&D</div>'; 
 }
 
+function adjustRDFirst(responseData){
+    var Adjust_R_D_quality_development_resources = {
+        R_D_Quality_Development: 0,
+        R_D_Quality_Index: 1,
+        action: "Adjust_R_D_quality_development_resources_second",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    
+    socket.emit('game_page_data', team_id, Adjust_R_D_quality_development_resources);
+    socket.on('receive_game_page_data', function(responseData){
+        // console.log("Response Data", responseData);
+        // initialWorkerSetup(responseData);
+        setInitialConditionToAll(responseData);
+        startResearchDevelopment(responseData);
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='start_SALES("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
+    });
+}
+
+function changeRDColorSecond(e){
+    console.log("changeRDColor");
+
+    var rd_worker = 0;
+    if($(e).hasClass('light_blue')){
+        console.log(true);
+        $(e).removeClass("light_blue");
+        rd_worker = 2;
+    }
+    else{
+        console.log(false);
+        $(e).addClass("light_blue");
+        rd_worker = -1;
+    }
+
+    var Adjust_R_D_quality_development_resources = {
+        R_D_Quality_Development: 1,
+        R_D_Quality_Index: rd_worker,
+        action: "Adjust_R_D_quality_development_resources_second",
+        participant_id: participant_id,
+        quarter: quarter,
+        team_id: team_id,
+        workshop_id: workshop_id,
+        year: year,
+    }
+    
+    socket.emit('game_page_data', team_id, Adjust_R_D_quality_development_resources);
+    socket.on('receive_game_page_data', function(responseData){
+        // console.log("Response Data", responseData);
+        // initialWorkerSetup(responseData);
+        setInitialConditionToAll(responseData);
+        startResearchDevelopment(responseData);
+        document.getElementById("gameConfirmButton").innerHTML = "";
+        document.getElementById("gameConfirmButton").innerHTML = "<div class='aircon_white org_ns' onclick='start_SALES("+JSON.stringify(responseData)+")'>CONFIRM</div>"; 
+    });
+}
 
 function changeRDColor(e){
     console.log("changeRDColor");
@@ -3086,8 +3147,9 @@ function changeRDColor(e){
     //     year: year,
     // }
     var Adjust_R_D_quality_development_resources = {
-        Adjust_R_D_quality_development_resources: rd_worker,
-        action: "Adjust_R_D_quality_development_resources",
+        R_D_Quality_Development: rd_worker,
+        R_D_Quality_Index: rd_worker,
+        action: "Adjust_R_D_quality_development_resources_second",
         participant_id: participant_id,
         quarter: quarter,
         team_id: team_id,
@@ -3335,9 +3397,11 @@ function decreaseMarketing(){
     }
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
+    var mpower = document.getElementById("marketing_power").textContent;
 
     var Update_marketing_board_sales_strategy = {
         ADVERTISING: -1,
+        marketing_power: parseInt(mpower) - 1,
         action: "ADVERTISING",
         participant_id: participant_id,
         quarter: quarter,
@@ -3374,9 +3438,11 @@ function increaseMarketing(){
     }
     document.getElementById("marketingprod").innerHTML = val;
     document.getElementById("marketingval").innerHTML = val;
+    var mpower = document.getElementById("marketing_power").textContent;
 
     var Update_marketing_board_sales_strategy = {
         ADVERTISING: 1,
+        marketing_power: parseInt(mpower) + 1,
         action: "ADVERTISING",
         participant_id: participant_id,
         quarter: quarter,
@@ -3554,7 +3620,7 @@ function allOrderCards(){
         });
 
         console.log('waiting'+msg.enable_team_id);
-        document.getElementById('waiting'+msg.enable_team_id).innerHTML = "<div class='aircon_light_blues' style='background:#F59C33;'>CONFIRM</div>";
+       // document.getElementById('waiting'+msg.enable_team_id).innerHTML = "<div class='aircon_light_blues' style='background:#F59C33;'>CONFIRM</div>";
 
         document.getElementById("orderCards").innerHTML = orderCard;
 
