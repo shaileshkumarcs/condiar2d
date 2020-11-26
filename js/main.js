@@ -9,8 +9,8 @@ var initialData;
 
 
 
-var socket = io('http://54.198.46.240:3006/');
-//var socket = io('http://54.198.46.240/:3006');
+var socket = io('http://localhost:3006/');
+//var socket = io('http://localhost/:3006');
 
 socket.emit('team', team_id);
 
@@ -2229,7 +2229,7 @@ function payInvestment(initialData){
     console.log("Machine One value 2", machine2);
     console.log("Machine One value 3", machine3);
 
-    var totalMachineValue = parseInt(machine1); //+ parseInt(machine2) + parseInt(machine3);
+    var totalMachineValue = parseInt(machine1) + parseInt(machine2) + parseInt(machine3) - 5;
 
     var Invest_plant_and_property = {
         Invest_plant_and_property: 1,
@@ -2877,7 +2877,6 @@ function payWrokersOnMachine(initialData){
 
         var payworkers = parseInt(initialData.Workers_Assembly_1) + parseInt(initialData.Workers_Assembly_2) + parseInt(initialData.Workers_Assembly_3) + parseInt(initialData.Workers_Assembly_4);
 
-
     var data = {
         'workshop_id': workshop_id,
         'quarter': quarter, 
@@ -2886,18 +2885,13 @@ function payWrokersOnMachine(initialData){
         'year': year,
         'action': 'payworkers', 
         'payworkers':payworkers,
-        
     }
 
-    
     socket.emit('game_page_data', team_id, data);
     socket.on('receive_game_page_data', function(responseData){
 
-        
         setInitialConditionToAll(responseData);
         initialData = responseData;
-
-
  document.getElementById("updateNewProductOnMachine").innerHTML = "<span href='javascript:void(0);' id='goods_in_progress'>3</span>Goods in progress inventory";
         document.getElementById("gameConfirmButton").innerHTML = '<div class="aircon_white org_ns" onclick="start_ADMINISTRATION_IT_AND_FINANCE()">CONFIRM</div>'; 
     });
@@ -3414,7 +3408,7 @@ function confirmMarketing(){
     var data = {workshop_id:workshop_id};
     $.ajax({
         type: 'POST',
-        url: 'http://54.198.46.240:3006/participant/code/getTeam',
+        url: 'http://localhost:3006/participant/code/getTeam',
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(data),
