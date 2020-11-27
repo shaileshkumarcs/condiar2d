@@ -9,8 +9,8 @@ var initialData;
 
 
 
-var socket = io('http://localhost:3006/');
-//var socket = io('http://localhost/:3006');
+// var socket = io('http://loc alhost:3006/');
+var socket = io('http://54.198.46.240:3006');
 
 socket.emit('team', team_id);
 
@@ -3474,7 +3474,7 @@ function confirmMarketing(){
     var data = {workshop_id:workshop_id};
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:3006/participant/code/getTeam',
+        url: 'http://54.198.46.240:3006/participant/code/getTeam',
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -3663,9 +3663,9 @@ function renderMarketBoard(teamData){
                     <div class="allert_main_one">\
                         <div class="alert_green_sy_left">\
                             <div class="alet_big"><img src="images/alert_black.svg" alt=""></div>\
-                            <div class="big_circle_green_ms">'+data.number_of_green+'</div>\
+                            <div class="big_circle_green_ms">'+data.marketing_power+'</div>\
                         </div>\
-                        <div class="alert_right_blue_mark_lab">'+data.rank+'</div>\
+                        <div class="alert_right_blue_mark_lab">'+(i+1)+'</div>\
                     </div>\
                     <div class="allert_main_one">\
                         <h2 class="marketing_pw">ORDERS</h2>\
